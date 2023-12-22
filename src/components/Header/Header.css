@@ -1,0 +1,143 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  padding: 32px 28px 20px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-right: auto;
+
+}
+
+.header__button-addClothes {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.header__button-addClothes:hover {
+  opacity: .6;
+}
+
+.header__name,
+.header__name:link,
+.header__name:visited {
+  display: flex;
+  color: #000;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  text-decoration: none;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-left: 20px; 
+}
+
+.link__container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.header__login-link {
+  text-decoration: none;
+  color: #000;
+  margin-left: 20px;
+}
+
+.link__container a {
+  margin: 0;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header__name:hover {
+  opacity: .6;
+}
+
+.header__avatar-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__button-register {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.header__button-register:hover{
+  opacity: .6;
+}
+
+.header__avatar-img{
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+  max-width: 56px;
+  max-height: 56px;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+/* 
+
+.header__hamburger, .header__close {
+  display: none;
+
+}
+
+@media screen and (max-width: 800px) {
+  .header__hamburger, .header__close {
+    display: block;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+
+  @media screen and (max-width: 375px) {
+  .header__navigation--open {
+    padding-bottom: 24px;
+    padding-top: 34px;
+    padding-right: 524px;
+    padding-left: 159px;
+      display: flex;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 34px;
+      position: absolute;
+      top: 41px;
+      right: 0;
+      z-index: 10;
+      flex-direction: column-reverse;
+      padding: -164px 82px 160px 74px;
+      justify-content: center;
+  }
+}
+} */

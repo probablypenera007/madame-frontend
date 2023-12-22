@@ -1,0 +1,61 @@
+.card {
+  display: grid;
+  position: relative;
+}
+
+.card__item-image {
+  height: 328px;
+  width: 328px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.card__item-name {
+  position: absolute;
+  top: 1px;
+  left: 113px;
+  right: 105px;
+  text-align: center;
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+  font-size: 16px;
+  background-color: #FFF;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.60);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.like__button-container {
+  position: relative;
+}
+
+.like__button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: none;
+  align-self: center;
+  margin-top: -313px;
+  margin-left: 233px;
+  margin-right: -58px;
+  margin-bottom: 54px;
+  height: 17px;
+  width: 20px;
+}
+
+.like__button:hover{
+  cursor: pointer;
+}
+
+.like__button_inactive {
+  background-image: url(../../images/State=Default.svg);
+}
+
+.like__button_active {
+background-image: url(../../images/State=Likedstate-liked.svg);
+}

@@ -1,0 +1,22 @@
+.main{
+    padding: 0 20px;
+
+  }
+
+
+.card__section-title{
+    margin-bottom: 34px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    margin-top: 40px;
+
+}
+
+.card__items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    justify-content: center;
+
+}
