@@ -37,7 +37,7 @@ const Header = ({
           </Link>
         </div>
         <div className="header__date">
-          {currentDate}, {weatherLocation}
+          {currentDate}, Taurus Season
         </div>
       </div>
 

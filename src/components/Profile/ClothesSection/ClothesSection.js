@@ -15,11 +15,6 @@ const userClothingItems = clothingItems.filter((item) => {
   return item.owner === currentUser._id;
 });
 
-// console.log("value of item.owner._id: " , item.owner._id)
-// console.log("value of item.owner.id: " , item.owner.id)
-// console.log("value of currentUser._id: " , currentUser._id)
-// console.log("value of currentUer.id: " , currentUser.id)
-
 
   return (
     <section className="clothes__section">

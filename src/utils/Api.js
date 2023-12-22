@@ -1,7 +1,8 @@
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.isitrainingoutside.jumpingcrab.com"
-    : "http://localhost:3001";
+    // ? "https://api.isitrainingoutside.jumpingcrab.com"
+    // : 
+    "http://localhost:3001";
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -19,7 +20,6 @@ export function getItems() {
   return request(`${baseUrl}/items`, {
     headers: {
       "Content-Type": "application/json",
-      // Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   });
 }

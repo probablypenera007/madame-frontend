@@ -14,14 +14,6 @@ import {
   Route,
   useHistory,
 } from "react-router-dom/cjs/react-router-dom";
-import {
-  getForecastWeather,
-  parseWeatherData,
-  parseLocationData,
-  parseWeatherForecastData,
-  parseTimeOfDay,
-} from "../../utils/weatherApi";
-//import getForecastWeather from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as api from "../../utils/Api";
@@ -75,87 +67,6 @@ function App() {
       .catch(console.error)
       .finally(() => setIsLoading(false));
   }
-
-  // -------------------------
-  // CLOTHING ITEMS
-  // -------------------------
-
-  useEffect(() => {
-    // if (isLoggedIn) {
-      api
-        .getItems()
-        .then((res) => {
-          if (Array.isArray(res.data)) {
-            setClothingItems(res.data);
-          } else {
-            console.error("Data received is not an array:", res.data);
-          }
-        })
-        .catch(console.error);
-  }, []);
-
-  // useEffect(() => {
-  //   console.log("Updated clothingItems:", clothingItems);
-  // }, [clothingItems]);
-  
-
-  const handleCreateModal = () => {
-    setActiveModal("create");
-  };
-
-  const handleSelectedCard = (card) => {
-    setActiveModal("preview");
-    setSelectedCard(card);
-  };
-
-  const handleAddItemSubmit = (newItem) => {
-    const token = localStorage.getItem("jwt");
-
-    function requestAddItem() {
-        return api.addItem(newItem, token).then((res) => {
-            if (res && res.data) {
-                setClothingItems(previousItems => [res.data, ...previousItems]);
-            }
-        });
-    }
-
-    handleSubmit(requestAddItem);
-};
-
-  const handleDeleteCard = (card) => {
-    function requestDeleteItem() {
-      return api.deleteItem(card._id).then(() => {
-        const updatedItems = clothingItems.filter(
-          (item) => item._id !== card._id
-        );
-        setClothingItems(updatedItems);
-      });
-    }
-    handleSubmit(requestDeleteItem);
-  };
-
-  const handleLikeClick = ({ id, isLiked }) => {
-    const jwt = localStorage.getItem("jwt");
-    !isLiked
-      ? 
-        api
-          .addCardLike(id, jwt)
-          .then((updatedCard) => {
-            setClothingItems((cards) => {
-              return cards.map((c) => (c._id === id ? updatedCard.data : c));
-            });
-          })
-          .catch((err) => console.log(err))
-      :
-        api
-          .removeCardLike(id, jwt)
-          .then((updatedCard) => {
-            setClothingItems((cards) => {
-              return cards.map((c) => (c._id === id ? updatedCard.data : c));
-            });
-          })
-          .catch((err) => console.log(err));
-  };
 
   // -------------------------
   //         USERS
@@ -263,39 +174,14 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  // -------------------------
-  //     WEATHER - RELATED
-  // -------------------------
-
-  const handleToggleSwitchChange = () => {
-    if (currentTemperatureUnit === "C") setCurrentTempUnit("F");
-    if (currentTemperatureUnit === "F") setCurrentTempUnit("C");
-  };
-
-  useEffect(() => {
-    getForecastWeather()
-      .then((data) => {
-        const temperature = parseWeatherData(data);
-        setTemp(temperature);
-        const location = parseLocationData(data);
-        setWeatherLocation(location);
-        const weatherForecast = parseWeatherForecastData(data);
-        setWeatherForecast(weatherForecast);
-        const isDay = parseTimeOfDay(data);
-        setIsDay(isDay);
-      })
-      .catch(console.error);
-  }, []);
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <CurrentTemperatureUnitContext.Provider
-          value={{ currentTemperatureUnit, handleToggleSwitchChange }}
-        >
+        {/* <CurrentTemperatureUnitContext.Provider
+          value={{ currentTemperatureUnit, handleToggleSwitchChange }} WILL UPDATE THIS TO LIGHT MODE AND DARK MODE
+        > */}
           <Header
             weatherLocation={weatherLocation}
-            onCreateModal={handleCreateModal}
             temp={temp}
             isLoggedIn={isLoggedIn}
             onLogInModal={handleLogInModal}
@@ -305,24 +191,17 @@ function App() {
             <Route exact path="/">
               <Main
                 weatherTemp={temp}
-                onSelectCard={handleSelectedCard}
-                isDay={isDay}
-                weatherForecast={weatherForecast}
-                clothingItems={clothingItems}
-                onLikeClick={handleLikeClick}
+   
               />
             </Route>
             <Route path="/profile">
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Profile
-                  clothingItems={clothingItems}
-                  onSelectCard={handleSelectedCard}
-                  onCreateModal={handleCreateModal}
                   onLogOut={handleLogOut}
                   isLoggedIn={isLoggedIn}
                   currentUser={currentUser}
                   onEditProfile={handleEditProfileModal}
-                  onLikeClick={handleLikeClick}
+            
                 />
               </ProtectedRoute>
             </Route>
@@ -372,7 +251,7 @@ function App() {
               onSubmit={handleEditProfileSubmit}
             />
           )}
-        </CurrentTemperatureUnitContext.Provider>
+        {/* </CurrentTemperatureUnitContext.Provider> */}
       </div>
     </CurrentUserContext.Provider>
   );
