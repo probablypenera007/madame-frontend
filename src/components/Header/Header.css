@@ -1,13 +1,15 @@
 .header {
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   display: flex;
   align-items: center;
   min-height: 60px;
   padding: 32px 28px 20px;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-style: normal;
   font-weight: 700;
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
 .header__logo {
@@ -41,7 +43,7 @@
 .header__name:link,
 .header__name:visited {
   display: flex;
-  color: #000;
+  color: #c279ff;
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
   text-decoration: none;
@@ -54,19 +56,19 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: #c279ff;
 }
 
 .header__login-link {
   text-decoration: none;
-  color: #000;
+  color: #c279ff;
   margin-left: 20px;
 }
 
 .link__container a {
   margin: 0;
   text-decoration: none;
-  color: #000;
+  color: #c279ff;
   overflow: hidden;
   text-overflow: ellipsis;
 }

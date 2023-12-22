@@ -16,7 +16,7 @@
     background-size: cover;
     /* background-repeat: no-repeat; */
     z-index: -1;   
-    animation: galaxyanimate 100s infinite linear;
+    animation: galaxyanimate 300s infinite linear;
     overflow: hidden;
 }
 
@@ -32,7 +32,7 @@
 }
 
 @keyframes galaxyanimate{
-    0% { background-size: 120%; background-position: 0 0; }
-    50% { background-size: 200%; background-position: 10% 10%; }
-    100% { background-size: 120%; background-position: 0 0; }
+    0% { background-size: 125%; background-position: 0 0; }
+    50% { background-size: 280%; background-position: 10% 10%; }
+    100% { background-size: 125%; background-position: 0 0; }
 }
