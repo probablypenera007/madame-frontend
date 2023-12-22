@@ -5,3 +5,34 @@
     min-height: 100vh;
     margin: 0 auto;
 }
+
+.bg__galaxy{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/galaxy-bg.jpeg");
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    z-index: -1;   
+    animation: galaxyanimate 100s infinite linear;
+    overflow: hidden;
+}
+
+.bg__galaxy::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, #000 100%);
+    pointer-events: none; /* Allows click events to pass through */
+}
+
+@keyframes galaxyanimate{
+    0% { background-size: 120%; background-position: 0 0; }
+    50% { background-size: 200%; background-position: 10% 10%; }
+    100% { background-size: 120%; background-position: 0 0; }
+}

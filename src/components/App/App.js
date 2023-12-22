@@ -173,6 +173,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
+      <div className="bg__galaxy"></div>
       <div className="page">
         {/* <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }} WILL UPDATE THIS TO LIGHT MODE AND DARK MODE
