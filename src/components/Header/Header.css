@@ -23,6 +23,7 @@
 .mologo{
   width: 115px;
   height: 109px;
+  box-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
 .header__button-addClothes {

@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SideBar from "./SideBar/SideBar";
-// import ClothesSection from "./ClothesSection/ClothesSection";
+import ClothesSection from "./ClothesSection/ClothesSection";
 import "./Profile.css";
 
 function Profile({
@@ -21,15 +21,11 @@ function Profile({
         isLoggedIn={isLoggedIn}
         onEditProfile={onEditProfile}
       />
-      {/* <div>
+      <div>
         <ClothesSection
-          clothingItems={clothingItems}
-          onSelectCard={onSelectCard}
-          onCreateModal={onCreateModal}
-          isLoggedIn={isLoggedIn}
-          onLikeClick={onLikeClick}
+      
         />
-      </div> */}
+      </div>
     </section>
   );
 }
