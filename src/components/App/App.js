@@ -25,11 +25,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [weatherLocation, setWeatherLocation] = useState("");
-  const [weatherForecast, setWeatherForecast] = useState("");
-  const [isDay, setIsDay] = useState(true);
   const [currentTemperatureUnit, setCurrentTempUnit] = useState("F");
   const [isLoading, setIsLoading] = useState(false);
-  const [clothingItems, setClothingItems] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
@@ -201,7 +198,6 @@ function App() {
                   isLoggedIn={isLoggedIn}
                   currentUser={currentUser}
                   onEditProfile={handleEditProfileModal}
-            
                 />
               </ProtectedRoute>
             </Route>
