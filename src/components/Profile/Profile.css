@@ -3,4 +3,6 @@
     justify-content: space-between;
     padding: 0 40px;
     font-family: "Cabinet Grotesk", Arial, sans-serif;
+    color: #c279ff;
+    text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
