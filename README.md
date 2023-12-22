@@ -1,13 +1,7 @@
-# WTWR (What to Wear?): Front End
-
-# Figma Design
-- [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-
-# DOMAIN Link:
-https://www.isitrainingoutside.jumpingcrab.com 
+# Madame Oracle: Front End
 
 # LINK FOR THE BACK-END:
-https://github.com/probablypenera007/se_project_express
+https://github.com/probablypenera007/madame-backend
 
 ## Functionality
 - **User Interface:** Sleek and responsive design for an engaging user experience.
