@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
-import wtwrlogo from "../../images/wtwrlogo.svg";
+import mologo from "../../images/crystalballcolor.svg";
 import MobileButton from "../../images/MobileButton.svg";
 import blackCloseButton from "../../images/blackCloseButton.svg" ;
 //import ModalWithForm from "../ModalWithForm/ModalWithForm";
@@ -33,7 +33,7 @@ const Header = ({
       <div className="header__logo">
         <div>
           <Link to="/">
-            <img src={wtwrlogo} alt="logo" />
+            <img className="mologo" src={mologo} alt="logo" />
           </Link>
         </div>
         <div className="header__date">

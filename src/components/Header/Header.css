@@ -18,6 +18,11 @@
 
 }
 
+.mologo{
+  width: 115px;
+  height: 109px;
+}
+
 .header__button-addClothes {
   background-color: transparent;
   border: none;
