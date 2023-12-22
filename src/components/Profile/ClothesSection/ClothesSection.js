@@ -1,6 +1,6 @@
 import React from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
-import crystallball from "../../../images/"
+import crystallball from "../../../images/";
 
 import "./ClothesSection.css";
 
