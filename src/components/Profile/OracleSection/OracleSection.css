@@ -1,4 +1,4 @@
-.clothes__section {
+.oracle__section {
     font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -9,15 +9,15 @@
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
-.clothes__section-heading-container{
+.oracle__section-heading-container{
     display: flex;
     position: relative;
-    margin-top: 17px;
+    margin-top: 77px;
     margin-left: 1px;
     margin-bottom: 10px;
 }
 
-.clothes__section-title {
+.oracle__section-title {
     font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -29,30 +29,30 @@
     position:relative;
     background-image: url("../../../images/main-crystal2.PNG");
     background-repeat: no-repeat;
-    padding: 625px 1334px 608px 706px;
+    padding: 437px 378px 582px 590px;
     background-color: transparent;
     border: none;
     transition: opacity linear 0.2s 0.1s;
     cursor: pointer;
     color: #c279ff;
-    margin: 2px 5px 16px -655px;
+    margin: 92px 103px 9px -635px;
     opacity: .4;
     overflow: hidden;
     border-radius: 50px;
 }
 
 .oracle__section-button::after{
-    content: '';
+    content: "";
     position: absolute;
-    top: 50%; 
-    left: 50%; 
-    width: 100%;
-    height: 100%; 
+    top: 49%;
+    left: 51%;
+    width: 109%;
+    height: 103%;
     transform: translate(-50%, -50%) scale(0.9);
-    background: rgba(0, 0, 0, 0.5); 
-    z-index: -1;
-    filter: blur(15px); 
-    border-radius: 50%; 
+    background: rgba(0 ,0 ,0, 1);
+    z-index: -2;
+    filter: blur(-31px);
+    border-radius: 50%;
 }
 
 .oracle__section-button:hover {

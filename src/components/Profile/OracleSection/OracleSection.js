@@ -14,9 +14,9 @@ const ClothesSection = ({
 
 
   return (
-    <section className="clothes__section">
-      <div className="clothes__section-heading-container">
-      <div className="clothes__section-title">Madame Oracle is waiting for you. </div>
+    <section className="oracle__section">
+      <div className="oracle__section-heading-container">
+      <div className="oracle__section-title">Madame Oracle is waiting for you. </div>
       <button
         className="oracle__section-button"
         type="button"
