@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SideBar from "./SideBar/SideBar";
-import ClothesSection from "./ClothesSection/ClothesSection";
+import OracleSection from "./OracleSection/OracleSection";
 import "./Profile.css";
 
 function Profile({
@@ -22,7 +22,7 @@ function Profile({
         onEditProfile={onEditProfile}
       />
       <div>
-        <ClothesSection
+        <OracleSection
       
         />
       </div>

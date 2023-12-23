@@ -1,8 +1,8 @@
 import React from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
-import crystallball from "../../../images/";
 
-import "./ClothesSection.css";
+
+import "./OracleSection.css";
 
 
 const ClothesSection = ({
@@ -18,11 +18,11 @@ const ClothesSection = ({
       <div className="clothes__section-heading-container">
       <div className="clothes__section-title">Madame Oracle is waiting for you. </div>
       <button
-        className="clothes__section_add-button"
+        className="oracle__section-button"
         type="button"
         // onClick={onCreateModal}
       >
-        this is crystal ball
+       
       </button>
       </div>
       <div className="clothes__section-gallery">
