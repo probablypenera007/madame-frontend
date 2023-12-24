@@ -1,4 +1,4 @@
-import { request, baseUrl } from "./Api"; 
+import { request, baseUrl } from "./Api";
 
 export const register = ({ name, dob, email, password }) => {
   return request(`${baseUrl}/signup`, {
@@ -7,7 +7,7 @@ export const register = ({ name, dob, email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, dob, email, password }),
-  })
+  });
 };
 
 export const logIn = ({ email, password }) => {
@@ -17,7 +17,7 @@ export const logIn = ({ email, password }) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  })
+  });
 };
 
 export const editProfile = ({ name, dob }) => {
@@ -29,7 +29,7 @@ export const editProfile = ({ name, dob }) => {
       Authorization: `Bearer ${jwt}`,
     },
     body: JSON.stringify({ name, dob }),
-  })
+  });
 };
 
 export const checkToken = () => {
@@ -40,5 +40,5 @@ export const checkToken = () => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     },
-  })
+  });
 };

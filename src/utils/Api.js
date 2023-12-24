@@ -1,8 +1,8 @@
 export const baseUrl =
   // process.env.NODE_ENV === "production"
-    // ? "https://api.isitrainingoutside.jumpingcrab.com"
-    // : 
-    "http://localhost:3001";
+  // ? "https://api.isitrainingoutside.jumpingcrab.com"
+  // :
+  "http://localhost:3001";
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -60,4 +60,4 @@ export function removeCardLike(itemId, token) {
       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
   });
-} 
+}
