@@ -1,21 +1,28 @@
 // import WeatherCard from "../WeatherCard/WeatherCard";
-import ItemCard from "../ItemCard/ItemCard";
+// import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
 import React, { useMemo, useContext } from "react";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
+// import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import AudioRecorder from "../../utils/testrecorder";
+
+
 
 function Main({
   weatherTemp,
   isDay,
 }) {
-  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const currentUser = useContext(CurrentUserContext);
 
-  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 1000;
+  //const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  //const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 1000;
+
+ 
 
   return (
     <main className="main">
-     
+      <AudioRecorder/>
     </main>
   );
 }

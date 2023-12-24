@@ -1,32 +1,37 @@
-import React from "react";
+import React,{useState} from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./OracleSection.css";
 
-const OracleSection = ({oracleResponse, recording, handleOracleRequest, startRecording, stopRecording, }) => {
+const OracleSection = ({startRecording, stopRecording, isRecording  }) => {
   const currentUser = React.useContext(CurrentUserContext);
-
-  const handleRecordingButton = () => {
-    if (recording) {
-      startRecording();
-      console.log("recording...", recording);
-      console.log("Oracle is starting to record", startRecording)
- 
-    } else {
-      stopRecording();
-      handleOracleRequest();
-      console.log("Oracle is stopping to record", stopRecording)
-      console.log("Oracle is responding", handleOracleRequest)
-    }
-  };
+  const [isRecording, setIsRecording] = useState(false);
+  const [recording, setRecording] = useState(false)
 
 
   return (
     <section className="oracle__section">
       <div className="oracle__section-heading-container">
         <div className="oracle__section-title">
-          Madame Oracle is waiting for you.
+         {!isRecording ? "Madame Oracle is waiting for you to hold the ball" : "Madame Oracle is listening to your heart and reading the stars"} 
         </div>
-        <button className="oracle__section-button" type="button" onClick={handleRecordingButton} ></button>
+        {/* <button className="oracle__section-button" type="button" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}></button> */}
+        {isRecording ? (
+          <button
+            className="oracle__section-button"
+            type="button"
+            onMouseUp={stopRecording}
+          >
+            Stop Recording
+          </button>
+        ) : (
+          <button
+            className="oracle__section-button"
+            type="button"
+            onMouseDown={startRecording}
+          >
+            Start Recording
+          </button>
+        )}
       </div>
       <div className="clothes__section-gallery"></div>
     </section>

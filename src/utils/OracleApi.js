@@ -1,6 +1,6 @@
 import { request, baseUrl } from "./Api";
 
-export const sendAudioToOracle = ({audioFile}) => {
+export const sendAudioToOracle = (audioFile) => {
     const formData = new FormData();
     formData.append('file', audioFile);
 

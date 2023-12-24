@@ -8,11 +8,9 @@ function Profile({
   onLogOut,
   isLoggedIn,
   onEditProfile,
-  oracleResponse,
-  recording,
-  handleOracleRequest,
-  startRecording, 
-  stopRecording, 
+  isRecording,
+   startRecording, 
+   stopRecording, 
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
@@ -24,11 +22,12 @@ function Profile({
       />
       <div>
         <OracleSection
-        oracleResponse={oracleResponse}          
-        recording={recording}                   
-        handleOracleRequest={handleOracleRequest}
-        startRecording={startRecording}
-        stopRecording={stopRecording}
+        // oracleResponse={oracleResponse}          
+        //  recording={recording}                   
+        // handleOracleRequest={handleOracleRequest}
+        isRecording={isRecording}
+         startRecording={startRecording}
+         stopRecording={stopRecording}
         />
       </div>
     </section>
