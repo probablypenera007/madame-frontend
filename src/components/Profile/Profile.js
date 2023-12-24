@@ -22,9 +22,7 @@ function Profile({
         onEditProfile={onEditProfile}
       />
       <div>
-        <OracleSection
-      
-        />
+        <OracleSection />
       </div>
     </section>
   );
