@@ -30,6 +30,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
+// testing useState for  Oracle API
+  const [oracleResponse, setOracleResponse] = useState("");
+  const [recording, setRecording] = useState(false);
+  const [audioChunks, setAudioChunks] = useState([]);
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+
 
   const history = useHistory();
 
@@ -173,13 +179,90 @@ function App() {
   // -------------------------
   //      MADAME ORACLE 
   // -------------------------
+  useEffect(() => {
+    // Check if MediaRecorder API is available
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      console.error("MediaRecorder API is not available.");
+      return;
+    }
+
+    // Request microphone access
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then((stream) => {
+        console.log("Microphone access granted");
+        const mediaRecorder = new MediaRecorder(stream);
+        console.log("MediaRecorder created:", mediaRecorder);
+        setMediaRecorder(mediaRecorder);
+
+        mediaRecorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            setAudioChunks([...audioChunks, event.data]);
+          }
+        };
+      })
+      .catch((error) => {
+        console.error("Error accessing microphone:", error);
+      });
+  }, [audioChunks]);
+
+  const startRecording = () => {
+    setAudioChunks([]);
+    if (mediaRecorder) {
+      console.log("Starting recording...");
+      mediaRecorder.start();
+      setRecording(true);
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      console.log("Stopping recording...");
+      mediaRecorder.stop();
+      setRecording(false);
+    } else {
+      console.error("MediaRecorder is not available.");
+      console.error("MediaRecorder is not recording.");
+    }
+  };
+
+
+  const handleOracleRequest = () => {
+    console.log("Oracle is requesting...");
+    if (audioChunks.length === 0) {
+      console.error("No audio recorded.");
+      return;
+    }
+  
+    const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+  
+    const formData = new FormData();
+    formData.append("file", audioBlob);
+  
+    ai
+      .sendAudioToOracle({ audioFile: formData })
+      .then((res) => {
+        console.log("Oracle received a response:", res);
+        const transcription = res.transcription;
+        return ai.getMadameOracleResponse({ transcription });
+      })
+      .then((aiResponse) => {
+        console.log("Oracle Response:", aiResponse.res);
+        setOracleResponse(aiResponse.res);
+        return ai.getTextFromOracleToAudio({ text: aiResponse.res });
+      })
+      .then((audioFile) => {
+        const audioBlob = new Blob([audioFile], { type: "audio/mpeg" });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.play();
+      })
+      .catch(err => console.error("Madmae Oracle Error: ",err));
+  };
 
   // USER'S MIC INPUT  REQUEST TO AI
-
   // INPUT GETS PROCESSED BY AI MODEL
-
   // AI MODEL RETURNS RESPONSE AS AUDIO
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -206,6 +289,11 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 currentUser={currentUser}
                 onEditProfile={handleEditProfileModal}
+                oracleResponse={oracleResponse}
+                recording={recording}
+                handleOracleRequest={handleOracleRequest}
+                startRecording={startRecording}
+                stopRecording={stopRecording}
               />
             </ProtectedRoute>
           </Route>
