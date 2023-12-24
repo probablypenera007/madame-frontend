@@ -16,7 +16,7 @@ import {
 } from "react-router-dom/cjs/react-router-dom";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import * as api from "../../utils/Api";
+import * as ai from "../../utils/OracleApi"
 import * as auth from "../../utils/Auth";
 import "./App.css";
 
@@ -169,6 +169,17 @@ function App() {
       .catch(console.error)
       .finally(() => setIsLoading(false));
   };
+
+  // -------------------------
+  //      MADAME ORACLE 
+  // -------------------------
+
+  // USER'S MIC INPUT  REQUEST TO AI
+
+  // INPUT GETS PROCESSED BY AI MODEL
+
+  // AI MODEL RETURNS RESPONSE AS AUDIO
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
