@@ -10,7 +10,7 @@ export const sendAudioToOracle = (audioBlob) => {
     });
 };
 
-export const getMadameOracleResponse = ({transcription}) => {
+export const getMadameOracleResponse = ({userId, transcription}) => {
     return request(`${baseUrl}/fortune-teller`, {
         method: "POST",
         headers: {
@@ -20,12 +20,20 @@ export const getMadameOracleResponse = ({transcription}) => {
     });
 };
 
-export const getTextFromOracleToAudio = ({text}) => {
-    return request(`${baseUrl}/text-to-speech`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({text}),
+export const getTextFromOracleToAudio = ({ text }) => {
+    return fetch(`${baseUrl}/text-to-speech`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text }),
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.arrayBuffer(); // Fetch the audio data as a Blob
+      } else {
+        throw new Error(`Error: ${response.status}`);
+      }
     });
-};
+  };
+  

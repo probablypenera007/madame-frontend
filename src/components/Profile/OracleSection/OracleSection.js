@@ -2,7 +2,9 @@ import React,{useState} from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./OracleSection.css";
 
-const OracleSection = ({startRecording, stopRecording, isRecording  }) => {
+const OracleSection = ({startRecording, stopRecording, isRecording, 
+  oracleResponse 
+ }) => {
   const currentUser = React.useContext(CurrentUserContext);
   //const [isRecording, setIsRecording] = useState(false);
  // const [recording, setRecording] = useState(false)
@@ -34,6 +36,15 @@ const OracleSection = ({startRecording, stopRecording, isRecording  }) => {
         )}
       </div>
       <div className="clothes__section-gallery"></div>
+      {/* <audio id="audioPlayer" controls>
+  testing Audio source for the AI response
+</audio> */}
+
+      {oracleResponse && (
+        <div className="oracle__response">
+          Oracle Response: {oracleResponse}
+        </div>
+      )}
     </section>
   );
 };

@@ -16,7 +16,7 @@ import {
 } from "react-router-dom/cjs/react-router-dom";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import * as ai from "../../utils/OracleApi"
+import * as ai from "../../utils/OracleApi";
 import * as auth from "../../utils/Auth";
 import "./App.css";
 
@@ -30,13 +30,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
-// testing useState for  Oracle API
+  // testing useState for  Oracle API
   const [oracleResponse, setOracleResponse] = useState("");
   const [recording, setRecording] = useState(false);
   const [audioChunks, setAudioChunks] = useState([]);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
-
 
   const history = useHistory();
 
@@ -178,111 +177,99 @@ function App() {
   };
 
   // -------------------------
-  //      MADAME ORACLE 
+  //      MADAME ORACLE
   // -------------------------
-  useEffect(() => {
-    console.log("useEffect for microphone access is triggered");
-    if (!navigator.mediaDevices && !navigator.mediaDevices.getUserMedia) {
-      console.error("MediaRecorder API is not available.");
-      return;
-    }
-
-  // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
+    // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
     // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
     // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then((stream) => {
-        console.log("Microphone access granted");
-        const mediaRecorder = new MediaRecorder(stream);
-        console.log("MediaRecorder created:", mediaRecorder);
-        setMediaRecorder(mediaRecorder);
+  const processAudio = async (audioBlob) => {
+    const arrayBuffer = await blobToArrayBuffer(audioBlob);
+    const convertedBlob = new Blob([arrayBuffer], { type: "audio/wav" });
+    return convertedBlob;
+  };
 
-        mediaRecorder.ondataavailable = (event) => {
-          console.log("Data available in media recorder value is: ", event.data)
-          if (event.data.size > 0) {
-            setAudioChunks([...audioChunks, event.data]);
-          } 
-        };
-
-        mediaRecorder.onstop = () => {
-          console.log("Recording stopped...");
-          handleOracleRequest();
-        }
-      })
-      .catch((error) => {
-        console.error("Error accessing microphone:", error);
-      });
-  }, [audioChunks]);
-  console.log("Audio chunks:", audioChunks);
+  const blobToArrayBuffer = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        resolve(event.target.result);
+      };
+      reader.onerror = (event) => {
+        reject(new Error("Error reading Blob as ArrayBuffer"));
+      };
+      reader.readAsArrayBuffer(blob);
+    });
+  };
 
   const startRecording = () => {
-    setAudioChunks([]);
-    if (mediaRecorder) {
-      console.log("Starting recording...");
-      try {
-        mediaRecorder.start();
-        setRecording(true);
-        console.log("MediaRecorder check state expected is START or true:", mediaRecorder.state);
-      } catch (error) {
-        console.error("Error starting recording:", error);
-      }
-    }
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then(async (stream) => {
+        const recorder = new MediaRecorder(stream);
+        setMediaRecorder(recorder);
+        recorder.start();
+        setIsRecording(true);
+
+        const chunks = [];
+
+        recorder.ondataavailable = (e) => {
+          if (e.data.size > 0) {
+            chunks.push(e.data);
+          }
+          console.log("Received audio data chunk format:", e.data);
+        };
+
+        recorder.onstop = async () => {
+          setIsRecording(false);
+          const audioBlob = new Blob(chunks, { type: "audio/webm" });
+
+          try {
+            const convertedAudioBlob = await processAudio(audioBlob);
+            console.log("Audio Blob format:", audioBlob);
+            ai.sendAudioToOracle(convertedAudioBlob)
+              .then((data) => {
+                console.log("Oracle transcription:", data.transcript);
+                return ai.getMadameOracleResponse({
+                  userId: currentUser._id,
+                  transcription: data.transcript,
+                });
+              })
+              .then((aiResponse) => {
+                console.log("Oracle response:", aiResponse.reply);
+                setOracleResponse(aiResponse.reply);
+                return ai.getTextFromOracleToAudio({ text: aiResponse.reply });
+              })
+              .then((audioBuffer) => {
+                console.log("Received audioBuffer:", audioBuffer);
+
+                const audioBlob = new Blob([audioBuffer], {
+                  type: "audio/mpeg",
+                });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audioElement = new Audio(audioUrl);
+                audioElement.src = audioUrl;
+                console.log("Audio element src:", audioElement.src);
+                audioElement.play();
+                audioElement.onended = () => {
+                  URL.revokeObjectURL(audioUrl);
+                };
+              })
+              .catch((error) => {
+                console.error("Error processing audio:", error);
+              });
+          } catch (error) {
+            console.error("Error processing audio:", error);
+          }
+        };
+      });
   };
 
   const stopRecording = () => {
     if (mediaRecorder && mediaRecorder.state === "recording") {
-      console.log("Stopping recording...");
-      try {
-        mediaRecorder.stop();
-        setRecording(false);
-        console.log("MediaRecorder check state expected is STOP or false:", mediaRecorder.state);
-      } catch (error) {
-        console.error("Error stopping recording:", error);
-      }
-    } else {
-      console.error("MediaRecorder is not available.");
+      mediaRecorder.stop();
+      setIsRecording(false);
     }
-    
   };
-
-  // const handleOracleRequest = () => {
-  //   console.log("Oracle is requesting...");
-  //   if (audioChunks.length === 0) {
-  //     console.error("No audio recorded.");
-  //     return;
-  //   }
-  
-  //   const audioBlob = new Blob(audioChunks, { type: "audio/mpeg" });
-  
-  //   const formData = new FormData();
-  //   formData.append("file", audioBlob);
-  
-  //   ai
-  //     .sendAudioToOracle({ audioFile: formData })
-  //     .then((res) => {
-  //       console.log("Oracle received a response:", res);
-  //       const transcription = res.transcription;
-  //       console.log("Oracle transcription:", transcription);
-  //       return ai.getMadameOracleResponse({ transcription });
-  //     })
-  //     .then((aiResponse) => {
-  //       console.log("Oracle Response:", aiResponse.res);
-  //       setOracleResponse(aiResponse.res);
-  //       return ai.getTextFromOracleToAudio({ text: aiResponse.res });
-  //     })
-  //     .then((audioFile) => {
-  //       const audioBlob = new Blob([audioFile], { type: "audio/mpeg" });
-  //       const audioUrl = URL.createObjectURL(audioBlob);
-  //       const audio = new Audio(audioUrl);
-  //       audio.play();
-  //     })
-  //     .catch(err => console.error("Madmae Oracle Error: ",err));
-  // };
-
-  // USER'S MIC INPUT  REQUEST TO AI
-  // INPUT GETS PROCESSED BY AI MODEL
-  // AI MODEL RETURNS RESPONSE AS AUDIO
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -312,6 +299,7 @@ function App() {
                 isRecording={isRecording}
                 startRecording={startRecording}
                 stopRecording={stopRecording}
+                oracleResponse={oracleResponse}
               />
             </ProtectedRoute>
           </Route>

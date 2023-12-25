@@ -11,6 +11,7 @@ function Profile({
   isRecording,
    startRecording, 
    stopRecording, 
+   oracleResponse,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
@@ -28,6 +29,7 @@ function Profile({
         isRecording={isRecording}
          startRecording={startRecording}
          stopRecording={stopRecording}
+        oracleResponse={oracleResponse}
         />
       </div>
     </section>
