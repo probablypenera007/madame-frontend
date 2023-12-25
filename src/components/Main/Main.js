@@ -4,7 +4,7 @@ import "./Main.css";
 import React, { useMemo, useContext } from "react";
 // import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
-import AudioRecorder from "../../utils/testrecorder";
+// import AudioRecorder from "../../utils/testrecorder";
 
 
 
@@ -22,7 +22,7 @@ function Main({
 
   return (
     <main className="main">
-      <AudioRecorder/>
+      {/* <AudioRecorder/> */}
     </main>
   );
 }

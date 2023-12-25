@@ -4,9 +4,9 @@ import "./OracleSection.css";
 
 const OracleSection = ({startRecording, stopRecording, isRecording  }) => {
   const currentUser = React.useContext(CurrentUserContext);
-  const [isRecording, setIsRecording] = useState(false);
-  const [recording, setRecording] = useState(false)
-
+  //const [isRecording, setIsRecording] = useState(false);
+ // const [recording, setRecording] = useState(false)
+  // console.log("currentUser in OracleSection", currentUser)
 
   return (
     <section className="oracle__section">
@@ -27,7 +27,7 @@ const OracleSection = ({startRecording, stopRecording, isRecording  }) => {
           <button
             className="oracle__section-button"
             type="button"
-            onMouseDown={startRecording}
+            onMouseDown={() => startRecording(currentUser._id)}
           >
             Start Recording
           </button>

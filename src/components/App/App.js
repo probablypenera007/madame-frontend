@@ -180,69 +180,71 @@ function App() {
   // -------------------------
   //      MADAME ORACLE 
   // -------------------------
-  // useEffect(() => {
-  //   console.log("useEffect for microphone access is triggered");
-  //   if (!navigator.mediaDevices && !navigator.mediaDevices.getUserMedia) {
-  //     console.error("MediaRecorder API is not available.");
-  //     return;
-  //   }
+  useEffect(() => {
+    console.log("useEffect for microphone access is triggered");
+    if (!navigator.mediaDevices && !navigator.mediaDevices.getUserMedia) {
+      console.error("MediaRecorder API is not available.");
+      return;
+    }
 
-  //  // // Request microphone access
-  //   navigator.mediaDevices
-  //     .getUserMedia({ audio: true })
-  //     .then((stream) => {
-  //       console.log("Microphone access granted");
-  //       const mediaRecorder = new MediaRecorder(stream);
-  //       console.log("MediaRecorder created:", mediaRecorder);
-  //       setMediaRecorder(mediaRecorder);
+  // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
+    // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
+    // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
+      .then((stream) => {
+        console.log("Microphone access granted");
+        const mediaRecorder = new MediaRecorder(stream);
+        console.log("MediaRecorder created:", mediaRecorder);
+        setMediaRecorder(mediaRecorder);
 
-  //       mediaRecorder.ondataavailable = (event) => {
-  //         console.log("Data available in media recorder value is: ", event.data)
-  //         if (event.data.size > 0) {
-  //           setAudioChunks([...audioChunks, event.data]);
-  //         } 
-  //       };
+        mediaRecorder.ondataavailable = (event) => {
+          console.log("Data available in media recorder value is: ", event.data)
+          if (event.data.size > 0) {
+            setAudioChunks([...audioChunks, event.data]);
+          } 
+        };
 
-  //       mediaRecorder.onstop = () => {
-  //         console.log("Recording stopped...");
-  //         handleOracleRequest();
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error accessing microphone:", error);
-  //     });
-  // }, [audioChunks]);
-  // console.log("Audio chunks:", audioChunks);
+        mediaRecorder.onstop = () => {
+          console.log("Recording stopped...");
+          handleOracleRequest();
+        }
+      })
+      .catch((error) => {
+        console.error("Error accessing microphone:", error);
+      });
+  }, [audioChunks]);
+  console.log("Audio chunks:", audioChunks);
 
-  // const startRecording = () => {
-  //   setAudioChunks([]);
-  //   if (mediaRecorder) {
-  //     console.log("Starting recording...");
-  //     try {
-  //       mediaRecorder.start();
-  //       setRecording(true);
-  //       console.log("MediaRecorder check state expected is START or true:", mediaRecorder.state);
-  //     } catch (error) {
-  //       console.error("Error starting recording:", error);
-  //     }
-  //   }
-  // };
+  const startRecording = () => {
+    setAudioChunks([]);
+    if (mediaRecorder) {
+      console.log("Starting recording...");
+      try {
+        mediaRecorder.start();
+        setRecording(true);
+        console.log("MediaRecorder check state expected is START or true:", mediaRecorder.state);
+      } catch (error) {
+        console.error("Error starting recording:", error);
+      }
+    }
+  };
 
-  // const stopRecording = () => {
-  //   if (mediaRecorder && mediaRecorder.state === "recording") {
-  //     console.log("Stopping recording...");
-  //     try {
-  //       mediaRecorder.stop();
-  //       setRecording(false);
-  //       console.log("MediaRecorder check state expected is STOP or false:", mediaRecorder.state);
-  //     } catch (error) {
-  //       console.error("Error stopping recording:", error);
-  //     }
-  //   } else {
-  //     console.error("MediaRecorder is not available.");
-  //   }
+  const stopRecording = () => {
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+      console.log("Stopping recording...");
+      try {
+        mediaRecorder.stop();
+        setRecording(false);
+        console.log("MediaRecorder check state expected is STOP or false:", mediaRecorder.state);
+      } catch (error) {
+        console.error("Error stopping recording:", error);
+      }
+    } else {
+      console.error("MediaRecorder is not available.");
+    }
     
-  // };
+  };
 
   // const handleOracleRequest = () => {
   //   console.log("Oracle is requesting...");

@@ -1,8 +1,8 @@
 import { request, baseUrl } from "./Api";
 
-export const sendAudioToOracle = (audioFile) => {
+export const sendAudioToOracle = (audioBlob) => {
     const formData = new FormData();
-    formData.append('file', audioFile);
+    formData.append('file', audioBlob);
 
     return request(`${baseUrl}/speech-to-text`, {
         method: "POST",
