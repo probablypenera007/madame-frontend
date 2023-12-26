@@ -9,3 +9,15 @@
   font-weight: 700;
   src: url(../vendor/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Medium.woff) format("woff");
 }
+
+@font-face {
+  font-family: "Tangerine-Regular";
+  font-weight: 400;
+  src: url(../vendor/Tangerine/Tangerine-Regular.ttf) format("ttf");
+}
+
+@font-face {
+  font-family: "Tangerine-Bold";
+  font-weight: 700;
+  src: url(../vendor/Tangerine/Tangerine-Bold.ttf) format("ttf");
+}
