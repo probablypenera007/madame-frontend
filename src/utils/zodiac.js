@@ -56,4 +56,4 @@ const zodiacSign = [
     },
 ]
 
-export default zodiacSign;
+export { zodiacSign };

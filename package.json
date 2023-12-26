@@ -1,8 +1,8 @@
 {
-  "name": "se_wtwr_react",
+  "name": "madame_oracle",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.isitrainingoutside.jumpingcrab.com", 
+  "homepage": "https://github.com/probablypenera007",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
