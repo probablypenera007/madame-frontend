@@ -17,3 +17,8 @@
     margin: 0 12px 0 12px;
   
   }
+
+  .avatar__zodiac {
+    width:40px;
+    height: 40px;
+  }

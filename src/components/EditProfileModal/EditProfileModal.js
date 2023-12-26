@@ -13,11 +13,12 @@ const EditProfileModal = ({
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getUTCFullYear();
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = date.getUTCDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
+  
 
   const { values, handleChange } = useForm({
     name: currentUser.name,
@@ -55,11 +56,11 @@ const EditProfileModal = ({
             required
           />
         </label>
-        <label className="modal__label modal__label_register">
+        <label className="modal__label modal__label_edit">
           DOB*
           <input
             id="register-dob"
-            className="modal__input_text modal__input_text-register"
+            className="modal__input_text modal__input_text-edit"
             type="date"
             name="dob"
             placeholder={formatDate(currentUser.dob)}
@@ -68,11 +69,11 @@ const EditProfileModal = ({
             required
           />
         </label>
-        <label className="modal__label modal__label_register">
+        <label className="modal__label modal__label_edit">
           Place of Birth
           <input
             id="register-placeOfBirth"
-            className="modal__input-text modal__input_text-register"
+            className="modal__input-text modal__input_text-edit"
             type="text"
             name="placeOfBirth"
             placeholder={currentUser.placeOfBirth}
@@ -81,12 +82,12 @@ const EditProfileModal = ({
             autoComplete="off"
           />
         </label>
-        <label className="modal__label modal__label_register">
+        <label className="modal__label modal__label_edit">
           Marital Status
           <select
             id="register-gender"
             placeholder={currentUser.maritalStatus}
-            className="modal__input_text modal__input_text-register"
+            className="modal__input_text modal__input_text-edit"
             name="maritalStatus"
             value={values.maritalStatus}
             onChange={handleChange}
@@ -100,12 +101,12 @@ const EditProfileModal = ({
             <option value="Widowed">Widowed</option>
           </select>
         </label>
-        <label className="modal__label modal__label_register">
+        <label className="modal__label modal__label_edit">
           Gender
           <select
             id="register-gender"
             placeholder={currentUser.gender}
-            className="modal__input_text modal__input_text-register"
+            className="modal__input_text modal__input_text-edit"
             name="gender"
             value={values.gender}
             onChange={handleChange}

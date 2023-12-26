@@ -170,7 +170,7 @@
    ============================== */
 .modal_type_EditProfile_Modal .modal__content {
     max-width: 496px;
-    max-height: 304px;
+    max-height: 475px;
 }
 
 .modal__label_edit {
@@ -184,6 +184,29 @@
     padding-top: 10px;
     padding-left: 0px;
     padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.modal__input-text-edit option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.modal__input-text-edit[type='date'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
 
 .button__submit-modal_EditProfile_Modal {
@@ -213,7 +236,7 @@
    ============================== */
 .modal_type_Register_Modal .modal__content {
     max-width: 496px;
-    max-height: 456px;
+    max-height: 737px;
 }
 
 .modal__label_register {
@@ -227,6 +250,7 @@
     padding-top: 10px;
     padding-left: 6px;
     padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
 
 .button__submit-modal_Register_Modal {
