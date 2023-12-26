@@ -102,7 +102,7 @@ const RegisterModal = ({
           </select>
         </label>
         <label className="modal__label modal__label_register">
-          *
+          Gender
           <select
             id="register-gender"
             placeholder="Gender"

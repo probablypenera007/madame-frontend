@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
-import { useForm } from '../../hooks/useForm';
+import { useForm } from "../../hooks/useForm";
 
 const EditProfileModal = ({
   handleCloseModal,
@@ -11,18 +11,21 @@ const EditProfileModal = ({
 }) => {
   const currentUser = React.useContext(CurrentUserContext);
 
-  const { values, handleChange } = useForm({ name: currentUser.name, avatar: currentUser.avatar });
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
 
-  // const [name, setName] = useState(currentUser.name);
-  // const [avatar, setAvatar] = useState(currentUser.avatar);
-
-  // const handleNameChange = (e) => {
-  //   setName(e.target.value);
-  // };
-
-  // const handleAvatarChange = (e) => {
-  //   setAvatar(e.target.value);
-  // };
+  const { values, handleChange } = useForm({
+    name: currentUser.name,
+    dob: formatDate(currentUser.dob),
+    placeOfBirth: currentUser.placeOfBirth,
+    maritalStatus: currentUser.maritalStatus,
+    gender: currentUser.gender,
+  });
 
   const handleFormSubmitEdit = (e) => {
     e.preventDefault();
@@ -47,25 +50,87 @@ const EditProfileModal = ({
             type="text"
             name="name"
             value={values.name}
-            // onChange={handleNameChange}
             onChange={handleChange}
             minLength="1"
             required
           />
         </label>
-        <label className="modal__label modal__label_edit">
-          Avatar:
+        <label className="modal__label modal__label_register">
+          DOB*
           <input
-            id="edit-avatar"
-            className="modal__input-text modal__input-text-edit"
-            type="url"
-            name="avatar"
-            value={values.avatar}
-            // onChange={handleAvatarChange}
+            id="register-dob"
+            className="modal__input_text modal__input_text-register"
+            type="date"
+            name="dob"
+            placeholder={formatDate(currentUser.dob)}
+            value={values.dob}
             onChange={handleChange}
-            minLength="1"
+            required
           />
         </label>
+        <label className="modal__label modal__label_register">
+          Place of Birth
+          <input
+            id="register-placeOfBirth"
+            className="modal__input-text modal__input_text-register"
+            type="text"
+            name="placeOfBirth"
+            placeholder={currentUser.placeOfBirth}
+            value={values.placeOfBirth}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        </label>
+        <label className="modal__label modal__label_register">
+          Marital Status
+          <select
+            id="register-gender"
+            placeholder={currentUser.maritalStatus}
+            className="modal__input_text modal__input_text-register"
+            name="maritalStatus"
+            value={values.maritalStatus}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Marital Status</option>
+            <option value="Single">Single</option>
+            <option value="In a Relationship">In a Relationship</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </select>
+        </label>
+        <label className="modal__label modal__label_register">
+          Gender
+          <select
+            id="register-gender"
+            placeholder={currentUser.gender}
+            className="modal__input_text modal__input_text-register"
+            name="gender"
+            value={values.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+            <option value="Non-Binary">Non-Binary</option>
+            <option value="Genderqueer">Genderqueer</option>
+            <option value="Genderfluid">Genderfluid</option>
+            <option value="Bigender">Bigender</option>
+            <option value="Agender">Agender</option>
+            <option value="Pangender">Pangender</option>
+            <option value="Neutrois">Neutrois</option>
+            <option value="Androgyne">Androgyne</option>
+            <option value="Demiboy">Demiboy</option>
+            <option value="Demigirl">Demigirl</option>
+            <option value="Two-Spirit">Two-Spirit</option>
+            <option value="Third Gender">Third Gender</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+       
       </ModalWithForm>
     </div>
   );
