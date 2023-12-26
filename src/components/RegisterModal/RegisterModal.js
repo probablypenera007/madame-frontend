@@ -13,6 +13,9 @@ const RegisterModal = ({
   const { values, handleChange } = useForm({
     name: "",
     dob: "",
+    placeOfBirth: "",
+    maritalStatus: "",
+    gender: "",
     email: "",
     password: "",
   });
@@ -65,6 +68,68 @@ const RegisterModal = ({
             onChange={handleChange}
             required
           />
+        </label>
+        <label className="modal__label modal__label_register">
+          Place of Birth
+          <input
+            id="register-placeOfBirth"
+            className="modal__input-text modal__input_text-register"
+            type="text"
+            name="placeOfBirth"
+            placeholder="Place of Birth"
+            value={values.placeOfBirth}
+            onChange={handleChange}
+            autoComplete="off"
+          />
+        </label>
+        <label className="modal__label modal__label_register">
+          Marital Status
+          <select
+            id="register-gender"
+            placeholder="Marital Status"
+            className="modal__input_text modal__input_text-register"
+            name="maritalStatus"
+            value={values.maritalStatus}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Marital Status</option>
+            <option value="Single">Single</option>
+            <option value="In a Relationship">In a Relationship</option>
+            <option value="Married">Married</option>
+            <option value="Divorced">Divorced</option>
+            <option value="Widowed">Widowed</option>
+          </select>
+        </label>
+        <label className="modal__label modal__label_register">
+          *
+          <select
+            id="register-gender"
+            placeholder="Gender"
+            className="modal__input_text modal__input_text-register"
+            name="gender"
+            value={values.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+            <option value="Non-Binary">Non-Binary</option>
+            <option value="Genderqueer">Genderqueer</option>
+            <option value="Genderfluid">Genderfluid</option>
+            <option value="Bigender">Bigender</option>
+            <option value="Agender">Agender</option>
+            <option value="Pangender">Pangender</option>
+            <option value="Neutrois">Neutrois</option>
+            <option value="Androgyne">Androgyne</option>
+            <option value="Demiboy">Demiboy</option>
+            <option value="Demigirl">Demigirl</option>
+            <option value="Two-Spirit">Two-Spirit</option>
+            <option value="Third Gender">Third Gender</option>
+            <option value="Other">Other</option>
+          </select>
         </label>
         <label className={"modal__label modal__label_register"}>
           Email*
