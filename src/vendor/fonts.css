@@ -13,11 +13,11 @@
 @font-face {
   font-family: "Tangerine-Regular";
   font-weight: 400;
-  src: url(../vendor/Tangerine/Tangerine-Regular.ttf) format("ttf");
+  src: url(../vendor/Tangerine/Tangerine-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Tangerine-Bold";
   font-weight: 700;
-  src: url(../vendor/Tangerine/Tangerine-Bold.ttf) format("ttf");
+  src: url(../vendor/Tangerine/Tangerine-Bold.ttf) format("truetype");
 }

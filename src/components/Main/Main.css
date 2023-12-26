@@ -3,9 +3,10 @@
 }
 
 .main__title {
-    font-size: 30px;
+    font-size: 50px;
+    font-family: 700;
     text-align: center;
-    margin: 11px 20px;
+    margin: 11px 20px 162px;
     font-family: "Tangerine-Regular", Arial, sans-serif;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
@@ -18,3 +19,9 @@
     margin: -72px 20px 121px 0px;
 }
 
+.zodiac__image{
+    width: 552px;
+    height: 539px;
+    margin: 0 auto;
+    display: block;
+}
