@@ -22,7 +22,7 @@ function Main({
 
   return (
     <main className="main">
-      {/* <AudioRecorder/> */}
+  
     </main>
   );
 }
