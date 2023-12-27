@@ -46,6 +46,12 @@ function App() {
   // useState for when Oracle is playing the audio needs to have waveform to show that it is playing
   // note to self: the modal for saving and deleting the Oracle response after the reading is setIsReadingComplete
 
+  const [isUserTalking, setIsUserTalking] = useState(false); // this is for the waveform
+  const [isOracleProcessingSST, setIsOracleProcessingSST] = useState(false);
+  const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
+  const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
+
+
   const history = useHistory();
 
   // -------------------------
@@ -218,6 +224,7 @@ function App() {
         const recorder = new MediaRecorder(stream);
         setMediaRecorder(recorder);
         recorder.start();
+        setIsUserTalking(true);
         setIsRecording(true);
 
         const chunks = [];
@@ -230,7 +237,9 @@ function App() {
         };
 
         recorder.onstop = async () => {
+          setIsUserTalking(false);
           setIsRecording(false);
+          setIsOracleProcessingSST(true); //show the galaxy overlay that will make the crystall ball look like it's spinning or the background is going on hyper space drive (text would be Madame Oracle is reading the stars for you)
           const audioBlob = new Blob(chunks, { type: "audio/webm" });
 
           try {
@@ -238,6 +247,8 @@ function App() {
             console.log("Audio Blob format:", audioBlob);
             ai.sendAudioToOracle(convertedAudioBlob)
               .then((data) => {
+                setIsOracleProcessingSST(false);  // Oracle done processing SST
+                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS
                 console.log("Oracle transcription:", data.transcript);
                 return ai.getMadameOracleResponse({
                   userId: currentUser._id,
@@ -258,10 +269,13 @@ function App() {
                 const audioUrl = URL.createObjectURL(audioBlob);
                 const audioElement = new Audio(audioUrl);
                 audioElement.src = audioUrl;
+                setIsOracleProcessingTTS(false);  // Oracle done processing TTS - hyper space drive stops
+                setIsOraclePlayingAudio(true);  // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something
                 console.log("Audio element src:", audioElement.src);
                 audioElement.play();
                 audioElement.onended = () => {
                   URL.revokeObjectURL(audioUrl);
+                  setIsOraclePlayingAudio(false);  // Oracle done playing audio - waveform stops and crystal ball stops glowing
                   setIsReadingCompleted(true);
                 };
               })
@@ -286,9 +300,6 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="bg__galaxy"></div>
       <div className="page">
-        {/* <CurrentTemperatureUnitContext.Provider
-          value={{ currentTemperatureUnit, handleToggleSwitchChange }} WILL UPDATE THIS TO LIGHT MODE AND DARK MODE
-        > */}
         <Header
           weatherLocation={weatherLocation}
           temp={temp}
