@@ -30,13 +30,21 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
-  // testing useState for  Oracle API
+  // settled useState for Oracle API
   const [oracleResponse, setOracleResponse] = useState("");
   const [recording, setRecording] = useState(false);
   const [audioChunks, setAudioChunks] = useState([]);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isReadingCompleted, setIsReadingCompleted] = useState(false);
+  // adding new feature to Madame Oracle
+  
+  // useState for when User is talking to Madame Oracle needs to have waveform to show that it is recording
+  // useState for button to be disabled when Oracle is processing SST
+  // useState for when Oracle is done processing SST
+  // useState for button to be disabled when Oracle is processing TTS and playing the TTS
+  // useState for when Oracle is playing the audio needs to have waveform to show that it is playing
+  // note to self: the modal for saving and deleting the Oracle response after the reading is setIsReadingComplete
 
   const history = useHistory();
 
@@ -181,9 +189,9 @@ function App() {
   // -------------------------
   //      MADAME ORACLE
   // -------------------------
-    // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
-    // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
-    // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
+  // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
+  // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
+  // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
   const processAudio = async (audioBlob) => {
     const arrayBuffer = await blobToArrayBuffer(audioBlob);
     const convertedBlob = new Blob([arrayBuffer], { type: "audio/wav" });
@@ -305,7 +313,7 @@ function App() {
                 oracleResponse={oracleResponse}
                 handleCloseModal={handleCloseModal}
                 isReadingCompleted={isReadingCompleted}
-  setIsReadingCompleted={setIsReadingCompleted}
+                setIsReadingCompleted={setIsReadingCompleted}
               />
             </ProtectedRoute>
           </Route>
