@@ -5,9 +5,9 @@ import mologo from "../../images/crystalballcolor.svg";
 import MobileButton from "../../images/MobileButton.svg";
 import blackCloseButton from "../../images/blackCloseButton.svg" ;
 //import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+// import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import AvatarPlaceHolder from "../AvatarPlaceHolder/AvatarPlaceHolder";
+import ZodiacAvatar from "../ZodiacAvatar/ZodiacAvatar";
 
 function getCurrentZodiacSign() {
   const today = new Date();
@@ -67,7 +67,7 @@ const Header = ({
         </div>
       </div>
 
-      <ToggleSwitch />
+  
 {/* 
       {!isMobileMenuOpened && (
       <button className="header__hamburger" onClick={toggleMobileMenu}>
@@ -107,7 +107,7 @@ const Header = ({
                 alt="avatar"
               />
             ) : (
-              <AvatarPlaceHolder />
+              <ZodiacAvatar />
             )}
           </div>
         </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./SideBar.css";
-import AvatarPlaceHolder from "../../AvatarPlaceHolder/AvatarPlaceHolder";
+import ZodiacAvatar from "../../ZodiacAvatar/ZodiacAvatar";
 
 const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
   const currentUser = React.useContext(CurrentUserContext);
@@ -16,7 +16,7 @@ const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
             alt="sidebar avatar icon"
           />
         ) : (
-          <AvatarPlaceHolder name={currentUser.name} />
+          <ZodiacAvatar name={currentUser.name} />
         )}
         <p className="sidebar__name">{currentUser.name}</p>
       </div>

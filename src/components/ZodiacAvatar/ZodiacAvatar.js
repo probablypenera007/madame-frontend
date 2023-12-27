@@ -1,9 +1,9 @@
 import React from "react";
 import { zodiacSign } from "../../utils/zodiac";
-import "./AvatarPlaceHolder.css";
+import "./ZodiacAvatar.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-export const AvatarPlaceHolder = () => {
+export const ZodiacAvatar = () => {
   const currentUser = React.useContext(CurrentUserContext);
 
   const getZodiacSign = (dob) => {
@@ -37,4 +37,4 @@ export const AvatarPlaceHolder = () => {
   );
 };
 
-export default AvatarPlaceHolder;
+export default ZodiacAvatar;
