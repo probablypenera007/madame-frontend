@@ -1,12 +1,14 @@
 .main {
-    padding: 0 20px;
+    padding: 57px 639px;
 }
 
+
 .main__title {
-    font-size: 50px;
+    position: absolute;
+    font-size: 60px;
     font-family: 700;
     text-align: center;
-    margin: 11px 20px 162px;
+    margin: 50px -112px 0px;
     font-family: "Tangerine-Regular", Arial, sans-serif;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
@@ -15,13 +17,12 @@
 .zodiac-display {
     font-size: 150px;
     text-align: center;
-    /* font-family: "Tangerine", Arial, sans-serif; */
-    margin: -72px 20px 121px 0px;
+    margin: -41px 0px 193px 0px;
 }
 
-.zodiac__image{
-    width: 552px;
-    height: 539px;
-    margin: 0 auto;
+.zodiac__image {
+    padding-top: 255px;
+    width: 417px;
+    height: 423px;
     display: block;
 }

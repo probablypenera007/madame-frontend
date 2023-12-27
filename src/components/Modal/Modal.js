@@ -19,6 +19,7 @@ export const Modal = ({ name, onClose, children, closeButtonStyle}) => {
   // here is the overlay handler
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
+      console.log("Overlay clicked, closing modal in Modal.js");
       onClose();
     }
   };

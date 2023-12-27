@@ -36,6 +36,7 @@ function App() {
   const [audioChunks, setAudioChunks] = useState([]);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [isReadingCompleted, setIsReadingCompleted] = useState(false);
 
   const history = useHistory();
 
@@ -57,6 +58,7 @@ function App() {
   }, [activeModal]);
 
   const handleCloseModal = () => {
+    console.log("Closing modal in App.js");
     setActiveModal("");
   };
 
@@ -252,6 +254,7 @@ function App() {
                 audioElement.play();
                 audioElement.onended = () => {
                   URL.revokeObjectURL(audioUrl);
+                  setIsReadingCompleted(true);
                 };
               })
               .catch((error) => {
@@ -300,6 +303,9 @@ function App() {
                 startRecording={startRecording}
                 stopRecording={stopRecording}
                 oracleResponse={oracleResponse}
+                handleCloseModal={handleCloseModal}
+                isReadingCompleted={isReadingCompleted}
+  setIsReadingCompleted={setIsReadingCompleted}
               />
             </ProtectedRoute>
           </Route>

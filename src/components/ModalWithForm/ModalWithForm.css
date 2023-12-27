@@ -54,6 +54,7 @@
     cursor: pointer;
     right: 25px;
     top: 21px;
+    z-index: -1;
 }
 
 .modal__label {
@@ -169,6 +170,7 @@
    EDIT PROFILE MODAL STYLES
    ============================== */
 .modal_type_EditProfile_Modal .modal__content {
+    z-index: -2;
     max-width: 496px;
     max-height: 475px;
 }
@@ -235,6 +237,7 @@
    REGISTER MODAL STYLES
    ============================== */
 .modal_type_Register_Modal .modal__content {
+    z-index: -2;
     max-width: 496px;
     max-height: 737px;
 }
@@ -293,6 +296,7 @@
    LOG IN MODAL STYLES
    ============================== */
 .modal_type_LogIn_Modal .modal__content {
+    z-index: -2;
     max-width: 496px;
     max-height: 258px;
 }
@@ -347,6 +351,92 @@
 
 .register__likn:hover {
     opacity: 1;
+}
+
+/* ==============================
+   ORACLE MODAL STYLES
+   ============================== */
+.modal_type_Oracle_Modal .modal__content {
+    min-width: 300px; 
+    max-width: 496px;
+    min-height: 100px;
+    max-height: 411px;  
+    margin: 0 auto;
+    overflow: auto; 
+    margin: 91px -128px 10px 10px;
+}
+
+.oracle__button_close{
+    position: absolute;
+    background-image: url(../../images/group-119-gray-close-button.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    right: 25px;
+    top: 21px;
+}
+
+.oracle__reading_title{
+    margin: 40px 40px 48px 40px;
+    font-size: 20px;
+}
+.oracle__response{
+    white-space: pre-wrap;
+    margin: 0px 44px 44px 44px;
+}
+
+.oracle__button_save{
+    margin: 81px 0px 0px 44px;
+    width: 128px;
+    height: 36px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #521b66;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.oracle__button_save:hover{
+    opacity: 0.3;
+}
+
+.oracle__button_delete{
+    margin: 0px 0px 0px 44px;
+    width: 128px;
+    height: 36px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #000;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.oracle__button_delete:hover{
+    opacity: 0.3;
+}
+
+.button__submit-modal_Oracle_Modal{
+    height: 0px;
+    width: 0px;
+    border: none;
+    background: transparent;
 }
 
 /* ==============================

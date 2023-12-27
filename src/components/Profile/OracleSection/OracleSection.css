@@ -7,6 +7,7 @@
     font-weight: 700;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+    margin: 10px 23px 10px 10px;
 }
 
 .oracle__section-heading-container{
@@ -19,10 +20,15 @@
 
 .oracle__section-title {
     font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-    font-size: 20px;
+    font-size: 27px;
     font-weight: 700;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+    margin-right: -137px;
+}
+
+.oracle__section-title:active {
+    margin: 20px -120px 19px 20px;
 }
 
 .oracle__section-button {
@@ -39,14 +45,15 @@
     opacity: .4;
     overflow: hidden;
     border-radius: 50px;
+    
 }
 
 .oracle__section-button::after{
     content: "";
     position: absolute;
     top: 49%;
-    left: 51%;
-    width: 109%;
+    left: 50%;
+    width: 111%;
     height: 103%;
     transform: translate(-50%, -50%) scale(0.9);
     background: rgba(0 ,0 ,0, 1);
@@ -54,6 +61,11 @@
     filter: blur(-31px);
     border-radius: 50%;
 }
+
+.oracle__section-button:active {
+    margin: 92px 103px 9px -635px; 
+}
+
 
 .oracle__section-button:hover {
     opacity: 1;
@@ -69,3 +81,4 @@
     width: 100%;
     max-width:1010px;
 }
+

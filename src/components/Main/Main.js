@@ -36,16 +36,12 @@ function Main({}) {
     <main className="main">
       <h1 className="main__title">{madameOracleQuestion}</h1>
       <div className="zodiac-display">
-      {currentZodiac.url && (
-        <Link to="/profile">
-         
-            
+        {currentZodiac.url && (
+          <Link to="/profile">
             <img src={currentZodiac.url} className="zodiac__image" />
-          
-        </Link>
-       
-      )}
-       </div>
+          </Link>
+        )}
+      </div>
     </main>
   );
 }
