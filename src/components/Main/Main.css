@@ -1,5 +1,5 @@
 .main {
-    padding: 57px 639px;
+    padding: 0px 490px;
 }
 
 
@@ -8,7 +8,7 @@
     font-size: 60px;
     font-family: 700;
     text-align: center;
-    margin: 50px -112px 0px;
+    margin: -12px -112px 0px;
     font-family: "Tangerine-Regular", Arial, sans-serif;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
@@ -17,11 +17,11 @@
 .zodiac-display {
     font-size: 150px;
     text-align: center;
-    margin: -41px 0px 193px 0px;
+    margin: 65px 0px 98px 0px;
 }
 
 .zodiac__image {
-    padding-top: 255px;
+    padding-top: 150px;
     width: 417px;
     height: 423px;
     display: block;

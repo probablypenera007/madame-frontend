@@ -19,15 +19,6 @@ const OracleSection = ({
   // const [recording, setRecording] = useState(false)
   // console.log("currentUser in OracleSection", currentUser)
 
-  function formatOracleResponse(response) {
-    return response.split("\n").map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ));
-  }
-
   return (
     <section className="oracle__section">
       <div className="oracle__section-heading-container">
@@ -51,10 +42,6 @@ const OracleSection = ({
           ></button>
         )}
       </div>
-      <div></div>
-      {/* <audio id="audioPlayer" controls>
-  testing Audio source for the AI response
-</audio> */}
     {isReadingCompleted && (
         <OracleReadingModal
           oracleResponse={oracleResponse}

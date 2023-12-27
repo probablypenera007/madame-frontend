@@ -83,7 +83,7 @@ const Header = ({
             type="text"
             onClick={onCreateModal}
           >
-            + Add Clothes
+            FAQ
           </button>
         ) : (
           <button
