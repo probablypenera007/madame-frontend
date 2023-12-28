@@ -239,7 +239,7 @@ function App() {
         recorder.onstop = async () => {
           setIsUserTalking(false);
           setIsRecording(false);
-          setIsOracleProcessingSST(true); //show the galaxy overlay that will make the crystall ball look like it's spinning or the background is going on hyper space drive (text would be Madame Oracle is reading the stars for you)
+          setIsOracleProcessingSST(true); //show the galaxy overlay that will make the crystall ball look like it's spinning - (text for oracle section title would be: Madame Oracle is searching the galaxy for an answer)
           const audioBlob = new Blob(chunks, { type: "audio/webm" });
 
           try {
@@ -247,8 +247,8 @@ function App() {
             console.log("Audio Blob format:", audioBlob);
             ai.sendAudioToOracle(convertedAudioBlob)
               .then((data) => {
-                setIsOracleProcessingSST(false);  // Oracle done processing SST
-                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS
+                setIsOracleProcessingSST(false);  // Oracle done processing SST - crystall ball becomes solid black - ( prepare yourself, the stars and cosmic energy has spoken )
+                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS - hyper space drive starts, galactic background goes on an infinite illusion of space travel
                 console.log("Oracle transcription:", data.transcript);
                 return ai.getMadameOracleResponse({
                   userId: currentUser._id,
@@ -269,14 +269,14 @@ function App() {
                 const audioUrl = URL.createObjectURL(audioBlob);
                 const audioElement = new Audio(audioUrl);
                 audioElement.src = audioUrl;
-                setIsOracleProcessingTTS(false);  // Oracle done processing TTS - hyper space drive stops
-                setIsOraclePlayingAudio(true);  // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something
+                setIsOracleProcessingTTS(false);  // Oracle done processing TTS - hyper space drive stops, record button still disabled
+                setIsOraclePlayingAudio(true);  // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something, record button still disabled
                 console.log("Audio element src:", audioElement.src);
                 audioElement.play();
                 audioElement.onended = () => {
                   URL.revokeObjectURL(audioUrl);
-                  setIsOraclePlayingAudio(false);  // Oracle done playing audio - waveform stops and crystal ball stops glowing
-                  setIsReadingCompleted(true);
+                  setIsOraclePlayingAudio(false);  // Oracle done playing audio - waveform stops and crystal ball stops glowing, record button still disabled
+                  setIsReadingCompleted(true);  
                 };
               })
               .catch((error) => {
@@ -325,6 +325,7 @@ function App() {
                 handleCloseModal={handleCloseModal}
                 isReadingCompleted={isReadingCompleted}
                 setIsReadingCompleted={setIsReadingCompleted}
+
               />
             </ProtectedRoute>
           </Route>
