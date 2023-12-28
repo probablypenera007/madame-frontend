@@ -28,11 +28,26 @@
     right: 0;
     bottom: 0;
     background: radial-gradient(ellipse at center, transparent 50%, #000 100%);
-    pointer-events: none; /* Allows click events to pass through */
+    pointer-events: none;
 }
 
 @keyframes galaxyanimate{
     0% { background-size: 125%; background-position: 0 0; }
     50% { background-size: 280%; background-position: 10% 10%; }
     100% { background-size: 125%; background-position: 0 0; }
+}
+
+.bg__galaxy--hyperdrive-active {
+    animation: hyperdriveAnimate 5s infinite linear;
+}
+
+@keyframes hyperdriveAnimate {
+    0% { 
+        background-size: 125%; 
+        background-position: center; 
+    }
+    100% { 
+        background-size: 1800%; 
+        background-position: center; 
+    }
 }

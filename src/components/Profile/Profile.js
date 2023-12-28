@@ -14,7 +14,12 @@ function Profile({
   oracleResponse,
   handleCloseModal,
   isReadingCompleted,
-  setIsReadingCompleted
+  setIsReadingCompleted,
+  isOracleProcessingSTT,
+  isOracleProcessingTTS,
+  isOraclePlayingAudio,
+  isUserTalking,
+  setIsUserTalking,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
@@ -26,9 +31,6 @@ function Profile({
       />
       <div>
         <OracleSection
-          // oracleResponse={oracleResponse}
-          //  recording={recording}
-          // handleOracleRequest={handleOracleRequest}
           isRecording={isRecording}
           startRecording={startRecording}
           stopRecording={stopRecording}
@@ -36,6 +38,11 @@ function Profile({
           handleCloseModal={handleCloseModal}
           isReadingCompleted={isReadingCompleted}
           setIsReadingCompleted={setIsReadingCompleted}
+          isOracleProcessingSTT={isOracleProcessingSTT}
+          isOracleProcessingTTS={isOracleProcessingTTS}
+          isOraclePlayingAudio={isOraclePlayingAudio}
+          isUserTalking={isUserTalking}
+          setIsUserTalking={setIsUserTalking}
         />
       </div>
     </section>

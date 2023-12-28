@@ -47,7 +47,7 @@ function App() {
   // note to self: the modal for saving and deleting the Oracle response after the reading is setIsReadingComplete
 
   const [isUserTalking, setIsUserTalking] = useState(false); // this is for the waveform
-  const [isOracleProcessingSST, setIsOracleProcessingSST] = useState(false);
+  const [isOracleProcessingSTT, setIsOracleProcessingSTT] = useState(false);
   const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
 
@@ -239,7 +239,7 @@ function App() {
         recorder.onstop = async () => {
           setIsUserTalking(false);
           setIsRecording(false);
-          setIsOracleProcessingSST(true); //show the galaxy overlay that will make the crystall ball look like it's spinning - (text for oracle section title would be: Madame Oracle is searching the galaxy for an answer)
+          setIsOracleProcessingSTT(true); //show the galaxy overlay that will make the crystall ball look like it's spinning - (text for oracle section title would be: Madame Oracle is searching the galaxy for an answer)
           const audioBlob = new Blob(chunks, { type: "audio/webm" });
 
           try {
@@ -247,8 +247,6 @@ function App() {
             console.log("Audio Blob format:", audioBlob);
             ai.sendAudioToOracle(convertedAudioBlob)
               .then((data) => {
-                setIsOracleProcessingSST(false);  // Oracle done processing SST - crystall ball becomes solid black - ( prepare yourself, the stars and cosmic energy has spoken )
-                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS - hyper space drive starts, galactic background goes on an infinite illusion of space travel
                 console.log("Oracle transcription:", data.transcript);
                 return ai.getMadameOracleResponse({
                   userId: currentUser._id,
@@ -256,6 +254,8 @@ function App() {
                 });
               })
               .then((aiResponse) => {
+                setIsOracleProcessingSTT(false);  // Oracle done processing SST - crystall ball becomes solid black - ( prepare yourself, the stars and cosmic energy has spoken )
+                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS - hyper space drive starts, galactic background goes on an infinite illusion of space travel
                 console.log("Oracle response:", aiResponse.reply);
                 setOracleResponse(aiResponse.reply);
                 return ai.getTextFromOracleToAudio({ text: aiResponse.reply });
@@ -298,7 +298,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="bg__galaxy"></div>
+      <div className={`bg__galaxy ${isOracleProcessingTTS ? 'bg__galaxy--hyperdrive-active' : ''}`}></div>
       <div className="page">
         <Header
           weatherLocation={weatherLocation}
@@ -325,7 +325,11 @@ function App() {
                 handleCloseModal={handleCloseModal}
                 isReadingCompleted={isReadingCompleted}
                 setIsReadingCompleted={setIsReadingCompleted}
-
+                isOracleProcessingSTT={isOracleProcessingSTT}
+                isOracleProcessingTTS={isOracleProcessingTTS}
+                isOraclePlayingAudio={isOraclePlayingAudio}
+                isUserTalking={isUserTalking}
+                setIsUserTalking={setIsUserTalking}
               />
             </ProtectedRoute>
           </Route>
