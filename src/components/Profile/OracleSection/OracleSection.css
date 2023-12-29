@@ -108,7 +108,7 @@
     transform: translate(-50%, -50%);
     background: rgba(8, 0, 0, 0.8);
     border-radius: 50%;
-    animation: pulse 0.8s infinite;
+    animation: pulse 0.8s ease-in-out infinite;
     z-index: -1;
   }
 
@@ -121,11 +121,11 @@
     transform: translate(-50%, -50%);
     background: rgba(63, 8, 111, 0.553);
     border-radius: 50%;
-    animation: pulse 0.7s infinite;
+    animation: pulse 0.7s ease-in-out infinite;
     z-index: -1; 
   }
 
-.user-talking-pulse medium
+
 
   @keyframes pulse {
     0% {
