@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
-import mdmoracle from "../../../images/"
 import "./OracleSection.css";
 
 const OracleSection = ({
@@ -65,11 +64,7 @@ const OracleSection = ({
       {isUserTalking && <div className="user-talking-pulse"></div>}
 
       {isOraclePlayingAudio && (
-        <div className="oracle__audio-playing-container">
-          <button className="oracle-face" alt="oracle-face" />
-          <button className="oracle-zodiacWheel" alt="zodiac-wheel"/>
           <div className="oracle-talking-pulse"></div>
-        </div>
       )}
 
       {isReadingCompleted && (

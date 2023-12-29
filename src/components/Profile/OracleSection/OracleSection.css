@@ -52,7 +52,7 @@
   border-radius: 50%;
 }
 
-.oracle__section-button::after {
+.oracle__section-button:not(:disabled)::after {
   content: "";
   position: absolute;
   top: 52%;
@@ -72,9 +72,20 @@
 }
 
 
-.oracle__section-button:hover {
+.oracle__section-button:not(:disabled):hover {
   opacity: 1;
 }
+
+.oracle__section-button:disabled{
+  background-image: url("../../../images/mdmoracle-isolated.PNG");
+  border-radius: 40%;
+  opacity: 1;
+  width: 702px;
+  height: 584px;
+  
+}
+
+
 
 .spinner {
   position: absolute;
@@ -117,32 +128,6 @@
   z-index: -1;
 }
 
-.oracle__audio-playing {
-  background-image: url("../../../images/mdmoracle-zodiacwheel.PNG");
-}
-
-.oracle-face {
-  position: relative;
-  background-image: url("../../../images/mdmoracle-isolated.PNG");
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0;
-  width: 702px;
-  height: 584px;
-  background-color: transparent;
-  border: none;
-  transition: opacity linear 0.2s 0.1s;
-  cursor: pointer;
-  color: #c279ff;
-  margin-top: 84px;
-  margin-bottom: 37px;
-  opacity: .4;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.oracle-zodiacWheel {}
-
 .oracle-talking-pulse {
   position: absolute;
   width: 750px;
@@ -155,9 +140,6 @@
   animation: pulse 0.7s ease-in-out infinite;
   z-index: -1;
 }
-
-
-
 
 @keyframes pulse {
   0% {
