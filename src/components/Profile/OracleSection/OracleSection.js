@@ -63,7 +63,13 @@ const OracleSection = ({
 
       {isUserTalking && <div className="user-talking-pulse"></div>}
 
-      {isOraclePlayingAudio && <div className="oracle-talking-pulse"></div>}
+      {isOraclePlayingAudio && (
+        <div className="oracle__audio-playing-container">
+          <img className="oracle-face" alt="oracle-face" />
+          <img className="oracle-zodiacWheel" alt="zodiac-wheel"/>
+          <div className="oracle-talking-pulse"></div>
+        </div>
+      )}
 
       {isReadingCompleted && (
         <OracleReadingModal

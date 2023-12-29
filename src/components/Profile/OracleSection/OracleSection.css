@@ -1,143 +1,175 @@
 .oracle__section {
-    font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    color: #c279ff;
-    text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
-    margin: -105px 209px -10px -36px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  margin: -105px 209px -10px -36px;
 }
 
-.oracle__section-heading-container{
-    display: flex;
-    position: relative;
-    margin-top: 109px;
-    margin-left: 1px;
-    margin-bottom: 10px;
+.oracle__section-heading-container {
+  display: flex;
+  position: relative;
+  margin-top: 109px;
+  margin-left: 1px;
+  margin-bottom: 10px;
 }
 
 .oracle__section-title {
-    position:absolute;
-    font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-    font-size: 27px;
-    font-weight: 700;
-    color: #c279ff;
-    text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
-    margin-right: -137px;
+  position: absolute;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  margin-right: -137px;
 }
 
 .oracle__section-title:active {
-    margin-right: -137px;
+  margin-right: -137px;
 }
 
 .oracle__section-button {
-    position:relative;
-    background-image: url("../../../images/main-crystal2.PNG");
-    background-repeat: no-repeat;
-    background-size: contain;
-    padding: 0;
-    width: 702px;
-    height: 584px;
-    background-color: transparent;
-    border: none;
-    transition: opacity linear 0.2s 0.1s;
-    cursor: pointer;
-    color: #c279ff;
-    margin-top: 84px;
-    margin-bottom: 37px;
-    opacity: .4;
-    overflow: hidden;
-    border-radius: 50%;
+  position: relative;
+  background-image: url("../../../images/main-crystal2.PNG");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+  width: 702px;
+  height: 584px;
+  background-color: transparent;
+  border: none;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  color: #c279ff;
+  margin-top: 84px;
+  margin-bottom: 37px;
+  opacity: .4;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
-.oracle__section-button::after{
-    content: "";
-    position: absolute;
-    top: 52%;
-    left: 42%;
-    width: 80%;
-    height: 96%;
-    transform: translate(-50%, -52%);
-    background: rgba(0, 0, 0, 2.5);
-    z-index: -1;
-    filter: blur(4px);
-    border-radius: 131%;
+.oracle__section-button::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  left: 42%;
+  width: 80%;
+  height: 96%;
+  transform: translate(-50%, -52%);
+  background: rgba(0, 0, 0, 2.5);
+  z-index: -1;
+  filter: blur(4px);
+  border-radius: 131%;
 }
 
 .oracle__section-button:active {
-    margin-top: 84px;
-    margin-bottom: 37px;
+  margin-top: 84px;
+  margin-bottom: 37px;
 }
 
 
 .oracle__section-button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
-.spinner{
-    position: absolute;
-    background: transparent;
-    background-image: url("../../../images/spinnergalaxy.png");
-    background-blend-mode: lighten;
-    background-position: center;
-    /* background-repeat: no-repeat; */
-    /* background-size: contain; */
-    border: 279px solid rgba(0, 0, 0, 0.3);
-    border-radius: 131%;
-    width: -13px;
-    height: -110px;
-    animation: spin 2s linear infinite;
-    margin: 209px 122px -149px 16px;
-    overflow: hidden;
+.spinner {
+  position: absolute;
+  background: transparent;
+  background-image: url("../../../images/spinnergalaxy.png");
+  background-blend-mode: lighten;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-size: contain; */
+  border: 279px solid rgba(0, 0, 0, 0.3);
+  border-radius: 131%;
+  width: -13px;
+  height: -110px;
+  animation: spin 2s linear infinite;
+  margin: 209px 122px -149px 16px;
+  overflow: hidden;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
   }
 
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  .user-talking-pulse {
-    position: absolute;
-    width: 730px; 
-    height: 730px;
-    top: 55%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-    background: rgba(8, 0, 0, 0.8);
-    border-radius: 50%;
-    animation: pulse 0.8s ease-in-out infinite;
-    z-index: -1;
+
+.user-talking-pulse {
+  position: absolute;
+  width: 730px;
+  height: 730px;
+  top: 55%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  background: rgba(8, 0, 0, 0.8);
+  border-radius: 50%;
+  animation: pulse 0.8s ease-in-out infinite;
+  z-index: -1;
+}
+
+.oracle__audio-playing {}
+
+.oracle-face {
+  position: relative;
+  background-image: url("../../../images/mdmoracle-isolated.PNG");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+  width: 702px;
+  height: 584px;
+  background-color: transparent;
+  border: none;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  color: #c279ff;
+  margin-top: 84px;
+  margin-bottom: 37px;
+  opacity: .4;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.oracle-zodiacWheel {}
+
+.oracle-talking-pulse {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  top: 55%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  background: rgba(63, 8, 111, 0.553);
+  border-radius: 50%;
+  animation: pulse 0.7s ease-in-out infinite;
+  z-index: -1;
+}
+
+
+
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 1;
   }
 
-  .oracle-talking-pulse {
-    position: absolute;
-    width: 750px; 
-    height: 750px; 
-    top: 55%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-    background: rgba(63, 8, 111, 0.553);
-    border-radius: 50%;
-    animation: pulse 0.7s ease-in-out infinite;
-    z-index: -1; 
+  70% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
   }
 
-
-
-  @keyframes pulse {
-    0% {
-      transform: translate(-50%, -50%) scale(0.9);
-      opacity: 1;
-    }
-    70% {
-      transform: translate(-50%, -50%) scale(1.5);
-      opacity: 0;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0;
-    }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
   }
+}
