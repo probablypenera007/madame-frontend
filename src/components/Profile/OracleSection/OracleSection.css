@@ -101,12 +101,12 @@
 
   .user-talking-pulse {
     position: absolute;
-    width: 750px; 
-    height: 750px;
+    width: 730px; 
+    height: 730px;
     top: 55%;
     left: 53%;
     transform: translate(-50%, -50%);
-    background: rgba(8, 0, 0, 0.2);
+    background: rgba(8, 0, 0, 0.8);
     border-radius: 50%;
     animation: pulse 0.8s infinite;
     z-index: -1;
@@ -116,14 +116,16 @@
     position: absolute;
     width: 750px; 
     height: 750px; 
-    top: 50%;
-    left: 50%;
+    top: 55%;
+    left: 53%;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(63, 8, 111, 0.553);
     border-radius: 50%;
     animation: pulse 0.7s infinite;
     z-index: -1; 
   }
+
+.user-talking-pulse medium
 
   @keyframes pulse {
     0% {
