@@ -306,21 +306,24 @@ function App() {
   // -------------------------
 
   useEffect(() => {
-    if (isLoggedIn) {
+    // if (isLoggedIn) {
       api
         .getUserReadings()
         .then((res) => {
           setOracleReadings(res.data);
+          console.log("data from getUserReadings: ", res.data)
         })
         .catch(console.error);
-    }
-  }, [isLoggedIn]);
+    // }
+  // }, [isLoggedIn]);
+}, []);
 
-  const handleSaveReading = (readingData) => {
+  const handleSavedReading = (readingData) => {
     api
       .saveReading(readingData)
       .then((newReading) => {
         setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
+        console.log("new reading from App.js: ", readingData)
       })
       .catch(console.error);
   };
@@ -345,6 +348,8 @@ function App() {
     })
     .catch(console.error);
   }; 
+
+  console.log("oracle reading value in App.js: ", oracleReadings)
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -386,7 +391,7 @@ function App() {
                 isUserTalking={isUserTalking}
                 setIsUserTalking={setIsUserTalking}
                 oracleReadings={oracleReadings}
-                onSavedReading={handleSaveReading}
+                onSavedReading={handleSavedReading}
                 onDeleteReading={handleDeleteReading}
                 onUpdateReading={handleUpdateReading}
                 // onAboutUsClick={handleAboutUsClick}

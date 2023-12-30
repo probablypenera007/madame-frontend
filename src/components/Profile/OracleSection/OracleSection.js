@@ -17,7 +17,7 @@ const OracleSection = ({
   isUserTalking,
   setIsUserTalking,
   oracleReadings,
-  onSaveReading,
+  onSavedReading,
   onDeleteReading,
 
 }) => {
@@ -75,7 +75,7 @@ const OracleSection = ({
         <OracleReadingModal
           oracleResponse={oracleResponse}
           onClose={() => setIsReadingCompleted(false)}
-          onSaveReading={onSaveReading}
+          onSavedReading={onSavedReading}
           onDeleteReading={onDeleteReading}
         />
       )}

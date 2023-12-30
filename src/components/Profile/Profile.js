@@ -70,6 +70,7 @@ function Profile({
           />
         ) : (
           <SavedReadingSection
+            oracleReadings={oracleReadings}
             onSavedReading={onSavedReading}
             onUpdateReading={onUpdateReading}
             onDeleteReading={onDeleteReading}

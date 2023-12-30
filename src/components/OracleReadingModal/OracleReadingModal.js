@@ -20,7 +20,7 @@ function formatOracleResponse(response) {
   ));
 }
 
-const OracleReadingModal = ({ oracleResponse, onClose, onSaveReading, onDeleteReading }) => {
+const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteReading }) => {
   const currentUser = React.useContext(CurrentUserContext);
   
   const handleSave = () => {
@@ -29,7 +29,7 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSaveReading, onDeleteRe
       text: oracleResponse,
       userId: currentUser._id,
     };
-    onSaveReading(readingData);
+    onSavedReading(readingData);
     onClose();
   };
 

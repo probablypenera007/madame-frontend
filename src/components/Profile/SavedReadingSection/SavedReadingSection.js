@@ -1,25 +1,47 @@
-import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal"
+import React, { useState } from "react";
+import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
 
+const SavedReadingSection = ({
+//   oracleReadings,
+  onSavedReading,
+  onUpdateReading,
+  onDeleteReading,
+  oracleReadings,
+}) => {
+  const [selectedReading, setSelectedReading] = useState(null);
 
-const SavedReadingSection = ({ 
-    onSavedReading, 
-    onUpdateReading, 
-    onDeleteReading
- }) => {
+  const handleSelectReading = (reading) => {
+    setSelectedReading(reading);
+  };
 
-    return (
-        <section classname="section__saved-reading">
-            <h1 className="section__saved-reading_title"> Your Saved Readings </h1>
-            <ul className="section__saved-list">
-                <li className="section__saved-item"></li>
-            </ul>
-            {/* thinking of doing a list of all readings and then pop-up modal for choices of reading to read and edit the title */}
-            <OracleReadingModal/>
-        </section>
+  const handleCloseModal = () => {
+    setSelectedReading(null);
+  };
 
-       
-    )
-}
-
+  return (
+    <section className="section__saved-reading">
+      <h1 className="section__saved-reading_title"> Your Saved Readings </h1>
+      <ul className="section__saved-list">
+        {oracleReadings.map((reading, index) => (
+          <li
+            key={index}
+            className="section__saved-item"
+            onClick={() => handleSelectReading(reading)}
+          >
+            {reading.title}
+          </li>
+        ))}
+      </ul>
+      {selectedReading && (
+        <OracleReadingModal
+          oracleResponse={selectedReading.text}
+          onClose={handleCloseModal}
+          onUpdateReading={() => onUpdateReading(selectedReading._id)}
+          onDeleteReading={() => onDeleteReading(selectedReading._id)}
+        />
+      )}
+    </section>
+  );
+};
 
 export default SavedReadingSection;
