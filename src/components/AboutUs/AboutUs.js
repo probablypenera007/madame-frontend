@@ -4,74 +4,68 @@ import "./AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="about__us">
-      <h1 className="about__title">
-        Welcome to Madame Oracle: <br /> The Cosmic Guide
-      </h1>
+      <h1 className="about__title">Madame Oracle: Where Your Stars Align.</h1>
       <div className="about__top-section">
-        <h2 className="about__section-title"> Meet Madame Oracle:</h2>
-        <p>
-          This is not your typical fortune teller. She is a cosmic guide, a
-          digital oracle that draws from the stars to provide you with
-          personalized insights. Utilizing advanced AI algorithms, Madame Oracle
-          interprets the positioning of the stars at your birth and compares
-          them with their current alignment, offering a glimpse into your cosmic
-          blueprint.
+        <h2 className="about__section-title"> Discover Madame Oracle:</h2>
+        <p className="about__paragraph">
+          Embark on a mystical journey with Madame Oracle, not just a digital
+          oracle but your celestial navigator through the cosmos. Beyond mere
+          fortune telling, she is a conduit to the stars, crafting personalized
+          insights with a blend of ancient wisdom and modern AI sophistication.
+          Madame Oracle taps into the cosmic dance of celestial bodies,
+          comparing their ancient alignment at your birth with their current
+          positions to reveal your unique cosmic blueprint.
+          <br />
+          <br />
+          Whether you're seeking direction, curious about what the stars hold,
+          or just want to explore the cosmic side of your personality, Madame
+          Oracle is here to guide you. She's not just about predictions; she's
+          about connecting you to a deeper, more vibrant cosmic story – your
+          story.
         </p>
       </div>
       <div className="aboout__bottom-section">
-        <h2 className="about__section-title">How it works</h2>
+        <h2 className="about__section-title">How It All Unfolds:</h2>
         <p className="about__paragraph">
-          <span className="step">Step 1:</span> Register
+          <span className="step">Step 1: Sign Up to the Stars</span>
           <br />
-          Create your profile using your date and place of birth. Madame Oracle
-          offers personalized readings in multiple languages, embracing diverse
-          cultures for an inclusive experience.
+          Kickstart your cosmic journey. Sign up and share your birth details.
+          Why? Because every star, planet, and cosmic dust at your birth moment
+          matters. Your profile is your passport to personalized cosmic
+          readings.
         </p>
         <p className="about__paragraph">
-          <span className="step">Step 2:</span> Interact with The Cosmic Ball
+          <span className="step">Step 2: Converse with the Cosmos</span>
           <br />
-          Click and hold on the cosmic ball to speak with Madame Oracle. Make
-          sure to hold down until you finish asking your question to ensure she
-          hears you completely.
+          Got a burning question or need celestial guidance? Just hold the
+          cosmic ball and ask away. Wondering what to ask? Try something like,
+          "What should I focus on today?" or "How can I align with my true
+          purpose?" Madame Oracle listens to every word, every pause, every
+          breath – ensuring no cosmic clue is missed.
         </p>
         <p className="about__paragraph">
-          <span className="step">Step 3:</span> Send Your Question
+          <span className="step">Step 3: Send Your Cosmic Query</span>
           <br />
-          After submitting your query, Madame Oracle begins her cosmic
-          consultation, providing insights based on your birth chart and the
-          stars' current alignment.
+          Shoot your question into the stars. You might ask, "What does my
+          future hold in love?" or "What career path aligns with my star's
+          energy?" Madame Oracle then begins her cosmic consultation, merging
+          astrological insights with your personal star map.
         </p>
         <p className="about__paragraph">
-          <span className="step">Step 4:</span> Receive Your Personalized
-          Reading
+          <span className="step">
+            Step 4: Embrace Your Astrological Adventure
+          </span>
           <br />
-          Listen attentively as Madame Oracle interprets the stars and offers
-          her cosmic wisdom tailored to your inquiry.
+          Get ready for a reading that's as unique as you are. Whether it's
+          guidance on personal growth or understanding your cosmic connections,
+          Madame Oracle delivers her insights with flair – think cosmic wisdom
+          meets personal coach.
         </p>
         <p className="about__paragraph">
-          <span className="step">Step 5:</span>Step 5: Save and Share Your
-          Reading
+          <span className="step">Step 5: Chronicle and Share</span>
           <br />
-          Post-reading, you can save it to your profile for later reference or
-          share the insights with friends and family.
-        </p>
-        <h3 className="about__section-title">Disclaimer:</h3>
-        <p className="about__paragraph">
-          <span className="step">FOR ENTERTAINMENT PURPOSES ONLY</span>
-          <br />
-          The readings and insights provided by Madame Oracle are for
-          entertainment purposes only. While we strive for accuracy, we do not
-          claim that our readings reflect scientific precision. The content
-          should not be taken as literal or factual advice. We do not provide
-          recommendations on health, legal, financial, or other specific
-          professional matters. Users are advised to use their discretion and
-          consult qualified professionals for advice on such topics.
-          <br />
-          <br />
-          <span className="step">Voice Disclaimer:</span>
-          <br />
-          The voice you hear from Madame Oracle is generated by "Alloy", an
-          advanced AI, and does not represent a real person.
+          Save your readings, revisit them anytime, or share them with friends.
+          It's like having a cosmic journal, but way cooler.
         </p>
       </div>
     </div>

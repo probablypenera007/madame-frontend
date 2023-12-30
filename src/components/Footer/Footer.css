@@ -5,10 +5,23 @@
   padding: 20px 20px 30px 20px;
   justify-content: space-between;
   font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   font-style: normal;
   justify-content: space-between;
   margin-top: 20px;
   color: #c279ff;
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+}
+
+.footer__section{
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer__terms_link{
+  margin-right: 20px;
+  text-decoration: none;
+  color: #c279ff;
 }

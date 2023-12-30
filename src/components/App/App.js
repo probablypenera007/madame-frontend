@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
+import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -189,6 +190,11 @@ function App() {
   const handleAboutUsClick = (e) => {
     e.preventDefault();
     history.push("/aboutus");
+
+    const handleTermsAndConditionsClick = (e) => {
+      e.preventDefault();
+      history.push("/terms-and-conditions");
+    }
   };
 
   // -------------------------
@@ -376,6 +382,7 @@ function App() {
             </ProtectedRoute>
           </Route>
           <Route exact path="/aboutus" render={() => <AboutUs />} />
+          <Route exact path="/terms-and-conditions" render={() => <TermsAndConditions/>} />
         </Switch>
         <Footer />
         {activeModal === "create" && (

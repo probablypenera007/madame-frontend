@@ -1,4 +1,4 @@
-.about__us {
+.terms{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -6,48 +6,32 @@
     flex-wrap: nowrap;
     font-family: "Aleo-Medium",Arial, sans-serif;
     color: #DCDBCD;
-    padding: 0px 200px 54px 200px;
-  }
-    
-  .about__title {
+    padding: 0px 200px 16px 200px;
+}
+
+.terms__title {
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 20px;
-  }
-    
-    .about__top-section {
-    background-color: #8c7396;
-    padding: 20px;
-    border-radius: 72px;
-    margin-bottom: 20px;
-    box-shadow: 19px 20px 20px rgba(0, 0, 0, 0.6);
-  }
-    
-  .about__bottom-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top:20px ;
-    margin-bottom: 20px;
-    text-shadow: 19px 20px 20px rgba(0, 0, 0, 0.6) 
-  }
-  
-  .about__section-title{
+}
+
+.terms__section-title{
     font-size: 24px;
     margin-bottom: 10px;
     text-shadow: 1px 1px 2px #000;
-  }
-    
-  .step {
-    font-weight: bold;
-  }
-    
-  .about__paragraph{
+}
+
+.terms__paragraph{
     text-indent: 20px;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
-  }
-  
-  .about__paragrap-terms{
+}
+
+.terms__step{
+    font-weight: bold;
+}
+
+.terms__paragraph-bottom{
+    background: transparent;
     text-indent: -26px;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
@@ -59,4 +43,4 @@
     flex-wrap: wrap;
     padding: 26px 119px 10px 163px;
     align-content: center;
-  }
+}
