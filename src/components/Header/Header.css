@@ -26,19 +26,17 @@
   box-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
-.header__button-addClothes {
+.header__button-addClothes:disabled {
   background-color: transparent;
   border: none;
   font-size: 20px;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-  transition: opacity linear 0.2s 0.1s;
-  cursor: pointer;
+
+ 
   margin-left: 20px;
 }
 
-.header__button-addClothes:hover {
-  opacity: .6;
-}
+
 
 .header__name,
 .header__name:link,
@@ -60,10 +58,17 @@
   color: #c279ff;
 }
 
+
 .header__login-link {
   text-decoration: none;
   color: #c279ff;
   margin-left: 20px;
+  font-size: 20px;
+  transition: opacity linear 0.2s 0.1s;
+}
+
+.header__login-link:hover {
+  opacity: .6;
 }
 
 .link__container a {
@@ -75,6 +80,22 @@
 }
 
 .header__name:hover {
+  opacity: .6;
+}
+
+.header___button-aboutus{
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.header___button-aboutus:hover{
   opacity: .6;
 }
 
@@ -96,7 +117,7 @@
   margin-left: 20px;
 }
 
-.header__button-register:hover{
+.header__button-register:hover{ 
   opacity: .6;
 }
 

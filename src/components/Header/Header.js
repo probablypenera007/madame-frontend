@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
 import mologo from "../../images/crystalballcolor.svg";
 import MobileButton from "../../images/MobileButton.svg";
-import blackCloseButton from "../../images/blackCloseButton.svg" ;
+import blackCloseButton from "../../images/blackCloseButton.svg";
 //import ModalWithForm from "../ModalWithForm/ModalWithForm";
 // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom";
@@ -31,7 +31,6 @@ function getCurrentZodiacSign() {
   if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return "Pisces";
   return "Invalid date/Unknown zodiac sign";
 }
-
 
 const Header = ({
   onCreateModal,
@@ -68,26 +67,29 @@ const Header = ({
         </div>
       </div>
 
-  
-{/* 
+      {/* 
       {!isMobileMenuOpened && (
       <button className="header__hamburger" onClick={toggleMobileMenu}>
            <img src={MobileButton} alt="mobile" />
       </button>
     )} */}
-{/* 
+      {/* 
 <div className={`header__navigation ${isMobileMenuOpened ? 'header__navigation--open' : ''}`}> */}
       <div className="header__button-container">
-        <button className="header___button-aboutus"
-        type="text"
-        onClick={onAboutUsClick}>About Us</button>
+        <button
+          className="header___button-aboutus"
+          type="text"
+          onClick={onAboutUsClick}
+        >
+          About Us
+        </button>
         {isLoggedIn ? (
           <button
             className="header__button-addClothes"
             type="text"
-            onClick={onCreateModal}
+            disabled
           >
-            FAQ
+          
           </button>
         ) : (
           <button
@@ -127,9 +129,6 @@ const Header = ({
     )} */}
 
       {/* </div> */}
-
-
-
     </header>
   );
 };
