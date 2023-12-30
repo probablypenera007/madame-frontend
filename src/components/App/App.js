@@ -19,6 +19,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as ai from "../../utils/OracleApi";
 import * as auth from "../../utils/Auth";
+import * as api from "../../utils/Api";
 import "./App.css";
 
 function App() {
@@ -38,19 +39,12 @@ function App() {
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isReadingCompleted, setIsReadingCompleted] = useState(false);
-  // adding new feature to Madame Oracle
-
-  // useState for when User is talking to Madame Oracle needs to have waveform to show that it is recording
-  // useState for button to be disabled when Oracle is processing SST
-  // useState for when Oracle is done processing SST
-  // useState for button to be disabled when Oracle is processing TTS and playing the TTS
-  // useState for when Oracle is playing the audio needs to have waveform to show that it is playing
-  // note to self: the modal for saving and deleting the Oracle response after the reading is setIsReadingComplete
-
-  const [isUserTalking, setIsUserTalking] = useState(false); // this is for the waveform
+  const [isUserTalking, setIsUserTalking] = useState(false);
   const [isOracleProcessingSTT, setIsOracleProcessingSTT] = useState(false);
   const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
+  // adding new feature to Madame Oracle
+  const [oracleReadings, setOracleReadings] = useState([]);
 
   const history = useHistory();
 
@@ -301,6 +295,41 @@ function App() {
     }
   };
 
+  // -------------------------
+  //      USER READINGS
+  // -------------------------
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      api
+        .getUserReadings()
+        .then((res) => {
+          setOracleReadings(res.data);
+        })
+        .catch(console.error);
+    }
+  }, [isLoggedIn]);
+
+  const handleSaveReading = (readingData) => {
+    api
+      .saveReading(readingData)
+      .then((newReading) => {
+        setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
+      })
+      .catch(console.error);
+  };
+
+  const handleDeleteReading = (readingId) => {
+    api
+      .deleteReading(readingId)
+      .then(() => {
+        setOracleReadings((prevReadings) =>
+          prevReadings.filter((reading) => reading._id !== readingId)
+        );
+      })
+      .catch(console.error);
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div
@@ -340,16 +369,13 @@ function App() {
                 isOraclePlayingAudio={isOraclePlayingAudio}
                 isUserTalking={isUserTalking}
                 setIsUserTalking={setIsUserTalking}
+                oracleReadings={oracleReadings}
+                onSaveReading={handleSaveReading}
+                onDeleteReading={handleDeleteReading}
               />
             </ProtectedRoute>
           </Route>
-          <Route
-          exact
-          path="/aboutus"
-          render={() => (
-          <AboutUs/>
-          )}
-          />
+          <Route exact path="/aboutus" render={() => <AboutUs />} />
         </Switch>
         <Footer />
         {activeModal === "create" && (

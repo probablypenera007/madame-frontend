@@ -20,6 +20,9 @@ function Profile({
   isOraclePlayingAudio,
   isUserTalking,
   setIsUserTalking,
+  oracleReadings,
+  onSaveReading,
+  onDeleteReading,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (
@@ -43,6 +46,9 @@ function Profile({
           isOraclePlayingAudio={isOraclePlayingAudio}
           isUserTalking={isUserTalking}
           setIsUserTalking={setIsUserTalking}
+          oracleReadings={oracleReadings}
+          onSaveReading={onSaveReading}
+          onDeleteReading={onDeleteReading}
         />
       </div>
     </section>

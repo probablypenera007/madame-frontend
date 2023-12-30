@@ -16,6 +16,10 @@ const OracleSection = ({
   isOraclePlayingAudio,
   isUserTalking,
   setIsUserTalking,
+  oracleReadings,
+  onSaveReading,
+  onDeleteReading,
+
 }) => {
   const currentUser = React.useContext(CurrentUserContext);
   //const [isRecording, setIsRecording] = useState(false);
@@ -71,6 +75,8 @@ const OracleSection = ({
         <OracleReadingModal
           oracleResponse={oracleResponse}
           onClose={() => setIsReadingCompleted(false)}
+          onSaveReading={onSaveReading}
+          onDeleteReading={onDeleteReading}
         />
       )}
     </section>

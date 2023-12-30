@@ -16,48 +16,43 @@ export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
 
-// export function getItems() {
-//   return request(`${baseUrl}/items`, {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-// }
+export function getUserReadings() {
+  return request(`${baseUrl}/readings`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  });
+}
 
-// export function addItem(item, token) {
-//   return request(`${baseUrl}/items`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-//     },
-//     body: JSON.stringify(item, token),
-//   });
-// }
+export function saveReading(reading, token) {
+  return request(`${baseUrl}/readings`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify(reading),
+  });
+}
 
-// export function deleteItem(itemId, token) {
-//   return request(`${baseUrl}/items/${itemId}`, {
-//     method: "DELETE",
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-//     },
-//   });
-// }
+export function updateReadingTitle(readingId, title, token) {
+  return request(`${baseUrl}/readings/${readingId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+    body: JSON.stringify({ title }),
+  });
+}
 
-// export function addCardLike(itemId, token) {
-//   return request(`${baseUrl}/items/${itemId}/likes`, {
-//     method: "PUT",
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-//     },
-//   });
-// }
+export function deleteReading(readingId, token) {
+  return request(`${baseUrl}/readings/${readingId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    },
+  });
+}
 
-// export function removeCardLike(itemId, token) {
-//   return request(`${baseUrl}/items/${itemId}/likes`, {
-//     method: "DELETE",
-//     headers: {
-//       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-//     },
-//   });
-// }

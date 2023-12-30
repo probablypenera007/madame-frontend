@@ -1,5 +1,7 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -18,7 +20,22 @@ function formatOracleResponse(response) {
   ));
 }
 
-const OracleReadingModal = ({ oracleResponse, onClose }) => {
+const OracleReadingModal = ({ oracleResponse, onClose, onSaveReading, onDeleteReading }) => {
+  const currentUser = React.useContext(CurrentUserContext);
+  
+  const handleSave = () => {
+    const readingData = {
+      title: "Reading for " + formatDate(Date.now()),
+      text: oracleResponse,
+      userId: currentUser._id,
+    };
+    onSaveReading(readingData);
+  };
+
+  const handleDelete = () => {
+    onDeleteReading(readingData._id);
+  };
+
   return (
     <ModalWithForm modalName={"Oracle_Modal"} onClose={onClose}>
       <div className="oracle__reading">
@@ -29,8 +46,8 @@ const OracleReadingModal = ({ oracleResponse, onClose }) => {
           {formatOracleResponse(oracleResponse)}
         </p>
         <button className="oracle__button_close" onClick={onClose}></button>
-        <button className="oracle__button_save">Save</button>
-        <button className="oracle__button_delete">Delete</button>
+        <button className="oracle__button_save" onClick={handleSave}>Save</button>
+        <button className="oracle__button_delete" onClick={handleDelete}>Delete</button>
       </div>
     </ModalWithForm>
   );
