@@ -45,8 +45,8 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           Name
           <input
-            id="register-name"
-            className="modal__input-text modal__input_text-register"
+            // id="register-name"
+            className="modal__input_text modal__input_text-register"
             type="text"
             name="name"
             placeholder="Name"
@@ -59,7 +59,7 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           DOB*
           <input
-            id="register-dob"
+            // id="register-dob"
             className="modal__input_text modal__input_text-register"
             type="date"
             name="dob"
@@ -72,8 +72,8 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           Place of Birth
           <input
-            id="register-placeOfBirth"
-            className="modal__input-text modal__input_text-register"
+            // id="register-placeOfBirth"
+            className="modal__input_text modal__input_text-register"
             type="text"
             name="placeOfBirth"
             placeholder="Place of Birth"
@@ -85,7 +85,7 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           Marital Status
           <select
-            id="register-gender"
+            // id="register-gender"
             placeholder="Marital Status"
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
@@ -104,7 +104,7 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           Gender
           <select
-            id="register-gender"
+            // id="register-gender"
             placeholder="Gender"
             className="modal__input_text modal__input_text-register"
             name="gender"
@@ -135,7 +135,7 @@ const RegisterModal = ({
           Email*
           <input
             id="register-email"
-            className="modal__input-text modal__input_text-register"
+            className="modal__input_text modal__input_text-register"
             type="email"
             name="email"
             placeholder="Email"
@@ -151,13 +151,12 @@ const RegisterModal = ({
           Password*
           <input
             id="register-password"
-            className="modal__input-text modal__input_text-register"
+            className="modal__input_text modal__input_text-register"
             type="password"
             name="password"
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
-            // onChange={handlePasswordChange}
             minLength="1"
             autoComplete="off"
             required

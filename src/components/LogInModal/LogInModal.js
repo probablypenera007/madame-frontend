@@ -57,7 +57,7 @@ const LogInModal = ({
         //   {inputError === "Invalid Email" ? "Invalid Email" : "Email"} */}
           <input
             id="login-email"
-            className="modal__input-text modal__input_text-login"
+            className="modal__input_text modal__input_text-login"
             type="email"
             placeholder="Email"
             name="email"
@@ -74,7 +74,7 @@ const LogInModal = ({
         //   {inputError === "Incorrect Password" ? "Incorrect Password" : "Password"} */}
           <input
             id="login-password"
-            className="modal__input-text modal__input_text-login"
+            className="modal__input_text modal__input_text-login"
             type="password"
             placeholder="Password"
             name="password"

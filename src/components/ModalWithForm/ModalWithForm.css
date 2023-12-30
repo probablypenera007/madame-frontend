@@ -41,7 +41,8 @@
 }
 
 
-.button__close-modal-gray {   /* this button is in Modal.js*/
+.button__close-modal-gray {
+    /* this button is in Modal.js*/
     position: absolute;
     background-image: url(../../images/group-119-gray-close-button.svg);
     background-size: contain;
@@ -64,12 +65,12 @@
 }
 
 .error {
-    color: red; 
-    border: 1px solid red; 
+    color: red;
+    border: 1px solid red;
 }
 
 .error-label {
-    color: red; 
+    color: red;
 }
 
 .modal__form {
@@ -96,7 +97,7 @@
     opacity: 0.3;
 }
 
-.modal__input-text {
+.modal__input_text {
     margin: 0;
     padding: 0;
     padding-left: 6px;
@@ -172,7 +173,7 @@
 .modal_type_EditProfile_Modal .modal__content {
     z-index: -2;
     max-width: 496px;
-    max-height: 475px;
+    max-height: 530px;
 }
 
 .modal__label_edit {
@@ -200,7 +201,7 @@
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
 
-.modal__input-text-edit[type='date'] {
+.modal__input_text-edit[type='date'] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -239,19 +240,21 @@
 .modal_type_Register_Modal .modal__content {
     z-index: -2;
     max-width: 496px;
-    max-height: 737px;
+    max-height: 708px;
 }
 
 .modal__label_register {
     margin-top: 24px;
     margin-bottom: 10px;
-
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .modal__input_text-register {
     height: 40px;
     padding-top: 10px;
     padding-left: 6px;
+    font-size: 16px;
     padding-bottom: 0;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
@@ -292,6 +295,7 @@
 .login__link:hover {
     opacity: 1;
 }
+
 /* ==============================
    LOG IN MODAL STYLES
    ============================== */
@@ -316,7 +320,7 @@
 .input-error {
     border: 1px solid red;
     color: red;
-  }
+}
 
 .button__submit-modal_LogIn_Modal {
     margin-top: 30px;
@@ -357,16 +361,16 @@
    ORACLE MODAL STYLES
    ============================== */
 .modal_type_Oracle_Modal .modal__content {
-    min-width: 300px; 
+    min-width: 300px;
     max-width: 496px;
     min-height: 100px;
-    max-height: 411px;  
+    max-height: 411px;
     margin: 0 auto;
-    overflow: auto; 
+    overflow: auto;
     margin: 91px -128px 10px 10px;
 }
 
-.oracle__button_close{
+.oracle__button_close {
     position: absolute;
     background-image: url(../../images/group-119-gray-close-button.svg);
     background-size: contain;
@@ -381,16 +385,17 @@
     top: 21px;
 }
 
-.oracle__reading_title{
+.oracle__reading_title {
     margin: 40px 40px 48px 40px;
     font-size: 20px;
 }
-.oracle__response{
+
+.oracle__response {
     white-space: pre-wrap;
     margin: 0px 44px 44px 44px;
 }
 
-.oracle__button_save{
+.oracle__button_save {
     margin: 81px 0px 0px 44px;
     width: 128px;
     height: 36px;
@@ -407,11 +412,11 @@
     cursor: pointer;
 }
 
-.oracle__button_save:hover{
+.oracle__button_save:hover {
     opacity: 0.3;
 }
 
-.oracle__button_delete{
+.oracle__button_delete {
     margin: 0px 0px 0px 44px;
     width: 128px;
     height: 36px;
@@ -428,11 +433,11 @@
     cursor: pointer;
 }
 
-.oracle__button_delete:hover{
+.oracle__button_delete:hover {
     opacity: 0.3;
 }
 
-.button__submit-modal_Oracle_Modal{
+.button__submit-modal_Oracle_Modal {
     height: 0px;
     width: 0px;
     border: none;

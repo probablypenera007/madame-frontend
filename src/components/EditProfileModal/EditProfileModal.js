@@ -47,7 +47,7 @@ const EditProfileModal = ({
           Name:
           <input
             id="edit-name"
-            className="modal__input-text modal__input-text-edit"
+            className="modal__input_text modal__input-text-edit"
             type="text"
             name="name"
             value={values.name}
@@ -60,7 +60,7 @@ const EditProfileModal = ({
           DOB*
           <input
             id="register-dob"
-            className="modal__input_text modal__input_text-edit"
+            className="modal__input_text modal__input_text-register"
             type="date"
             name="dob"
             placeholder={formatDate(currentUser.dob)}
@@ -73,7 +73,7 @@ const EditProfileModal = ({
           Place of Birth
           <input
             id="register-placeOfBirth"
-            className="modal__input-text modal__input_text-edit"
+            className="modal__input_text modal__input_text-edit"
             type="text"
             name="placeOfBirth"
             placeholder={currentUser.placeOfBirth}
@@ -87,7 +87,7 @@ const EditProfileModal = ({
           <select
             id="register-gender"
             placeholder={currentUser.maritalStatus}
-            className="modal__input_text modal__input_text-edit"
+            className="modal__input_text modal__input_text-register"
             name="maritalStatus"
             value={values.maritalStatus}
             onChange={handleChange}
@@ -106,7 +106,7 @@ const EditProfileModal = ({
           <select
             id="register-gender"
             placeholder={currentUser.gender}
-            className="modal__input_text modal__input_text-edit"
+            className="modal__input_text modal__input_text-register"
             name="gender"
             value={values.gender}
             onChange={handleChange}
