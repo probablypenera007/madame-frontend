@@ -24,9 +24,8 @@ const TermsAndConditions = () => {
             advanced AI, and does not represent a real person.
           </p>
         </p>
-        <p className="terms__paragrap-bottom">
-          <span className="terms__step">TERMS OF USE:</span>
-          <br />
+        <p className="terms__paragraph-bottom">
+          <h3 className="terms__section-title">TERMS OF USE:</h3>
           <br/>
           By using Madame Oracle, users agree to these terms and conditions. Any
           reliance on the content provided through Madame Oracle is at the

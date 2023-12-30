@@ -1,12 +1,13 @@
 .terms{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
     align-content: center;
     flex-wrap: nowrap;
     font-family: "Aleo-Medium",Arial, sans-serif;
     color: #DCDBCD;
     padding: 0px 200px 16px 200px;
+    align-items: center;
 }
 
 .terms__title {
@@ -16,14 +17,18 @@
 
 .terms__section-title{
     font-size: 24px;
-    margin-bottom: 10px;
+    margin-bottom: -4px;
     text-shadow: 1px 1px 2px #000;
 }
 
 .terms__paragraph{
+    display: flex;
     text-indent: 20px;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .terms__step{
@@ -31,16 +36,18 @@
 }
 
 .terms__paragraph-bottom{
+    display: flex;
+    margin: 0 auto;
     background: transparent;
-    text-indent: -26px;
+    /* text-indent: -11px; */
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
-    font-size: 12px;
-    font-size: 10px;
+    font-size: inherit;
+    /* font-size: 15px; */
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 26px 119px 10px 163px;
-    align-content: center;
+    /* padding: 5px 1px 10px 0px; */
+    justify-content: center;
 }
