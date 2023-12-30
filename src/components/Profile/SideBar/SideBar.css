@@ -64,3 +64,20 @@
 .sidebar__button-edit:hover{
   opacity:0.6
 }
+
+.sidebar__button-saved{
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  transition: opacity linear 0.2s 0.1s;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 7px;
+  color: #c279ff;
+  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+}
+
+.sidebar__button-saved:hover{
+  opacity:0.6
+}

@@ -27,7 +27,9 @@ const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
       >
         Change Profile Data
       </button>
-
+      <button className="sidebar__button-saved">
+        Saved Readings
+      </button>
       <button
         className="sidebar__button-logout"
         type="button"
@@ -35,6 +37,7 @@ const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
       >
         Log out
       </button>
+
     </section>
   );
 };

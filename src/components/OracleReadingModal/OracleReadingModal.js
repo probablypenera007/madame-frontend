@@ -30,10 +30,12 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSaveReading, onDeleteRe
       userId: currentUser._id,
     };
     onSaveReading(readingData);
+    onClose();
   };
 
-  const handleDelete = () => {
+  const handleDelete = (readingData) => {
     onDeleteReading(readingData._id);
+    onClose();
   };
 
   return (
