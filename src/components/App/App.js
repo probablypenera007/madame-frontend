@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import AboutUs from "../AboutUs/AboutUs";
 import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -38,7 +39,7 @@ function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [isReadingCompleted, setIsReadingCompleted] = useState(false);
   // adding new feature to Madame Oracle
-  
+
   // useState for when User is talking to Madame Oracle needs to have waveform to show that it is recording
   // useState for button to be disabled when Oracle is processing SST
   // useState for when Oracle is done processing SST
@@ -50,7 +51,6 @@ function App() {
   const [isOracleProcessingSTT, setIsOracleProcessingSTT] = useState(false);
   const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
-
 
   const history = useHistory();
 
@@ -192,6 +192,11 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  const handleAboutUsClick = (e) => {
+    e.preventDefault();
+    history.push("/aboutus");
+  };
+
   // -------------------------
   //      MADAME ORACLE
   // -------------------------
@@ -254,8 +259,8 @@ function App() {
                 });
               })
               .then((aiResponse) => {
-                setIsOracleProcessingSTT(false);  // Oracle done processing SST - crystall ball becomes solid black - ( prepare yourself, the stars and cosmic energy has spoken )
-                setIsOracleProcessingTTS(true);  // Oracle starts processing TTS - hyper space drive starts, galactic background goes on an infinite illusion of space travel
+                setIsOracleProcessingSTT(false); // Oracle done processing SST - crystall ball becomes solid black - ( prepare yourself, the stars and cosmic energy has spoken )
+                setIsOracleProcessingTTS(true); // Oracle starts processing TTS - hyper space drive starts, galactic background goes on an infinite illusion of space travel
                 console.log("Oracle response:", aiResponse.reply);
                 setOracleResponse(aiResponse.reply);
                 return ai.getTextFromOracleToAudio({ text: aiResponse.reply });
@@ -269,14 +274,14 @@ function App() {
                 const audioUrl = URL.createObjectURL(audioBlob);
                 const audioElement = new Audio(audioUrl);
                 audioElement.src = audioUrl;
-                setIsOracleProcessingTTS(false);  // Oracle done processing TTS - hyper space drive stops, record button still disabled
-                setIsOraclePlayingAudio(true);  // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something, record button still disabled
+                setIsOracleProcessingTTS(false); // Oracle done processing TTS - hyper space drive stops, record button still disabled
+                setIsOraclePlayingAudio(true); // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something, record button still disabled
                 console.log("Audio element src:", audioElement.src);
                 audioElement.play();
                 audioElement.onended = () => {
                   URL.revokeObjectURL(audioUrl);
-                  setIsOraclePlayingAudio(false);  // Oracle done playing audio - waveform stops and crystal ball stops glowing, record button still disabled
-                  setIsReadingCompleted(true);  
+                  setIsOraclePlayingAudio(false); // Oracle done playing audio - waveform stops and crystal ball stops glowing, record button still disabled
+                  setIsReadingCompleted(true);
                 };
               })
               .catch((error) => {
@@ -298,7 +303,11 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className={`bg__galaxy ${isOracleProcessingTTS ? 'bg__galaxy--hyperdrive-active' : ''}`}></div>
+      <div
+        className={`bg__galaxy ${
+          isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
+        }`}
+      ></div>
       <div className="page">
         <Header
           weatherLocation={weatherLocation}
@@ -306,6 +315,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
+          onAboutUsClick={handleAboutUsClick}
         />
         <Switch>
           <Route exact path="/">
@@ -333,6 +343,13 @@ function App() {
               />
             </ProtectedRoute>
           </Route>
+          <Route
+          exact
+          path="/aboutus"
+          render={() => (
+          <AboutUs/>
+          )}
+          />
         </Switch>
         <Footer />
         {activeModal === "create" && (

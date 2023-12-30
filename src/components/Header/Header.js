@@ -39,6 +39,7 @@ const Header = ({
   isLoggedIn,
   onLogInModal,
   onRegisterModal,
+  onAboutUsClick,
 }) => {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   const currentDate = new Date().toLocaleString("default", {
@@ -77,6 +78,9 @@ const Header = ({
 {/* 
 <div className={`header__navigation ${isMobileMenuOpened ? 'header__navigation--open' : ''}`}> */}
       <div className="header__button-container">
+        <button className="header___button-aboutus"
+        type="text"
+        onClick={onAboutUsClick}>About Us</button>
         {isLoggedIn ? (
           <button
             className="header__button-addClothes"
