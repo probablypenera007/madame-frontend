@@ -93,6 +93,7 @@
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
   margin-left: 20px;
+  text-decoration: none;
 }
 
 .header___button-aboutus:hover{

@@ -8,6 +8,7 @@ import blackCloseButton from "../../images/blackCloseButton.svg";
 // import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import ZodiacAvatar from "../ZodiacAvatar/ZodiacAvatar";
+import { useHistory } from "react-router-dom";
 
 function getCurrentZodiacSign() {
   const today = new Date();
@@ -47,7 +48,11 @@ const Header = ({
   });
 
   const currentUser = React.useContext(CurrentUserContext);
+  const history = useHistory();
 
+  const handleAboutUsClick = () => {
+    history.push("/aboutus");
+  };
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened);
   };
@@ -66,32 +71,18 @@ const Header = ({
           {currentDate}, {zodiacSeason} Season
         </div>
       </div>
-
-      {/* 
-      {!isMobileMenuOpened && (
-      <button className="header__hamburger" onClick={toggleMobileMenu}>
-           <img src={MobileButton} alt="mobile" />
-      </button>
-    )} */}
-      {/* 
-<div className={`header__navigation ${isMobileMenuOpened ? 'header__navigation--open' : ''}`}> */}
       <div className="header__button-container">
-        <button
+      {/* <Link to="/aboutus" className="header___button-aboutus">
+          About Us
+        </Link> */}
+ <button
           className="header___button-aboutus"
-          type="text"
-          onClick={onAboutUsClick}
+          type="button"
+          onClick={handleAboutUsClick}
         >
           About Us
         </button>
-        {isLoggedIn ? (
-          <button
-            className="header__button-addClothes"
-            type="text"
-            disabled
-          >
-          
-          </button>
-        ) : (
+        {!isLoggedIn && (
           <button
             className="header__button-register"
             type="button"

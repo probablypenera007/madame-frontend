@@ -23,6 +23,7 @@ function Profile({
   oracleReadings,
   onSaveReading,
   onDeleteReading,
+  // onAboutUsClick,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
   return (

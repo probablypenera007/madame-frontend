@@ -190,12 +190,12 @@ function App() {
   const handleAboutUsClick = (e) => {
     e.preventDefault();
     history.push("/aboutus");
-
-    const handleTermsAndConditionsClick = (e) => {
-      e.preventDefault();
-      history.push("/terms-and-conditions");
-    }
-  };
+  }
+  //   const handleTermsAndConditionsClick = (e) => {
+  //     e.preventDefault();
+  //     history.push("/terms-and-conditions");
+  //   }
+  // };
 
   // -------------------------
   //      MADAME ORACLE
@@ -350,7 +350,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
-          onAboutUsClick={handleAboutUsClick}
+          // onAboutUsClick={handleAboutUsClick}
         />
         <Switch>
           <Route exact path="/">
@@ -378,6 +378,7 @@ function App() {
                 oracleReadings={oracleReadings}
                 onSaveReading={handleSaveReading}
                 onDeleteReading={handleDeleteReading}
+                // onAboutUsClick={handleAboutUsClick}
               />
             </ProtectedRoute>
           </Route>
