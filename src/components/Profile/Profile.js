@@ -46,7 +46,8 @@ function Profile({
         isLoggedIn={isLoggedIn}
         onEditProfile={onEditProfile}
         onSwitchToSaveReadings={switchToSavedReadings}
-        onSwitchToOracle={switchToOracleView}
+        onSwitchToOracleView={switchToOracleView}
+        isOracleView={currentView === "oracle"}
       />
       <div>
         {currentView === "oracle" ? (
