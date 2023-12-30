@@ -3,7 +3,7 @@ import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import "./SideBar.css";
 import ZodiacAvatar from "../../ZodiacAvatar/ZodiacAvatar";
 
-const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
+const SideBar = ({ onLogOut, onEditProfile, isLoggedIn, onSwitchToSaveReadings, onSwitchToOracleView }) => {
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -27,9 +27,25 @@ const SideBar = ({ onLogOut, onEditProfile, isLoggedIn }) => {
       >
         Change Profile Data
       </button>
-      <button className="sidebar__button-saved">
-        Saved Readings
-      </button>
+      {!onSwitchToSaveReadings ? (
+              <button
+              className="sidebar__button-oracle"
+              type="button"
+              onClick={onSwitchToOracleView}
+              >
+                Talk To Oracle
+              </button>
+ 
+      ): (
+        <button 
+        className="sidebar__button-saved"
+        type="button"
+        onClick={onSwitchToSaveReadings}>
+          Saved Readings
+        </button>
+       
+      )}
+   
       <button
         className="sidebar__button-logout"
         type="button"

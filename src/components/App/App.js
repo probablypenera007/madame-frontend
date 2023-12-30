@@ -336,6 +336,16 @@ function App() {
       .catch(console.error);
   };
 
+  const handleUpdateReading  = (readingId, updatedData) => {
+    api.updateReadingTitle(readingId, updatedData)
+    .then((updateReading) => {
+      setOracleReadings((prevReadings) => 
+      prevReadings.map((reading) => reading._id === readingId ? updateReading : reading)
+      );
+    })
+    .catch(console.error);
+  }; 
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div
@@ -376,8 +386,9 @@ function App() {
                 isUserTalking={isUserTalking}
                 setIsUserTalking={setIsUserTalking}
                 oracleReadings={oracleReadings}
-                onSaveReading={handleSaveReading}
+                onSavedReading={handleSaveReading}
                 onDeleteReading={handleDeleteReading}
+                onUpdateReading={handleUpdateReading}
                 // onAboutUsClick={handleAboutUsClick}
               />
             </ProtectedRoute>
