@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
 
 const SavedReadingSection = ({
-//   oracleReadings,
+  //   oracleReadings,
   onSavedReading,
   onUpdateReading,
   onDeleteReading,
@@ -18,6 +18,12 @@ const SavedReadingSection = ({
     setSelectedReading(null);
   };
 
+  const handleSavedReadingSubmit = (e) => {
+    e.preventDefault();
+    console.log("Saved reading submitted");
+    onSavedReading();
+  };
+
   return (
     <section className="section__saved-reading">
       <h1 className="section__saved-reading_title"> Your Saved Readings </h1>
@@ -28,7 +34,15 @@ const SavedReadingSection = ({
             className="section__saved-item"
             onClick={() => handleSelectReading(reading)}
           >
-            {reading.title}
+            {reading.title} ---------
+            <div className="section__reading_button-container">
+              <button className="section__edit-button" type="button">
+                Edit
+              </button>
+              <button className="section__delete-button" type="button">
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
@@ -36,6 +50,7 @@ const SavedReadingSection = ({
         <OracleReadingModal
           oracleResponse={selectedReading.text}
           onClose={handleCloseModal}
+          onSavedReading={() => onSavedReading(selectedReading._id)}
           onUpdateReading={() => onUpdateReading(selectedReading._id)}
           onDeleteReading={() => onDeleteReading(selectedReading._id)}
         />

@@ -27,6 +27,7 @@ export function getUserReadings() {
 }
 
 export function saveReading(reading, token) {
+  console.log("Saving reading:", reading); 
   return request(`${baseUrl}/readings`, {
     method: "POST",
     headers: {
