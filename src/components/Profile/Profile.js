@@ -36,8 +36,8 @@ function Profile({
   };
 
   const switchToOracleView = () => {
-    setCurrentView("oracle")
-  }
+    setCurrentView("oracle");
+  };
 
   return (
     <section className="profile">
@@ -49,34 +49,33 @@ function Profile({
         onSwitchToOracleView={switchToOracleView}
         isOracleView={currentView === "oracle"}
       />
-      <div>
-        {currentView === "oracle" ? (
-          <OracleSection
-            isRecording={isRecording}
-            startRecording={startRecording}
-            stopRecording={stopRecording}
-            oracleResponse={oracleResponse}
-            handleCloseModal={handleCloseModal}
-            isReadingCompleted={isReadingCompleted}
-            setIsReadingCompleted={setIsReadingCompleted}
-            isOracleProcessingSTT={isOracleProcessingSTT}
-            isOracleProcessingTTS={isOracleProcessingTTS}
-            isOraclePlayingAudio={isOraclePlayingAudio}
-            isUserTalking={isUserTalking}
-            setIsUserTalking={setIsUserTalking}
-            oracleReadings={oracleReadings}
-            onSavedReading={onSavedReading}
-            onDeleteReading={onDeleteReading}
-          />
-        ) : (
-          <SavedReadingSection
-            oracleReadings={oracleReadings}
-            onSavedReading={onSavedReading}
-            onUpdateReading={onUpdateReading}
-            onDeleteReading={onDeleteReading}
-          />
-        )}
-      </div>
+
+      {currentView === "oracle" ? (
+        <OracleSection
+          isRecording={isRecording}
+          startRecording={startRecording}
+          stopRecording={stopRecording}
+          oracleResponse={oracleResponse}
+          handleCloseModal={handleCloseModal}
+          isReadingCompleted={isReadingCompleted}
+          setIsReadingCompleted={setIsReadingCompleted}
+          isOracleProcessingSTT={isOracleProcessingSTT}
+          isOracleProcessingTTS={isOracleProcessingTTS}
+          isOraclePlayingAudio={isOraclePlayingAudio}
+          isUserTalking={isUserTalking}
+          setIsUserTalking={setIsUserTalking}
+          oracleReadings={oracleReadings}
+          onSavedReading={onSavedReading}
+          onDeleteReading={onDeleteReading}
+        />
+      ) : (
+        <SavedReadingSection
+          oracleReadings={oracleReadings}
+          onSavedReading={onSavedReading}
+          onUpdateReading={onUpdateReading}
+          onDeleteReading={onDeleteReading}
+        />
+      )}
     </section>
   );
 }
