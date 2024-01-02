@@ -11,9 +11,7 @@
 }
 
 .section__saved-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+ 
     justify-content: center;
     width: 100%;
     margin-top: 10px;
@@ -21,7 +19,7 @@
 
 .section__saved-item{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     margin: 10px 0px;
@@ -33,18 +31,15 @@
 }
 
 .section__reading_button-container{
-    display: flex;
+    display: flex; 
     flex-direction: row;
-    justify-content: center;
     width: 100%;
     margin-top: 10px;
+    justify-content: flex-end;
 }
 
 .section__edit-button{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
     width: 100px;
     height: 30px;
     margin: 0px 10px;

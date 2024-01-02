@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
+import "./SavedReadingSection.css";
 
 const SavedReadingSection = ({
   //   oracleReadings,
@@ -34,7 +35,7 @@ const SavedReadingSection = ({
             className="section__saved-item"
             onClick={() => handleSelectReading(reading)}
           >
-            {reading.title} ---------
+            {reading.title} --- {reading.date}
             <div className="section__reading_button-container">
               <button className="section__edit-button" type="button">
                 Edit
