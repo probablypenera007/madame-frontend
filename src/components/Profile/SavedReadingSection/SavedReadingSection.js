@@ -4,74 +4,82 @@ import { useForm } from "../../../hooks/useForm";
 import "./SavedReadingSection.css";
 
 const SavedReadingSection = ({
-  //   oracleReadings,
+  oracleReadings,
   onSavedReading,
   onUpdateReading,
   onDeleteReading,
-  oracleReadings,
 }) => {
   const [selectedReading, setSelectedReading] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-
-  const { values, handleChange } = useForm({
+  const [editingReadingId, setEditingReadingId] = useState(null);
+  const { values, handleChange, setValues } = useForm({
     title: "",
   });
 
-
-
-
-  const handleSelectReading = (reading) => {
-    setSelectedReading(reading);
+  const handleSelectReading = (oracleReading) => {
+    if (editingReadingId !== oracleReading._id) {
+      setSelectedReading(oracleReading);
+    }
   };
 
   const handleCloseModal = () => {
     setSelectedReading(null);
   };
 
-  const handleSavedReadingSubmit = (e) => {
-    e.preventDefault();
-    console.log("Saved reading submitted");
-    onSavedReading(values);
-    setIsEditing(false);
+  const handleEditClick = (readingId) => {
+    if (editingReadingId === readingId) {
+      setEditingReadingId(null);
+      setValues({ title: "" });
+    } else {
+      setEditingReadingId(readingId);
+      const readingToEdit = oracleReadings.find(
+        (reading) => reading._id === readingId
+      );
+      if (readingToEdit) {
+        setValues({ title: readingToEdit.title });
+      }
+    }
   };
 
-  const handleEditClick = () => {
-    setIsEditing(!isEditing);
+  const handleSavedReadingSubmit = (readingId) => {
+    if (editingReadingId === readingId) {
+      onUpdateReading(readingId, values.title); // Pass both readingId and updated title
+      setEditingReadingId(null);
+      setValues({ title: "" });
+    }
   };
 
   return (
     <section className="section__saved-reading">
       <h1 className="section__saved-reading_title">Your Saved Readings</h1>
       <ul className="section__saved-list">
-        {oracleReadings.map((reading, index) => (
-          <li
-            key={index}
-            className="section__saved-item"
-            onClick={() => handleSelectReading(reading)}
-          >
-            {isEditing ? (
-              <input
-                type="text"
-                value={values.title}
-                onChange={handleChange}
-              />
-            ) : (
-              <span>{reading.title}</span>
-            )}
+        {oracleReadings.map((reading) => (
+          <li key={reading._id} className="section__saved-item">
+            <span onClick={() => handleSelectReading(reading)}>
+              {editingReadingId === reading._id ? (
+                <input
+                  name="title"
+                  type="text"
+                  value={values.title}
+                  onChange={handleChange}
+                />
+              ) : (
+                <span>{reading.title}</span>
+              )}
+            </span>
             {reading.date}
             <div className="section__reading_button-container">
               <button
                 className="section__edit-button"
                 type="button"
-                onClick={handleEditClick}
+                onClick={() => handleEditClick(reading._id)}
               >
-                {isEditing ? "Cancel" : "Edit"}
+                {editingReadingId === reading._id ? "Cancel" : "Edit"}
               </button>
-              {isEditing && (
+              {editingReadingId === reading._id && (
                 <button
                   className="section__save-button"
                   type="button"
-                  onClick={handleSavedReadingSubmit}
+                  onClick={() => handleSavedReadingSubmit(reading._id)}
                 >
                   Save
                 </button>
@@ -87,7 +95,7 @@ const SavedReadingSection = ({
           </li>
         ))}
       </ul>
-      {selectedReading && !isEditing && (
+      {selectedReading && !editingReadingId && (
         <OracleReadingModal
           oracleResponse={selectedReading.text}
           onClose={handleCloseModal}

@@ -339,16 +339,23 @@ function App() {
       .catch(console.error);
   };
 
-  const handleUpdateReading  = (readingId, updatedData) => {
-    api.updateReadingTitle(readingId, updatedData)
-    .then((updateReading) => {
-      setOracleReadings((prevReadings) => 
-      prevReadings.map((reading) => reading._id === readingId ? updateReading : reading)
-      );
-    })
-    .catch(console.error);
-  }; 
-
+  const handleUpdateReading = (readingId) => {
+    const updatedTitle = oracleReadings.find((reading) => reading._id === readingId)?.title;
+  
+    if (updatedTitle !== undefined) {
+      api
+        .updateReadingTitle(readingId, { title: updatedTitle })
+        .then((updatedReading) => {
+          setOracleReadings((prevReadings) =>
+            prevReadings.map((reading) =>
+              reading._id === updatedReading._id ? updatedReading : reading
+            )
+          );
+        })
+        .catch(console.error);
+    }
+  };
+  
   console.log("oracle reading value in App.js: ", oracleReadings)
 
   return (
