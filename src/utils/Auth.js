@@ -1,12 +1,12 @@
 import { request, baseUrl } from "./Api";
 
-export const register = ({ name, dob, placeOfBirth, maritalStatus, gender, email, password }) => {
+export const register = ({ name, dob, placeOfBirth, maritalStatus, sexualOrientation, email, password }) => {
   return request(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, dob, placeOfBirth, maritalStatus, gender, email, password }),
+    body: JSON.stringify({ name, dob, placeOfBirth, maritalStatus, sexualOrientation, email, password }),
   });
 };
 
@@ -20,7 +20,7 @@ export const logIn = ({ email, password }) => {
   });
 };
 
-export const editProfile = ({ name, dob, placeOfBirth, maritalStatus, gender }) => {
+export const editProfile = ({ name, dob, placeOfBirth, maritalStatus, sexualOrientation }) => {
   const jwt = localStorage.getItem("jwt");
   return request(`${baseUrl}/users/me`, {
     method: "PATCH",
@@ -28,7 +28,7 @@ export const editProfile = ({ name, dob, placeOfBirth, maritalStatus, gender }) 
       "Content-Type": "application/json",
       Authorization: `Bearer ${jwt}`,
     },
-    body: JSON.stringify({ name, dob, placeOfBirth, maritalStatus, gender }),
+    body: JSON.stringify({ name, dob, placeOfBirth, maritalStatus, sexualOrientation }),
   });
 };
 

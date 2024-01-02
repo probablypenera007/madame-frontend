@@ -15,7 +15,7 @@ const RegisterModal = ({
     dob: "",
     placeOfBirth: "",
     maritalStatus: "",
-    gender: "",
+    sexualOrientation: "",
     email: "",
     password: "",
   });
@@ -102,32 +102,38 @@ const RegisterModal = ({
           </select>
         </label>
         <label className="modal__label modal__label_register">
-          Gender
+          Sexual Orientation
           <select
             // id="register-gender"
-            placeholder="Gender"
+            placeholder="Sexual Orientation"
             className="modal__input_text modal__input_text-register"
-            name="gender"
-            value={values.gender}
+            name="sexualOrientation"
+            value={values.sexualOrientation}
             onChange={handleChange}
             required
           >
-            <option value="" disabled>Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Transgender">Transgender</option>
-            <option value="Non-Binary">Non-Binary</option>
-            <option value="Genderqueer">Genderqueer</option>
-            <option value="Genderfluid">Genderfluid</option>
-            <option value="Bigender">Bigender</option>
-            <option value="Agender">Agender</option>
-            <option value="Pangender">Pangender</option>
-            <option value="Neutrois">Neutrois</option>
-            <option value="Androgyne">Androgyne</option>
-            <option value="Demiboy">Demiboy</option>
-            <option value="Demigirl">Demigirl</option>
+            <option value="" disabled>Sexual Orientation</option>
+            <option value="Straight-Male">Straight-Male</option>
+            <option value="Straight-Female">Straight-Female</option>
+            <option value="Gay">Gay</option>
+            <option value="Lesbian">Lesbian</option>
+            <option value="Bisexual">Bisexual</option>
+            <option value="Pansexual">Pansexual</option>
+            <option value="Asexual">Asexual</option>
+            <option value="Queer">Queer</option>
+            <option value="Questioning">Questioning</option>
+            <option value="Demisexual">Demisexual</option>
+            <option value="Greysexual">Greysexual</option>
+            <option value="Heteroflexible">Heteroflexible</option>
+            <option value="Homoflexible">Homoflexible</option>
+            <option value="Androgynosexual">Androgynosexual</option>
+            <option value="Skoliosexual">Skoliosexual</option>
+            <option value="Polysexual">Polysexual</option>
             <option value="Two-Spirit">Two-Spirit</option>
-            <option value="Third Gender">Third Gender</option>
+            <option value="Agender">Agender</option>
+            <option value="Bigender">Bigender</option>
+            <option value="Genderfluid">Genderfluid</option>
+            <option value="Non-Binary">Non-Binary</option>
             <option value="Other">Other</option>
           </select>
         </label>
