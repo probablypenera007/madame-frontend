@@ -190,7 +190,7 @@ function App() {
   const handleAboutUsClick = (e) => {
     e.preventDefault();
     history.push("/aboutus");
-  }
+  };
   //   const handleTermsAndConditionsClick = (e) => {
   //     e.preventDefault();
   //     history.push("/terms-and-conditions");
@@ -307,23 +307,23 @@ function App() {
 
   useEffect(() => {
     // if (isLoggedIn) {
-      api
-        .getUserReadings()
-        .then((res) => {
-          setOracleReadings(res.data);
-          console.log("data from getUserReadings: ", res.data)
-        })
-        .catch(console.error);
+    api
+      .getUserReadings()
+      .then((res) => {
+        setOracleReadings(res.data);
+        console.log("data from getUserReadings: ", res.data);
+      })
+      .catch(console.error);
     // }
-  // }, [isLoggedIn]);
-}, []);
+    // }, [isLoggedIn]);
+  }, []);
 
   const handleSavedReading = (readingData) => {
     api
       .saveReading(readingData)
       .then((newReading) => {
         setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
-        console.log("new reading from App.js: ", readingData)
+        console.log("new reading from App.js: ", readingData);
       })
       .catch(console.error);
   };
@@ -339,18 +339,20 @@ function App() {
       .catch(console.error);
   };
 
-
   const handleUpdateReading = (readingId, title) => {
-    api.updateReadingTitle(readingId, title)
+    api
+      .updateReadingTitle(readingId, title)
       .then((updateReading) => {
-        setOracleReadings((prevReadings) => 
-          prevReadings.map((reading) => reading._id === readingId ? updateReading : reading)
+        setOracleReadings((prevReadings) =>
+          prevReadings.map((reading) =>
+            reading._id === readingId ? updateReading : reading
+          )
         );
       })
       .catch(console.error);
   };
-  
-  console.log("oracle reading value in App.js: ", oracleReadings)
+
+  console.log("oracle reading value in App.js: ", oracleReadings);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -398,7 +400,11 @@ function App() {
             </ProtectedRoute>
           </Route>
           <Route exact path="/aboutus" render={() => <AboutUs />} />
-          <Route exact path="/terms-and-conditions" render={() => <TermsAndConditions/>} />
+          <Route
+            exact
+            path="/terms-and-conditions"
+            render={() => <TermsAndConditions />}
+          />
         </Switch>
         <Footer />
         {activeModal === "create" && (

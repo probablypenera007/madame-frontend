@@ -17,6 +17,9 @@ const SavedReadingSection = ({
     title: "",
   });
 
+  const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+
   const handleSelectReading = (oracleReading) => {
     if (editingReadingId !== oracleReading._id) {
       setSelectedReading(oracleReading);
@@ -32,9 +35,11 @@ const SavedReadingSection = ({
       setEditingReadingId(null);
       setValues({ title: "" });
       setIsEditing(false);
-       setIsEditing(false);
+      setIsEditing(false);
     } else {
-      const readingToEdit = oracleReadings.find(reading => reading._id === readingId);
+      const readingToEdit = oracleReadings.find(
+        (reading) => reading._id === readingId
+      );
       if (readingToEdit) {
         setValues({ title: readingToEdit.title });
         setIsEditing(true);
@@ -51,24 +56,39 @@ const SavedReadingSection = ({
     setEditingReadingId(null);
   };
 
-  //https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key 
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  //https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key
 
   return (
     <section className="section__saved-reading">
       <h1 className="section__saved-reading_title">Your Saved Readings</h1>
       <ul className="section__saved-list">
-        {oracleReadings.map((reading) => (
+        {oracleReadings.slice(startIndex, endIndex).map((reading) => (
           <li key={reading._id} className="section__saved-item">
             <span onClick={() => handleSelectReading(reading)}>
               {editingReadingId === reading._id ? (
                 <input
                   name="title"
                   type="text"
-                  value={editingReadingId === reading._id ? values.title : reading.title}
+                  value={
+                    editingReadingId === reading._id
+                      ? values.title
+                      : reading.title
+                  }
                   onChange={handleChange}
                 />
               ) : (
-                <span>{reading.title}</span>
+                <span className="section__saved-title" >{reading.title}</span>
               )}
             </span>
             {reading.date}
@@ -102,12 +122,30 @@ const SavedReadingSection = ({
           </li>
         ))}
       </ul>
+      <div className="pagination-buttons">
+        <button
+          className="section__previous-button"
+          type="button"
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button
+          className="section__next-button"
+          type="button"
+          onClick={handleNextPage}
+          disabled={endIndex >= oracleReadings.length}
+        >
+          Next
+        </button>
+      </div>
       {selectedReading && !editingReadingId && (
         <OracleReadingModal
           oracleResponse={selectedReading.text}
           onClose={handleCloseModal}
+          updatedTitle={values.title}
           onSavedReading={() => onSavedReading(selectedReading._id)}
-          onUpdateReading={() => onUpdateReading(selectedReading._id)}
           onDeleteReading={() => onDeleteReading(selectedReading._id)}
         />
       )}
