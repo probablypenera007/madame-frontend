@@ -51,7 +51,7 @@ const SavedReadingSection = ({
   const handleUpdatedTitleReadingSubmit = (e, readingId) => {
     e.preventDefault();
     console.log("Saved reading submitted");
-    onUpdateReading(editingReadingId, values.title);
+    onUpdateReading(readingId, values.title);
     setIsEditing(false);
     setEditingReadingId(null);
   };

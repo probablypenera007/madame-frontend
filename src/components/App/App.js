@@ -82,6 +82,61 @@ function App() {
       .finally(() => setIsLoading(false));
   }
 
+
+  // -------------------------
+  //      USER READINGS
+  // -------------------------
+
+  useEffect(() => {
+    if (isLoggedIn) {
+    api
+      .getUserReadings()
+      .then((res) => {
+        setOracleReadings(res.data);
+        console.log("data from getUserReadings: ", res.data);
+      })
+      .catch(console.error);
+    }
+    }, [isLoggedIn]);
+  // }, []);
+
+  const handleSavedReading = (readingData) => {
+    api
+      .saveReading(readingData)
+      .then((newReading) => {
+        setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
+        console.log("new reading from App.js: ", readingData);
+      })
+      .catch(console.error);
+  };
+
+  const handleDeleteReading = (readingId) => {
+    api
+      .deleteReading(readingId)
+      .then(() => {
+        setOracleReadings((prevReadings) =>
+          prevReadings.filter((reading) => reading._id !== readingId)
+        );
+      })
+      .catch(console.error);
+  };
+
+  const handleUpdateReading = (readingId, title) => {
+    api
+      .updateReadingTitle(readingId, title)
+      .then((updateReading) => {
+        setOracleReadings((prevReadings) =>
+          prevReadings.map((reading) =>
+            reading._id === readingId ? updateReading : reading
+          )
+        );
+      })
+      .catch(console.error);
+  };
+
+  console.log("oracle reading value in App.js: ", oracleReadings);
+
+
   // -------------------------
   //         USERS
   // -------------------------
@@ -95,6 +150,12 @@ function App() {
           if (res) {
             setIsLoggedIn(true);
             setCurrentUser(res.data);
+            api
+            .getUserReadings()
+            .then((res) => {
+              setOracleReadings(res.data);
+              console.log("data from getUserReadings: ", res.data);
+            })
           }
         })
         .then(() => {
@@ -136,6 +197,7 @@ function App() {
           .checkToken(res.token)
           .then((user) => {
             setCurrentUser(user.data);
+            setOracleReadings(user.data.readings);
             history.push("/profile");
             handleCloseModal();
           })
@@ -149,6 +211,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({});
+    setOracleReadings([]); 
     history.push("/");
   };
 
@@ -300,59 +363,6 @@ function App() {
       setIsRecording(false);
     }
   };
-
-  // -------------------------
-  //      USER READINGS
-  // -------------------------
-
-  useEffect(() => {
-    // if (isLoggedIn) {
-    api
-      .getUserReadings()
-      .then((res) => {
-        setOracleReadings(res.data);
-        console.log("data from getUserReadings: ", res.data);
-      })
-      .catch(console.error);
-    // }
-    // }, [isLoggedIn]);
-  }, []);
-
-  const handleSavedReading = (readingData) => {
-    api
-      .saveReading(readingData)
-      .then((newReading) => {
-        setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
-        console.log("new reading from App.js: ", readingData);
-      })
-      .catch(console.error);
-  };
-
-  const handleDeleteReading = (readingId) => {
-    api
-      .deleteReading(readingId)
-      .then(() => {
-        setOracleReadings((prevReadings) =>
-          prevReadings.filter((reading) => reading._id !== readingId)
-        );
-      })
-      .catch(console.error);
-  };
-
-  const handleUpdateReading = (readingId, title) => {
-    api
-      .updateReadingTitle(readingId, title)
-      .then((updateReading) => {
-        setOracleReadings((prevReadings) =>
-          prevReadings.map((reading) =>
-            reading._id === readingId ? updateReading : reading
-          )
-        );
-      })
-      .catch(console.error);
-  };
-
-  console.log("oracle reading value in App.js: ", oracleReadings);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
