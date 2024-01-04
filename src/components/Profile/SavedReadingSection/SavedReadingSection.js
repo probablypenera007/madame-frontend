@@ -74,7 +74,7 @@ const SavedReadingSection = ({
       <h1 className="section__saved-reading_title">Your Saved Readings</h1>
       <ul className="section__saved-list">
         {oracleReadings.slice(startIndex, endIndex).map((reading) => (
-          <li key={reading._id} className="section__saved-item">
+       <li key={reading._id} className="section__saved-item">
             <span onClick={() => handleSelectReading(reading)}>
               {editingReadingId === reading._id ? (
                 <input
