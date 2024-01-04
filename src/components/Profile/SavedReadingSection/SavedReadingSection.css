@@ -25,14 +25,16 @@
     cursor: pointer;
 }
 
-.section__saved-item:hover{
-    background-color: #6b206a9f;
-}
-
 .section__saved-title{
     font-size: 20px;
     font-weight: 500;
     margin-left: -236px;
+    opacity: 1;
+    transition: opacity linear 0.2s 0.1s;
+}
+
+.section__saved-title:hover{
+    opacity: .6;
 }
 
 .section__reading_button-container{
@@ -72,4 +74,30 @@
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.section__previous-button{
+    background-color: transparent;
+    border: none;
+    color: #d9acff;
+    font-size: 25px;
+    cursor: pointer;
+    text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.8);
+}
+
+.section__previous-button:disabled{
+    visibility: hidden;
+}
+
+.section__next-button{
+    background-color: transparent;
+    border: none;
+    color:#d9acff;
+    font-size: 25px;
+    cursor: pointer;
+    text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.8);
+}
+
+.section__next-button:disabled{
+    visibility: hidden;
 }

@@ -78,6 +78,7 @@ const SavedReadingSection = ({
             <span onClick={() => handleSelectReading(reading)}>
               {editingReadingId === reading._id ? (
                 <input
+                className="section__saved-title"
                   name="title"
                   type="text"
                   value={
