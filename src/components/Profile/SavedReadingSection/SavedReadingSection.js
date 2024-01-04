@@ -129,7 +129,7 @@ const SavedReadingSection = ({
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
         >
-          Previous
+          {"<<"}
         </button>
         <button
           className="section__next-button"
@@ -137,7 +137,7 @@ const SavedReadingSection = ({
           onClick={handleNextPage}
           disabled={endIndex >= oracleReadings.length}
         >
-          Next
+          {">>"}
         </button>
       </div>
       {selectedReading && !editingReadingId && (
