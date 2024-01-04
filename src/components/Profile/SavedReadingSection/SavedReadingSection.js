@@ -104,8 +104,9 @@ const SavedReadingSection = ({
         <OracleReadingModal
           oracleResponse={selectedReading.text}
           onClose={handleCloseModal}
+          updatedTitle={values.title}
           onSavedReading={() => onSavedReading(selectedReading._id)}
-          onUpdateReading={() => onUpdateReading(selectedReading._id)}
+          //onUpdateReading={() => onUpdateReading(selectedReading._id)}
           onDeleteReading={() => onDeleteReading(selectedReading._id)}
         />
       )}
