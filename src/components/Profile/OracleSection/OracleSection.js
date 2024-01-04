@@ -24,7 +24,9 @@ const OracleSection = ({
   const currentUser = React.useContext(CurrentUserContext);
   //const [isRecording, setIsRecording] = useState(false);
   // const [recording, setRecording] = useState(false)
-  // console.log("currentUser in OracleSection", currentUser)
+   console.log("currentUser in OracleSection", currentUser)
+
+
   const isButtonDisabled =
     isRecording ||
     isOracleProcessingSTT ||

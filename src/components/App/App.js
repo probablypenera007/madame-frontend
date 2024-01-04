@@ -339,21 +339,15 @@ function App() {
       .catch(console.error);
   };
 
-  const handleUpdateReading = (readingId) => {
-    const updatedTitle = oracleReadings.find((reading) => reading._id === readingId)?.title;
-  
-    if (updatedTitle !== undefined) {
-      api
-        .updateReadingTitle(readingId, { title: updatedTitle })
-        .then((updatedReading) => {
-          setOracleReadings((prevReadings) =>
-            prevReadings.map((reading) =>
-              reading._id === updatedReading._id ? updatedReading : reading
-            )
-          );
-        })
-        .catch(console.error);
-    }
+
+  const handleUpdateReading = (readingId, title) => {
+    api.updateReadingTitle(readingId, title)
+      .then((updateReading) => {
+        setOracleReadings((prevReadings) => 
+          prevReadings.map((reading) => reading._id === readingId ? updateReading : reading)
+        );
+      })
+      .catch(console.error);
   };
   
   console.log("oracle reading value in App.js: ", oracleReadings)
@@ -372,7 +366,6 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
-          // onAboutUsClick={handleAboutUsClick}
         />
         <Switch>
           <Route exact path="/">
@@ -401,7 +394,6 @@ function App() {
                 onSavedReading={handleSavedReading}
                 onDeleteReading={handleDeleteReading}
                 onUpdateReading={handleUpdateReading}
-                // onAboutUsClick={handleAboutUsClick}
               />
             </ProtectedRoute>
           </Route>

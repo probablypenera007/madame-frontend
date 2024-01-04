@@ -11,6 +11,8 @@ const SavedReadingSection = ({
 }) => {
   const [selectedReading, setSelectedReading] = useState(null);
   const [editingReadingId, setEditingReadingId] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingTitle, setEditingTitle] = useState("");
   const { values, handleChange, setValues } = useForm({
     title: "",
   });
@@ -29,23 +31,24 @@ const SavedReadingSection = ({
     if (editingReadingId === readingId) {
       setEditingReadingId(null);
       setValues({ title: "" });
+      setIsEditing(false);
+       setIsEditing(false);
     } else {
-      setEditingReadingId(readingId);
-      const readingToEdit = oracleReadings.find(
-        (reading) => reading._id === readingId
-      );
+      const readingToEdit = oracleReadings.find(reading => reading._id === readingId);
       if (readingToEdit) {
         setValues({ title: readingToEdit.title });
+        setIsEditing(true);
+        setEditingReadingId(readingId);
       }
     }
   };
 
-  const handleSavedReadingSubmit = (readingId) => {
-    if (editingReadingId === readingId) {
-      onUpdateReading(readingId, values.title); // Pass both readingId and updated title
-      setEditingReadingId(null);
-      setValues({ title: "" });
-    }
+  const handleUpdatedTitleReadingSubmit = (e, readingId) => {
+    e.preventDefault();
+    console.log("Saved reading submitted");
+    onUpdateReading(editingReadingId, values.title);
+    setIsEditing(false);
+    setEditingReadingId(null);
   };
 
   return (
@@ -59,7 +62,7 @@ const SavedReadingSection = ({
                 <input
                   name="title"
                   type="text"
-                  value={values.title}
+                  value={editingReadingId === reading._id ? values.title : reading.title}
                   onChange={handleChange}
                 />
               ) : (
@@ -79,9 +82,11 @@ const SavedReadingSection = ({
                 <button
                   className="section__save-button"
                   type="button"
-                  onClick={() => handleSavedReadingSubmit(reading._id)}
+                  onClick={(e) =>
+                    handleUpdatedTitleReadingSubmit(e, reading._id)
+                  }
                 >
-                  Save
+                  Update
                 </button>
               )}
               <button
