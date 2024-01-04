@@ -38,9 +38,9 @@ const OracleSection = ({
       <div className="oracle__section-heading-container">
         <div className="oracle__section-title">
           {isOracleProcessingSTT
-            ? "Madame Oracle is searching the galaxy for an answer"
+            ? "Madame Oracle is exploring the cosmos for answers"
             : isOracleProcessingTTS
-            ? "Prepare yourself, the stars and cosmic energy has spoken"
+            ? "Prepare yourself, the stars and cosmic energy have spoken"
             : isOraclePlayingAudio
             ? "This is the moment you have been waiting for, listen. "
             : !isRecording
