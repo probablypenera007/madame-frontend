@@ -51,7 +51,7 @@
   text-decoration: none;
   color: #c279ff;
   margin-left: 20px;
-  font-size: 20px;
+  font-size: 25px;
   transition: opacity linear 0.2s 0.1s;
 }
 
@@ -97,7 +97,7 @@
 .header__button-register {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 25px;
   color: #c279ff;
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;

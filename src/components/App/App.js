@@ -47,6 +47,7 @@ function App() {
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
   // adding new feature to Madame Oracle
   const [oracleReadings, setOracleReadings] = useState([]);
+  const [isMicActivated, setIsMicActivated] = useState(false);
 
   const history = useHistory();
 
@@ -87,26 +88,24 @@ function App() {
     setActiveModal("welcome");
   };
 
-
   // -------------------------
   //      USER READINGS
   // -------------------------
   useEffect(() => {
     // console.log("Updated oracleReadings state:", oracleReadings);
-}, [oracleReadings]);
-
+  }, [oracleReadings]);
 
   useEffect(() => {
     if (isLoggedIn) {
-    api
-      .getUserReadings()
-      .then((res) => {
-        setOracleReadings(res.data);
-        // console.log("data from getUserReadings: ", res.data);
-      })
-      .catch(console.error);
+      api
+        .getUserReadings()
+        .then((res) => {
+          setOracleReadings(res.data);
+          // console.log("data from getUserReadings: ", res.data);
+        })
+        .catch(console.error);
     }
-    }, [isLoggedIn]);
+  }, [isLoggedIn]);
   // }, []);
 
   const handleSavedReading = (readingData) => {
@@ -148,7 +147,6 @@ function App() {
 
   // console.log("oracle reading value in App.js: ", oracleReadings);
 
-
   // -------------------------
   //         USERS
   // -------------------------
@@ -163,12 +161,10 @@ function App() {
           if (res) {
             setIsLoggedIn(true);
             setCurrentUser(res.data);
-            api
-            .getUserReadings()
-            .then((res) => {
+            api.getUserReadings().then((res) => {
               setOracleReadings(res.data);
               // console.log("data from getUserReadings: ", res.data);
-            })
+            });
           }
         })
         .then(() => {
@@ -176,7 +172,6 @@ function App() {
             history.push("/profile");
           } else {
             history.push("/");
-            
           }
         })
         .catch((error) => {
@@ -212,7 +207,7 @@ function App() {
           .then((user) => {
             setCurrentUser(user.data);
             setOracleReadings(user.data.readings);
-            history.push("/profile");
+            history.push("/");
             handleCloseModal();
           })
           .catch(handleAuthErrors)
@@ -225,7 +220,7 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({});
-    setOracleReadings([]); 
+    setOracleReadings([]);
     history.push("/");
   };
 
@@ -240,8 +235,10 @@ function App() {
       .register(data)
       .then((res) => {
         console.log("registration response in registersubmit: ", res);
+        // setCurrentUser(user.data);
+        // setOracleReadings(user.data.readings);
         handleLogInSubmit(data);
-        history.push("/profile");
+        history.push("/");
         handleCloseModal();
       })
       .catch(console.error)
@@ -280,6 +277,16 @@ function App() {
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
+  const handleMicActivation = () => {
+    if (!isMicActivated) {
+      console.log("Mic activated");
+      setIsMicActivated(true);
+      setActiveModal("welcome");
+    } else {
+      history.push("/");
+    }
+  };
+
   const processAudio = async (audioBlob) => {
     const arrayBuffer = await blobToArrayBuffer(audioBlob);
     const convertedBlob = new Blob([arrayBuffer], { type: "audio/wav" });
@@ -380,20 +387,12 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-        {activeModal === "welcome" && !isLoggedIn && (
-          <WelcomeModal
-            isOpen={activeModal === "welcome"}
-            onLogInModal={handleLogInModal}
-            onClose={handleCloseModalforLogInAndRegister}
-            onRegisterModal={handleRegisterModal}
-          />
-        )}
       <div
         className={`bg__galaxy ${
           isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
         }`}
       ></div>
-      
+
       <div className="page">
         <Header
           weatherLocation={weatherLocation}
@@ -408,28 +407,32 @@ function App() {
           </Route>
           <Route path="/profile">
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Profile
-                onLogOut={handleLogOut}
-                isLoggedIn={isLoggedIn}
-                currentUser={currentUser}
-                onEditProfile={handleEditProfileModal}
-                isRecording={isRecording}
-                startRecording={startRecording}
-                stopRecording={stopRecording}
-                oracleResponse={oracleResponse}
-                handleCloseModal={handleCloseModal}
-                isReadingCompleted={isReadingCompleted}
-                setIsReadingCompleted={setIsReadingCompleted}
-                isOracleProcessingSTT={isOracleProcessingSTT}
-                isOracleProcessingTTS={isOracleProcessingTTS}
-                isOraclePlayingAudio={isOraclePlayingAudio}
-                isUserTalking={isUserTalking}
-                setIsUserTalking={setIsUserTalking}
-                oracleReadings={oracleReadings}
-                onSavedReading={handleSavedReading}
-                onDeleteReading={handleDeleteReading}
-                onUpdateReading={handleUpdateReading}
-              />
+              {isLoggedIn && currentUser ? (
+                <Profile
+                  onLogOut={handleLogOut}
+                  isLoggedIn={isLoggedIn}
+                  currentUser={currentUser}
+                  onEditProfile={handleEditProfileModal}
+                  isRecording={isRecording}
+                  startRecording={startRecording}
+                  stopRecording={stopRecording}
+                  oracleResponse={oracleResponse}
+                  handleCloseModal={handleCloseModal}
+                  isReadingCompleted={isReadingCompleted}
+                  setIsReadingCompleted={setIsReadingCompleted}
+                  isOracleProcessingSTT={isOracleProcessingSTT}
+                  isOracleProcessingTTS={isOracleProcessingTTS}
+                  isOraclePlayingAudio={isOraclePlayingAudio}
+                  isUserTalking={isUserTalking}
+                  setIsUserTalking={setIsUserTalking}
+                  oracleReadings={oracleReadings}
+                  onSavedReading={handleSavedReading}
+                  onDeleteReading={handleDeleteReading}
+                  onUpdateReading={handleUpdateReading}
+                />
+              ) : (
+                <div>Loading...</div>
+              )}
             </ProtectedRoute>
           </Route>
           <Route exact path="/aboutus" render={() => <AboutUs />} />
@@ -482,6 +485,23 @@ function App() {
             isOpen={activeModal === "edit-profile"}
             buttonText={isLoading ? "Saving.." : "Save Changes"}
             onSubmit={handleEditProfileSubmit}
+          />
+        )}
+        {activeModal === "welcome" && !isLoggedIn && (
+          <WelcomeModal
+            isOpen={activeModal === "welcome"}
+            buttonText={
+              isMicActivated
+                ? "Mic is Activated"
+                : isLoading
+                ? "Activating..."
+                : "Activate Mic"
+            }
+            onSubmit={handleMicActivation}
+            onLogInModal={handleLogInModal}
+            onClose={handleCloseModal}
+            onRegisterModal={handleRegisterModal}
+            isButtonDisabled={isMicActivated || isLoading}
           />
         )}
         {/* </CurrentTemperatureUnitContext.Provider> */}

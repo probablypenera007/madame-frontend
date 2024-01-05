@@ -4,16 +4,23 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const WelcomeModal = ({
   handleCloseModal,
   isOpen,
-  openLogInModal,
-  openRegisterModal,
+  buttonText,
+  onSubmit,
+  onLogInModal,
+  onRegisterModal,
+  isButtonDisabled,
+  
 }) => {
   return (
     <div className="welcome__modal">
       <ModalWithForm
         // title="Welcome to Madame Oracle"
+        buttonText={buttonText}
+        onSubmit={onSubmit}
         onClose={handleCloseModal}
         isOpen={isOpen}
         modalName={"Welcome_Modal"}
+        isButtonDisabled={isButtonDisabled}
       >
         <div className="welcome__modal__text">
           <h3 className="welcome__modal_title">Prologue:</h3>
@@ -43,10 +50,8 @@ const WelcomeModal = ({
           </button> */}
           <button
             className="welcome__modal__buttons_register"
-            onClick={openRegisterModal}
-          >
-            Register
-          </button>
+            onClick={onRegisterModal}
+          ></button>
         </div>
       </ModalWithForm>
     </div>
