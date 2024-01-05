@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
 import { useForm } from "../../../hooks/useForm";
 import "./SavedReadingSection.css";
@@ -9,6 +9,11 @@ const SavedReadingSection = ({
   onUpdateReading,
   onDeleteReading,
 }) => {
+  
+  useEffect(() => {
+    console.log("SavedReadingSection oracleReadings updated:", oracleReadings);
+  }, [oracleReadings]);
+
   const [selectedReading, setSelectedReading] = useState(null);
   const [editingReadingId, setEditingReadingId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -50,7 +55,7 @@ const SavedReadingSection = ({
 
   const handleUpdatedTitleReadingSubmit = (e, readingId) => {
     e.preventDefault();
-    console.log("Saved reading submitted");
+    console.log("updated reading submitted");
     onUpdateReading(readingId, values.title);
     setIsEditing(false);
     setEditingReadingId(null);

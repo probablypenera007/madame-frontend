@@ -26,6 +26,8 @@ const OracleSection = ({
   // const [recording, setRecording] = useState(false)
   //  console.log("currentUser in OracleSection", currentUser)
 
+  // console.log("OracleSection check oracleReading if it gets updated after save:", oracleReadings);
+
 
   const isButtonDisabled =
     isRecording ||

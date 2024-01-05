@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SideBar from "./SideBar/SideBar";
 import OracleSection from "./OracleSection/OracleSection";
@@ -30,6 +30,11 @@ function Profile({
   const currentUser = React.useContext(CurrentUserContext);
 
   const [currentView, setCurrentView] = React.useState("oracle");
+
+  useEffect(() => {
+    console.log("Profile component, updated oracleReadings:", oracleReadings);
+  }, [oracleReadings]);
+
 
   const switchToSavedReadings = () => {
     setCurrentView("savedReadings");
@@ -70,6 +75,7 @@ function Profile({
         />
       ) : (
         <SavedReadingSection
+          key={oracleReadings.length}
           oracleReadings={oracleReadings}
           onSavedReading={onSavedReading}
           onUpdateReading={onUpdateReading}

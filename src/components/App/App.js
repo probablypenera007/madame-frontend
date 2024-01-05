@@ -86,6 +86,10 @@ function App() {
   // -------------------------
   //      USER READINGS
   // -------------------------
+  useEffect(() => {
+    console.log("Updated oracleReadings state:", oracleReadings);
+}, [oracleReadings]);
+
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -101,11 +105,13 @@ function App() {
   // }, []);
 
   const handleSavedReading = (readingData) => {
-    api
-      .saveReading(readingData)
+    const token = localStorage.getItem("jwt");
+    return api
+      .saveReading(readingData, token)
       .then((newReading) => {
+        console.log("newReading value BEFORE setOracleReadings from App.js: ", newReading);
         setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
-        console.log("new reading saved from App.js: ", readingData);
+        console.log("newReading  value AFTER setOracleReadings from App.js: ", newReading);
       })
       .catch(console.error);
   };

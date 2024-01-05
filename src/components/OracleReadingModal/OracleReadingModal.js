@@ -29,7 +29,7 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteR
       text: oracleResponse,
       userId: currentUser._id,
     };
-    console.log("Reading data to save:", readingData);
+    // console.log("ReadingData to save check format in OracleReadingModal:", readingData);
     onSavedReading(readingData);
     onClose();
   };
