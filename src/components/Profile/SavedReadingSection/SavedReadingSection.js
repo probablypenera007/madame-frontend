@@ -104,17 +104,17 @@ const SavedReadingSection = ({
                 type="button"
                 onClick={() => handleEditClick(reading._id)}
               >
-                {editingReadingId === reading._id ? "Cancel" : "Edit"}
+                {editingReadingId === reading._id ? "X" : ""}
               </button>
               {editingReadingId === reading._id && (
                 <button
-                  className="section__save-button"
+                  className="section__update-button"
                   type="button"
                   onClick={(e) =>
                     handleUpdatedTitleReadingSubmit(e, reading._id)
                   }
                 >
-                  Update
+                  ✓
                 </button>
               )}
               <button
@@ -122,7 +122,7 @@ const SavedReadingSection = ({
                 type="button"
                 onClick={() => onDeleteReading(reading._id)}
               >
-                Delete
+               
               </button>
             </div>
           </li>

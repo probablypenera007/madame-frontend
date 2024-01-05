@@ -113,13 +113,6 @@ const Header = ({
           Log In
         </Link>
       )}
-      {/* {isMobileMenuOpened && (
-      <button className="header__close" onClick={toggleMobileMenu}>
-      <img src={blackCloseButton} className="header__close-img" alt="mobile close"  />
-      </button>
-    )} */}
-
-      {/* </div> */}
     </header>
   );
 };

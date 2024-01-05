@@ -24,7 +24,7 @@
   font-size: 27px;
   font-weight: 700;
   color: #c279ff;
-  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  text-shadow: 2px 6px 20px rgb(0 0 0);
   margin-left: 36px;
 }
 
@@ -129,8 +129,8 @@
   position: absolute;
   width: 730px;
   height: 730px;
-  top: 53%;
-  left: 54%;
+  top: 60%;
+  left: 52%;
   transform: translate(-50%, -50%);
   background: rgba(8, 0, 0, 0.8);
   border-radius: 50%;
@@ -142,8 +142,8 @@
   position: absolute;
   width: 750px;
   height: 750px;
-  top: 51%;
-  left: 52%;
+  top: 61%;
+  left: 51%;
   transform: translate(-50%, -50%);
   background: rgba(63, 8, 111, 0.553);
   border-radius: 50%;
