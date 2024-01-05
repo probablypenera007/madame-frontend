@@ -454,6 +454,7 @@
 ============================== */
 
 .modal_type_Welcome_Modal .modal__content {
+    position: relative;
     background-image: url("../../images/welcomemodalBG.png");
     background-size: 200%;
     max-width: 2898px;
@@ -465,6 +466,7 @@
 }
 
 .welcome__modal__text {
+    position: relative;
     color: #000;
     margin-left: 84px;
     text-shadow: -1px 1px 8px rgb(255 255 255);
@@ -479,6 +481,7 @@
 }
 
 .welcome__modal_paragraph{
+    position: relative;
     text-align: center;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     font-size: 20px;
@@ -496,8 +499,9 @@
 
 .welcome__modal__buttons_register{
     position: absolute;
-    margin: -250px 4px -4px -226px;
-    width: 435px;
+    left: 378px;
+    bottom: -217px;
+    width: 393px;
     height: 400px;
     text-align: center;
     border-radius: 50%;
@@ -509,19 +513,25 @@
 }
 
 .welcome__modal__buttons_register:hover {
+    max-width: 435px;
+    max-height: 400px;
+    position: absolute;
+    /* left: 378px; 
+    bottom: -217px;  */
     background-color: #430d699a;
     filter: blur(10px);
 }
 
 .button__submit-modal_Welcome_Modal{
     position: absolute;
-    margin: -381px 0px 79px 972px;
+    right: 525px;
+    bottom: 687px;
     border-radius: 13px;
     cursor: pointer;
 }
 
 .button__submit-modal_Welcome_Modal:disabled{
     position: absolute;
-    margin: -381px 0px 79px 972px;
     border-radius: 13px;
+    cursor: not-allowed;
 }

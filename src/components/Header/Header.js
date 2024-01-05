@@ -34,12 +34,9 @@ function getCurrentZodiacSign() {
   return "Invalid date/Unknown zodiac sign";
 }
 
-const Header = ({
-  isLoggedIn,
-  onLogInModal,
-  onRegisterModal,
-}) => {
+const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -91,8 +88,10 @@ const Header = ({
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">
           <h3 className="header__name">
-            {currentUser.name.charAt(0).toUpperCase() +
-              currentUser.name.slice(1)}
+            {currentUser && currentUser.name
+              ? currentUser.name.charAt(0).toUpperCase() +
+                currentUser.name.slice(1)
+              : ""}
           </h3>
           <div>
             {currentUser.avatar ? (
