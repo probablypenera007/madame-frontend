@@ -34,8 +34,6 @@ function getCurrentZodiacSign() {
 }
 
 const Header = ({
-  onCreateModal,
-  weatherLocation,
   isLoggedIn,
   onLogInModal,
   onRegisterModal,
@@ -72,10 +70,10 @@ const Header = ({
         </div>
       </div>
       <div className="header__button-container">
-      {/* <Link to="/aboutus" className="header___button-aboutus">
+        {/* <Link to="/aboutus" className="header___button-aboutus">
           About Us
         </Link> */}
- <button
+        <button
           className="header___button-aboutus"
           type="button"
           onClick={handleAboutUsClick}
@@ -95,7 +93,10 @@ const Header = ({
 
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">
-          <h3 className="header__name">{currentUser.name.charAt(0).toUpperCase() +  currentUser.name.slice(1)}</h3>
+          <h3 className="header__name">
+            {currentUser.name.charAt(0).toUpperCase() +
+              currentUser.name.slice(1)}
+          </h3>
           <div>
             {currentUser.avatar ? (
               <img

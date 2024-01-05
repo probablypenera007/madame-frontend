@@ -400,6 +400,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
+          onAboutUsClick={handleAboutUsClick}
         />
         <Switch>
           <Route exact path="/">
