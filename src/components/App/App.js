@@ -87,7 +87,7 @@ function App() {
   //      USER READINGS
   // -------------------------
   useEffect(() => {
-    console.log("Updated oracleReadings state:", oracleReadings);
+    // console.log("Updated oracleReadings state:", oracleReadings);
 }, [oracleReadings]);
 
 
@@ -109,9 +109,9 @@ function App() {
     return api
       .saveReading(readingData, token)
       .then((newReading) => {
-        console.log("newReading value BEFORE setOracleReadings from App.js: ", newReading);
+        // console.log("newReading value BEFORE setOracleReadings from App.js: ", newReading);
         setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
-        console.log("newReading  value AFTER setOracleReadings from App.js: ", newReading);
+        // console.log("newReading  value AFTER setOracleReadings from App.js: ", newReading);
       })
       .catch(console.error);
   };
@@ -131,7 +131,7 @@ function App() {
     api
       .updateReadingTitle(readingId, title)
       .then((updateReading) => {
-        console.log("updateReading from App.js: ", updateReading);
+        // console.log("updateReading from App.js: ", updateReading);
         setOracleReadings((prevReadings) =>
           prevReadings.map((reading) =>
             reading._id === readingId ? updateReading.data : reading
@@ -161,7 +161,7 @@ function App() {
             .getUserReadings()
             .then((res) => {
               setOracleReadings(res.data);
-              console.log("data from getUserReadings: ", res.data);
+              // console.log("data from getUserReadings: ", res.data);
             })
           }
         })
