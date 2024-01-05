@@ -25,7 +25,7 @@ const SideBar = ({
         ) : (
           <ZodiacAvatar name={currentUser.name} />
         )}
-        <p className="sidebar__name">{currentUser.name}</p>
+        <p className="sidebar__name">{currentUser.name.charAt(0).toUpperCase() +  currentUser.name.slice(1)}</p>
       </div>
       <button
         className="sidebar__button-edit"

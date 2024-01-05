@@ -95,7 +95,7 @@ const Header = ({
 
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">
-          <h3 className="header__name">{currentUser.name}</h3>
+          <h3 className="header__name">{currentUser.name.charAt(0).toUpperCase() +  currentUser.name.slice(1)}</h3>
           <div>
             {currentUser.avatar ? (
               <img
