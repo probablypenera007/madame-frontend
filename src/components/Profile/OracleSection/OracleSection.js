@@ -22,12 +22,6 @@ const OracleSection = ({
 
 }) => {
   const currentUser = React.useContext(CurrentUserContext);
-  //const [isRecording, setIsRecording] = useState(false);
-  // const [recording, setRecording] = useState(false)
-  //  console.log("currentUser in OracleSection", currentUser)
-
-  // console.log("OracleSection check oracleReading if it gets updated after save:", oracleReadings);
-
 
   const isButtonDisabled =
     isRecording ||
@@ -49,7 +43,6 @@ const OracleSection = ({
             ? "Madame Oracle is waiting for you to hold the ball"
             : "She is listening, Hold and don't let go... speak!"}
         </div>
-        {/* <button className="oracle__section-button" type="button" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}></button> */}
         {isRecording ? (
           <button
             className="oracle__section-button"

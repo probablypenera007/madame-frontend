@@ -136,10 +136,10 @@ opacity: 0.4;
 .section__previous-button{
     background-color: transparent;
     border: none;
-    color: #d9acff;
+    color: #ffffff;
     font-size: 25px;
     cursor: pointer;
-    text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 3px 0px rgb(0, 0, 0);
 }
 
 .section__previous-button:disabled{
@@ -149,10 +149,10 @@ opacity: 0.4;
 .section__next-button{
     background-color: transparent;
     border: none;
-    color:#d9acff;
+    color:#ffffff;
     font-size: 25px;
     cursor: pointer;
-    text-shadow: 1px 3px 0px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 3px 0px rgb(0, 0, 0);
 }
 
 .section__next-button:disabled{

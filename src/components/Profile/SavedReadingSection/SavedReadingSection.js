@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import OracleReadingModal from "../../OracleReadingModal/OracleReadingModal";
 import { useForm } from "../../../hooks/useForm";
 import "./SavedReadingSection.css";
@@ -9,11 +9,6 @@ const SavedReadingSection = ({
   onUpdateReading,
   onDeleteReading,
 }) => {
-  
-  useEffect(() => {
-    console.log("SavedReadingSection oracleReadings updated:", oracleReadings);
-  }, [oracleReadings]);
-
   const [selectedReading, setSelectedReading] = useState(null);
   const [editingReadingId, setEditingReadingId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -79,11 +74,11 @@ const SavedReadingSection = ({
       <h1 className="section__saved-reading_title">Your Saved Readings</h1>
       <ul className="section__saved-list">
         {oracleReadings.slice(startIndex, endIndex).map((reading) => (
-       <li key={reading._id} className="section__saved-item">
+          <li key={reading._id} className="section__saved-item">
             <span onClick={() => handleSelectReading(reading)}>
               {editingReadingId === reading._id ? (
                 <input
-                className="section__saved-title"
+                  className="section__saved-title"
                   name="title"
                   type="text"
                   value={
@@ -94,7 +89,7 @@ const SavedReadingSection = ({
                   onChange={handleChange}
                 />
               ) : (
-                <span className="section__saved-title" >{reading.title}</span>
+                <span className="section__saved-title">{reading.title}</span>
               )}
             </span>
             {reading.date}
@@ -121,9 +116,7 @@ const SavedReadingSection = ({
                 className="section__delete-button"
                 type="button"
                 onClick={() => onDeleteReading(reading._id)}
-              >
-               
-              </button>
+              ></button>
             </div>
           </li>
         ))}
@@ -153,6 +146,7 @@ const SavedReadingSection = ({
           updatedTitle={values.title}
           onSavedReading={() => onSavedReading(selectedReading._id)}
           onDeleteReading={() => onDeleteReading(selectedReading._id)}
+          isViewOnly={true}
         />
       )}
     </section>

@@ -9,19 +9,17 @@
   font-style: normal;
   justify-content: space-between;
   margin-top: 20px;
-  color: #c279ff;
-  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+  text-shadow: 8px 2px 20px rgb(0 0 0);
 }
 
-.footer__section{
-  color: #c279ff;
-  text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+.footer__section {
+  text-shadow: 7px 6px 20px rgb(0 0 0);
   text-decoration: none;
   margin-right: 10px;
 }
 
-.footer__terms_link{
+.footer__terms_link {
   margin-right: 20px;
   text-decoration: none;
-  color: #c279ff;
+  color: #fff;
 }

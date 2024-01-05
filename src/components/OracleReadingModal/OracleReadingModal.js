@@ -20,7 +20,7 @@ function formatOracleResponse(response) {
   ));
 }
 
-const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteReading }) => {
+const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteReading, isViewOnly }) => {
   const currentUser = React.useContext(CurrentUserContext);
   
   const handleSave = () => {
@@ -49,8 +49,14 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteR
           {formatOracleResponse(oracleResponse)}
         </p>
         <button className="oracle__button_close" onClick={onClose}></button>
-        <button className="oracle__button_save" onClick={handleSave}>Save</button>
-        <button className="oracle__button_delete" onClick={handleDelete}>Delete</button>
+        { !isViewOnly && (
+          <button className="oracle__button_save" onClick={handleSave}>Save</button>
+        )}
+        { !isViewOnly && (
+          <button className="oracle__button_delete" onClick={handleDelete}>Delete</button>
+        )}
+        {/* <button className="oracle__button_save" onClick={handleSave}>Save</button>
+        <button className="oracle__button_delete" onClick={handleDelete}>Delete</button> */}
       </div>
     </ModalWithForm>
   );
