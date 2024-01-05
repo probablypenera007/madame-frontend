@@ -25,6 +25,7 @@ function Profile({
   onSavedReading,
   onDeleteReading,
   onUpdateReading,
+  onAboutUsClick,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
 

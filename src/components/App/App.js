@@ -25,11 +25,7 @@ import * as api from "../../utils/Api";
 import "./App.css";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("");
-  const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp] = useState(0);
-  const [weatherLocation, setWeatherLocation] = useState("");
-  const [currentTemperatureUnit, setCurrentTempUnit] = useState("F");
+  const [activeModal, setActiveModal] = useState(""); 
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -261,16 +257,6 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  const handleAboutUsClick = (e) => {
-    e.preventDefault();
-    history.push("/aboutus");
-  };
-  //   const handleTermsAndConditionsClick = (e) => {
-  //     e.preventDefault();
-  //     history.push("/terms-and-conditions");
-  //   }
-  // };
-
   // -------------------------
   //      MADAME ORACLE
   // -------------------------
@@ -395,16 +381,13 @@ function App() {
 
       <div className="page">
         <Header
-          weatherLocation={weatherLocation}
-          temp={temp}
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
-          onAboutUsClick={handleAboutUsClick}
         />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} />
+            <Main />
           </Route>
           <Route path="/profile">
             <ProtectedRoute isLoggedIn={isLoggedIn}>

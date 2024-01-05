@@ -37,7 +37,6 @@ const Header = ({
   isLoggedIn,
   onLogInModal,
   onRegisterModal,
-  onAboutUsClick,
 }) => {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   const currentDate = new Date().toLocaleString("default", {
@@ -49,6 +48,7 @@ const Header = ({
   const history = useHistory();
 
   const handleAboutUsClick = () => {
+    console.log("about us clicked in header while profile")
     history.push("/aboutus");
   };
   const toggleMobileMenu = () => {
