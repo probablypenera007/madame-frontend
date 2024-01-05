@@ -12,6 +12,7 @@
     font-family: "Tangerine-Regular", Arial, sans-serif;
     color: #c279ff;
     text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
+    z-index: -1;
 }
 
 .zodiac-display {

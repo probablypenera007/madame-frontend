@@ -8,6 +8,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import LogInModal from "../LogInModal/LogInModal";
+import WelcomeModal from "../WelcomeModal/WelcomeModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -82,6 +83,10 @@ function App() {
       .finally(() => setIsLoading(false));
   }
 
+  const handleCloseModalforLogInAndRegister = () => {
+    setActiveModal("welcome");
+  };
+
 
   // -------------------------
   //      USER READINGS
@@ -149,6 +154,7 @@ function App() {
   // -------------------------
 
   useEffect(() => {
+    setActiveModal("welcome");
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
@@ -170,6 +176,7 @@ function App() {
             history.push("/profile");
           } else {
             history.push("/");
+            
           }
         })
         .catch((error) => {
@@ -373,11 +380,20 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
+        {activeModal === "welcome" && !isLoggedIn && (
+          <WelcomeModal
+            isOpen={activeModal === "welcome"}
+            onLogInModal={handleLogInModal}
+            onClose={handleCloseModalforLogInAndRegister}
+            onRegisterModal={handleRegisterModal}
+          />
+        )}
       <div
         className={`bg__galaxy ${
           isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
         }`}
       ></div>
+      
       <div className="page">
         <Header
           weatherLocation={weatherLocation}
