@@ -32,8 +32,6 @@ function App() {
   const [inputError, setInputError] = useState("");
   // settled useState for Oracle API
   const [oracleResponse, setOracleResponse] = useState("");
-  const [recording, setRecording] = useState(false);
-  const [audioChunks, setAudioChunks] = useState([]);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [isReadingCompleted, setIsReadingCompleted] = useState(false);

@@ -53,7 +53,7 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteR
           <button className="oracle__button_save" onClick={handleSave}>Save</button>
         )}
         { !isViewOnly && (
-          <button className="oracle__button_delete" onClick={handleDelete}>Delete</button>
+          <button className="oracle__button_delete" onClick={handleDelete}></button>
         )}
         {/* <button className="oracle__button_save" onClick={handleSave}>Save</button>
         <button className="oracle__button_delete" onClick={handleDelete}>Delete</button> */}

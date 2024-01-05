@@ -9,6 +9,7 @@ import blackCloseButton from "../../images/blackCloseButton.svg";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import ZodiacAvatar from "../ZodiacAvatar/ZodiacAvatar";
 import { useHistory } from "react-router-dom";
+import AboutUs from "../AboutUs/AboutUs";
 
 function getCurrentZodiacSign() {
   const today = new Date();
@@ -47,10 +48,6 @@ const Header = ({
   const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
 
-  const handleAboutUsClick = () => {
-    console.log("about us clicked in header while profile")
-    history.push("/aboutus");
-  };
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened);
   };
@@ -76,7 +73,7 @@ const Header = ({
         <button
           className="header___button-aboutus"
           type="button"
-          onClick={handleAboutUsClick}
+          onClick={AboutUs}
         >
           About Us
         </button>

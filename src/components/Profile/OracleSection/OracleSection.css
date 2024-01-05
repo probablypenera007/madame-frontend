@@ -1,4 +1,5 @@
 .oracle__section {
+  position: relative;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -129,8 +130,8 @@
   position: absolute;
   width: 730px;
   height: 730px;
-  top: 60%;
-  left: 52%;
+  top: 59%;
+  left: 41%;
   transform: translate(-50%, -50%);
   background: rgba(8, 0, 0, 0.8);
   border-radius: 50%;
@@ -142,8 +143,8 @@
   position: absolute;
   width: 750px;
   height: 750px;
-  top: 61%;
-  left: 51%;
+  top: 60%;
+  left: 38%;
   transform: translate(-50%, -50%);
   background: rgba(63, 8, 111, 0.553);
   border-radius: 50%;
@@ -159,6 +160,7 @@
 
   70% {
     transform: translate(-50%, -50%) scale(1.5);
+    background-color: aliceblue;
     opacity: 0;
   }
 

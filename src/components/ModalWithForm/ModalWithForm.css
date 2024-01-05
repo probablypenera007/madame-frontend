@@ -397,7 +397,7 @@
 
 .oracle__button_save {
     margin: 81px 0px 0px 44px;
-    width: 128px;
+    width: 65px;
     height: 36px;
     color: #FFF;
     font-size: 16px;
@@ -417,9 +417,9 @@
 }
 
 .oracle__button_delete {
-    margin: 0px 0px 0px 44px;
-    width: 128px;
-    height: 36px;
+    /* margin: 0px 0px 0px 44px; */
+    width: 67px;
+    height: 22px;
     color: #FFF;
     font-size: 16px;
     font-style: normal;
@@ -428,8 +428,13 @@
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     border: none;
     border-radius: 4px;
-    background-color: #8028ba;
+    background-image: url("../../images/Trash.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
     transition: opacity linear 0.3s 0.1s;
+    filter: invert(100%);
+    padding: 3px 86px 5px 0px;
     cursor: pointer;
 }
 
