@@ -73,7 +73,7 @@ const RegisterModal = ({
           >
             <TinyPopup
               name="dob"
-              text="Why we need your Date of Birth explanation."
+              text="Date of Birth helps align your cosmic essence with celestial bodies for accurate insights."
               isVisible={isTooltipDOBVisible}
               onHide={() => setIsTooltipDOBVisible(false)}
             />
@@ -99,7 +99,7 @@ const RegisterModal = ({
           >
             <TinyPopup
               name="birthplace"
-              text="Why we need your Birth Place explanation."
+              text="Birthplace connects your cosmic energy with the universe for precise readings."
               isVisible={isTooltipBirthPlaceVisible}
               onHide={() => setIsTooltipBirthPlaceVisible(false)}
             />
@@ -125,7 +125,7 @@ const RegisterModal = ({
           >
             <TinyPopup
               name="marital"
-              text="Why we need your Marital explanation."
+              text="Marital Status tailors guidance to your unique life journey. "
               isVisible={isTooltipMaritalVisible}
               onHide={() => setIsTooltipMaritalVisible(false)}
             />
@@ -159,7 +159,7 @@ const RegisterModal = ({
           >
             <TinyPopup
               name="sexual-orientation"
-              text="Why we need your Sexual Orientation explanation."
+              text="Sexual Orientation provides cosmic insights resonating with your essence."
               isVisible={isTooltipSexOrientationVisible}
               onHide={() => setIsTooltipSexOrientationVisible(false)}
             />

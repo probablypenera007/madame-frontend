@@ -38,9 +38,12 @@
 .tiny-popup_dob {
   position: fixed;
   bottom: 570px;
-  right: 540px;
+  right: 340px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+  color: #fff;
+  background-color: rgba(63, 8, 111, 0.553);
+  border-radius: 3px;
 }
 
 .tiny-popup_dob.hidden {
@@ -58,9 +61,11 @@
 .tiny-popup_birthplace {
   position: fixed;
   bottom: 500px;
-  right: 490px;
+  right: 319px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+  color: #fff;
+  background-color: rgba(63, 8, 111, 0.553);
 }
 
 .tiny-popup_birthplace.hidden {
@@ -78,9 +83,11 @@
 .tiny-popup_marital {
   position: fixed;
   bottom: 427px;
-  right: 509px;
+  right: 420px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+  color: #fff;
+  background-color: rgba(63, 8, 111, 0.553);
 }
 
 .tiny-popup_marital.hidden {
@@ -98,9 +105,11 @@
 .tiny-popup_sexual-orientation {
   position: fixed;
   bottom: 356px;
-  right: 417px;
+  right: 304px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+  color: #fff;
+  background-color: rgba(63, 8, 111, 0.553);
 }
 
 .tiny-popup_sexual-orientation.hidden {

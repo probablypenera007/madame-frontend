@@ -42,6 +42,9 @@ const WelcomeModal = ({
             harmonize your unique cosmic essence with the celestial bodies. This
             allows her to offer insights of unparalleled accuracy and depth,
             illuminating your path through the cosmos.
+            <br />
+            <br />
+            When you're ready, simply click the crystal ball to begin your journey.
             <br/>
             <button
             className="welcome__modal__buttons_register"
