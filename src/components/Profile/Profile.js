@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import SideBar from "./SideBar/SideBar";
 import OracleSection from "./OracleSection/OracleSection";
@@ -25,7 +26,6 @@ function Profile({
   onSavedReading,
   onDeleteReading,
   onUpdateReading,
-  onAboutUsClick,
 }) {
   const currentUser = React.useContext(CurrentUserContext);
 

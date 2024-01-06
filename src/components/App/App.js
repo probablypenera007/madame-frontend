@@ -25,7 +25,7 @@ import * as api from "../../utils/Api";
 import "./App.css";
 
 function App() {
-  const [activeModal, setActiveModal] = useState(""); 
+  const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -376,7 +376,6 @@ function App() {
           isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
         }`}
       ></div>
-
       <div className="page">
         <Header
           isLoggedIn={isLoggedIn}
@@ -388,8 +387,7 @@ function App() {
             <Main />
           </Route>
           <Route path="/profile">
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              {isLoggedIn && currentUser ? (
+            <ProtectedRoute isLoggedIn={isLoggedIn}>         
                 <Profile
                   onLogOut={handleLogOut}
                   isLoggedIn={isLoggedIn}
@@ -412,9 +410,6 @@ function App() {
                   onDeleteReading={handleDeleteReading}
                   onUpdateReading={handleUpdateReading}
                 />
-              ) : (
-                <div>Loading...</div>
-              )}
             </ProtectedRoute>
           </Route>
           <Route exact path="/aboutus" render={() => <AboutUs />} />

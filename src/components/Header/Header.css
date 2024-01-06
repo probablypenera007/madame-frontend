@@ -71,7 +71,7 @@
   opacity: .6;
 }
 
-.header___button-aboutus{
+.header__button-aboutus{
   background-color: transparent;
   border: none;
   font-size: 25px;
@@ -84,7 +84,7 @@
   text-decoration: none;
 }
 
-.header___button-aboutus:hover{
+.header__button-aboutus:hover{
   opacity: .6;
 }
 

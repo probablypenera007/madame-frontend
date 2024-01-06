@@ -64,16 +64,9 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
         </div>
       </div>
       <div className="header__button-container">
-        {/* <Link to="/aboutus" className="header___button-aboutus">
+      <Link to="/aboutus" className="header__button-aboutus">
           About Us
-        </Link> */}
-        <button
-          className="header___button-aboutus"
-          type="button"
-          onClick={AboutUs}
-        >
-          About Us
-        </button>
+        </Link>
         {!isLoggedIn && (
           <button
             className="header__button-register"
