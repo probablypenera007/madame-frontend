@@ -11,13 +11,13 @@ import LogInModal from "../LogInModal/LogInModal";
 import WelcomeModal from "../WelcomeModal/WelcomeModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
+import TinyPopup from "../TinyPopUp/TinyPopUp";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {
   Switch,
   Route,
   useHistory,
 } from "react-router-dom/cjs/react-router-dom";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as ai from "../../utils/OracleApi";
 import * as auth from "../../utils/Auth";
@@ -42,6 +42,8 @@ function App() {
   // adding new feature to Madame Oracle
   const [oracleReadings, setOracleReadings] = useState([]);
   const [isMicActivated, setIsMicActivated] = useState(false);
+  const [isMicActivationPopupVisible, setIsMicActivationPopupVisible] =
+    useState(false);
 
   const history = useHistory();
 
@@ -219,8 +221,13 @@ function App() {
   };
 
   const handleRegisterModal = () => {
-    setActiveModal("register-signup");
+    if (!isMicActivated) {
+      setIsMicActivationPopupVisible(true);
+    } else {
+      setActiveModal("register-signup");
+    }
   };
+  
 
   const handleRegisterSubmit = (data) => {
     console.log("value of data top of RegisterSubmit app.js: ", data);
@@ -261,6 +268,11 @@ function App() {
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
+ 
+  // const showMicActivationPopup = () => {
+  //   setIsMicActivationPopupVisible(true);
+  // };
+ 
   const handleMicActivation = () => {
     if (!isMicActivated) {
       console.log("Mic activated");
@@ -387,29 +399,29 @@ function App() {
             <Main />
           </Route>
           <Route path="/profile">
-            <ProtectedRoute isLoggedIn={isLoggedIn}>         
-                <Profile
-                  onLogOut={handleLogOut}
-                  isLoggedIn={isLoggedIn}
-                  currentUser={currentUser}
-                  onEditProfile={handleEditProfileModal}
-                  isRecording={isRecording}
-                  startRecording={startRecording}
-                  stopRecording={stopRecording}
-                  oracleResponse={oracleResponse}
-                  handleCloseModal={handleCloseModal}
-                  isReadingCompleted={isReadingCompleted}
-                  setIsReadingCompleted={setIsReadingCompleted}
-                  isOracleProcessingSTT={isOracleProcessingSTT}
-                  isOracleProcessingTTS={isOracleProcessingTTS}
-                  isOraclePlayingAudio={isOraclePlayingAudio}
-                  isUserTalking={isUserTalking}
-                  setIsUserTalking={setIsUserTalking}
-                  oracleReadings={oracleReadings}
-                  onSavedReading={handleSavedReading}
-                  onDeleteReading={handleDeleteReading}
-                  onUpdateReading={handleUpdateReading}
-                />
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Profile
+                onLogOut={handleLogOut}
+                isLoggedIn={isLoggedIn}
+                currentUser={currentUser}
+                onEditProfile={handleEditProfileModal}
+                isRecording={isRecording}
+                startRecording={startRecording}
+                stopRecording={stopRecording}
+                oracleResponse={oracleResponse}
+                handleCloseModal={handleCloseModal}
+                isReadingCompleted={isReadingCompleted}
+                setIsReadingCompleted={setIsReadingCompleted}
+                isOracleProcessingSTT={isOracleProcessingSTT}
+                isOracleProcessingTTS={isOracleProcessingTTS}
+                isOraclePlayingAudio={isOraclePlayingAudio}
+                isUserTalking={isUserTalking}
+                setIsUserTalking={setIsUserTalking}
+                oracleReadings={oracleReadings}
+                onSavedReading={handleSavedReading}
+                onDeleteReading={handleDeleteReading}
+                onUpdateReading={handleUpdateReading}
+              />
             </ProtectedRoute>
           </Route>
           <Route exact path="/aboutus" render={() => <AboutUs />} />
@@ -474,6 +486,8 @@ function App() {
                 ? "Activating..."
                 : "Activate Mic"
             }
+            isMicActivated={isMicActivated}
+            isMicActivationPopupVisible={isMicActivationPopupVisible}
             onSubmit={handleMicActivation}
             onLogInModal={handleLogInModal}
             onClose={handleCloseModal}
@@ -481,7 +495,11 @@ function App() {
             isButtonDisabled={isMicActivated || isLoading}
           />
         )}
-        {/* </CurrentTemperatureUnitContext.Provider> */}
+        <TinyPopup
+          text="Activate the mic to continue..."
+          isVisible={isMicActivationPopupVisible}
+          onHide={() => setIsMicActivationPopupVisible(false)}
+        />
       </div>
     </CurrentUserContext.Provider>
   );

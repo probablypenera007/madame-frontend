@@ -160,7 +160,7 @@
 
   70% {
     transform: translate(-50%, -50%) scale(1.5);
-    background-color: aliceblue;
+    background-color: rgb(89, 175, 251);
     opacity: 0;
   }
 

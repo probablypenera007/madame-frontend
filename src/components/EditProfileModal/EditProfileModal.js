@@ -43,7 +43,7 @@ const EditProfileModal = ({
         modalName={"EditProfile_Modal"}
       >
         <label className="modal__label  modal__label_edit">
-          Name:
+          First Name:
           <input
             id="edit-name"
             className="modal__input_text modal__input-text-edit"

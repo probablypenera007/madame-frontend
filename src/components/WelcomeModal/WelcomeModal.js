@@ -9,8 +9,11 @@ const WelcomeModal = ({
   onLogInModal,
   onRegisterModal,
   isButtonDisabled,
+  isMicActivated,
+  isMicActivationPopupVisible,
   
 }) => {
+
   return (
     <div className="welcome__modal">
       <ModalWithForm
@@ -40,19 +43,15 @@ const WelcomeModal = ({
             allows her to offer insights of unparalleled accuracy and depth,
             illuminating your path through the cosmos.
           </p>
-        </div>
-        <div className="welcome__modal__buttons">
-          {/* <button
-            className="welcome__modal__buttons__button"
-            onClick={openLogInModal}
-          >
-            Log In
-          </button> */}
+          <div className="welcome__modal__buttons">
           <button
             className="welcome__modal__buttons_register"
             onClick={onRegisterModal}
+            disabled={isMicActivationPopupVisible} 
           ></button>
         </div>
+        </div>
+     
       </ModalWithForm>
     </div>
   );

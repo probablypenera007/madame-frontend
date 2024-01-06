@@ -460,8 +460,8 @@
     max-width: 2898px;
     max-height: 2145px;
     background-position: center;
-    background-position-x: 54%;
-    background-position-y: 45%;
+    background-position-x: 55%;
+    background-position-y: 38%;
     /* z-index: 1000; */
 }
 
@@ -491,47 +491,51 @@
 
 .welcome__modal__buttons {
     position: relative;
-    margin: 270px 0px 81px 46px;
+    /* margin: 270px 0px 81px 46px; */
     width: 100%;
     height: 100%;
     text-align: center;
 }
 
 .welcome__modal__buttons_register{
-    position: absolute;
-    left: 378px;
-    bottom: -217px;
-    width: 393px;
-    height: 400px;
+    position: fixed;
+    left: 394px;
+    bottom: 12px;
+    width: 529px;
+    height: 529px;
     text-align: center;
     border-radius: 50%;
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition: background-color linear 0.3s 0.1s;
-    filter: blur(10px);
+    filter: blur(100px);
 }
 
 .welcome__modal__buttons_register:hover {
-    max-width: 435px;
-    max-height: 400px;
-    position: absolute;
+    max-width: 535px;
+    max-height: 500px;
+    position: fixed;
     /* left: 378px; 
     bottom: -217px;  */
-    background-color: #430d699a;
-    filter: blur(10px);
+    background-color: #e3cd5173;
+    filter: blur(100px);
 }
 
 .button__submit-modal_Welcome_Modal{
-    position: absolute;
-    right: 525px;
-    bottom: 687px;
+    position: fixed;
+    right: 549px;
+    bottom: 514px;
     border-radius: 13px;
+    background: #770dff91;
+    color: #fff;
     cursor: pointer;
+    
 }
 
 .button__submit-modal_Welcome_Modal:disabled{
-    position: absolute;
+    position: fixed;
+    opacity: 0.4;
     border-radius: 13px;
     cursor: not-allowed;
 }

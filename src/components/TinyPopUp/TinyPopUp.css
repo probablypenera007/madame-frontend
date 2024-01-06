@@ -1,0 +1,19 @@
+.tiny-popup {
+    position: fixed;
+    bottom: 400px;
+    right: 484px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    background-color: #390d72;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 1.0;
+    transition: opacity 0.3s linear;
+    text-shadow: -1px 1px 8px rgb(0, 0, 0);
+  }
+  
+  .tiny-popup.hidden {
+    opacity: 0 ;
+    /* display: none; */
+  }
+  
