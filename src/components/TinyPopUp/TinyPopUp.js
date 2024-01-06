@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./TinyPopUp.css"
 
-const TinyPopup = ({ text, isVisible, onHide }) => {
+const TinyPopup = ({ name, text, isVisible, onHide }) => {
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
@@ -15,7 +15,7 @@ const TinyPopup = ({ text, isVisible, onHide }) => {
   }, [isVisible, onHide]);
 
   return (
-    <div className={`tiny-popup${isVisible ? "" : " hidden"}`}>
+    <div className={`tiny-popup_${name}${isVisible ? "" : " hidden"}`}>
       {text}
     </div>
   );

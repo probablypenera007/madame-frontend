@@ -496,6 +496,7 @@ function App() {
           />
         )}
         <TinyPopup
+          name="mic"
           text="Activate the mic to continue..."
           isVisible={isMicActivationPopupVisible}
           onHide={() => setIsMicActivationPopupVisible(false)}
