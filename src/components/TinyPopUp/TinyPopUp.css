@@ -31,14 +31,14 @@
 .span_dob {
   position: absolute;
   bottom: 464px;
-  right: 307px;
+  right: 314px;
   font-size: 10px;
 }
 
 .tiny-popup_dob {
   position: fixed;
   bottom: 570px;
-  right: 537px;
+  right: 540px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
 }

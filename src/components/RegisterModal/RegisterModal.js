@@ -53,7 +53,7 @@ const RegisterModal = ({
         <label className="modal__label modal__label_register">
           Name
           <input
-            // id="register-name"
+            id="register-name"
             className="modal__input_text modal__input_text-register"
             type="text"
             name="name"
@@ -80,7 +80,7 @@ const RegisterModal = ({
             ℹ️
           </span>
           <input
-            // id="register-dob"
+            id="register-dob"
             className="modal__input_text modal__input_text-register"
             type="date"
             name="dob"
@@ -106,7 +106,7 @@ const RegisterModal = ({
             ℹ️
           </span>
           <input
-            // id="register-placeOfBirth"
+            id="register-placeOfBirth"
             className="modal__input_text modal__input_text-register"
             type="text"
             name="placeOfBirth"
@@ -132,7 +132,7 @@ const RegisterModal = ({
             ℹ️
           </span>
           <select
-            // id="register-gender"
+            id="register-maritalStatus"
             placeholder="Marital Status"
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
@@ -166,7 +166,7 @@ const RegisterModal = ({
             ℹ️
           </span>
           <select
-            // id="register-gender"
+            id="register-sexualOrientation"
             placeholder="Sexual Orientation"
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
