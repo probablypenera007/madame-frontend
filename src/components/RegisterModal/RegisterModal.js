@@ -11,7 +11,12 @@ const RegisterModal = ({
   buttonText,
   openLogInModal,
 }) => {
-  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [isTooltipDOBVisible, setIsTooltipDOBVisible] = useState(false);
+  const [isTooltipBirthPlaceVisible, setIsTooltipBirthPlaceVisible] =
+    useState(false);
+  const [isTooltipMaritalVisible, setIsTooltipMaritalVisible] = useState(false);
+  const [isTooltipSexOrientationVisible, setIsTooltipSexOrientationVisible] =
+    useState(false);
 
   const { values, handleChange } = useForm({
     name: "",
@@ -59,11 +64,21 @@ const RegisterModal = ({
             required
           />
         </label>
-        <label className="modal__label modal__label_register"
-        onMouseEnter={() => setIsTooltipVisible(true)}
-        onMouseLeave={() => setIsTooltipVisible(false)}
-        >
+        <label className="modal__label modal__label_register">
           DOB*
+          <span
+            className="span_dob"
+            onMouseEnter={() => setIsTooltipDOBVisible(true)}
+            onMouseLeave={() => setIsTooltipDOBVisible(false)}
+          >
+            <TinyPopup
+              name="dob"
+              text="Why we need your Date of Birth explanation."
+              isVisible={isTooltipDOBVisible}
+              onHide={() => setIsTooltipDOBVisible(false)}
+            />
+            ℹ️
+          </span>
           <input
             // id="register-dob"
             className="modal__input_text modal__input_text-register"
@@ -74,17 +89,22 @@ const RegisterModal = ({
             onChange={handleChange}
             required
           />
-            <TinyPopup
-            name="dob"
-          text="Why we need your Date of Birth explanation."
-          isVisible={isTooltipVisible}
-          onHide={() => setIsTooltipVisible(false)}
-        />
         </label>
-        <label className="modal__label modal__label_register"
-         onMouseEnter={() => setIsTooltipVisible(true)}
-         onMouseLeave={() => setIsTooltipVisible(false)}>
+        <label className="modal__label modal__label_register">
           Place of Birth
+          <span
+            className="span_birthplace"
+            onMouseEnter={() => setIsTooltipBirthPlaceVisible(true)}
+            onMouseLeave={() => setIsTooltipBirthPlaceVisible(false)}
+          >
+            <TinyPopup
+              name="birthplace"
+              text="Why we need your Birth Place explanation."
+              isVisible={isTooltipBirthPlaceVisible}
+              onHide={() => setIsTooltipBirthPlaceVisible(false)}
+            />
+            ℹ️
+          </span>
           <input
             // id="register-placeOfBirth"
             className="modal__input_text modal__input_text-register"
@@ -95,17 +115,22 @@ const RegisterModal = ({
             onChange={handleChange}
             autoComplete="off"
           />
-             <TinyPopup
-             name="birthplace"
-          text="Why we need your Place of Birth explanation."
-          isVisible={isTooltipVisible}
-          onHide={() => setIsTooltipVisible(false)}
-        />
         </label>
-        <label className="modal__label modal__label_register"
-         onMouseEnter={() => setIsTooltipVisible(true)}
-         onMouseLeave={() => setIsTooltipVisible(false)}>
+        <label className="modal__label modal__label_register">
           Marital Status
+          <span
+            className="span_marital"
+            onMouseEnter={() => setIsTooltipMaritalVisible(true)}
+            onMouseLeave={() => setIsTooltipMaritalVisible(false)}
+          >
+            <TinyPopup
+              name="marital"
+              text="Why we need your Marital explanation."
+              isVisible={isTooltipMaritalVisible}
+              onHide={() => setIsTooltipMaritalVisible(false)}
+            />
+            ℹ️
+          </span>
           <select
             // id="register-gender"
             placeholder="Marital Status"
@@ -115,25 +140,31 @@ const RegisterModal = ({
             onChange={handleChange}
             required
           >
-            <option value="" disabled>Marital Status</option>
+            <option value="" disabled>
+              Marital Status
+            </option>
             <option value="Single">Single</option>
             <option value="In a Relationship">In a Relationship</option>
             <option value="Married">Married</option>
             <option value="Divorced">Divorced</option>
             <option value="Widowed">Widowed</option>
           </select>
-          <TinyPopup
-          name="marital"
-          text="Why we need your Marital Status explanation."
-          isVisible={isTooltipVisible}
-          onHide={() => setIsTooltipVisible(false)}
-        />
         </label>
-        <label className="modal__label modal__label_register"
-          onMouseEnter={() => setIsTooltipVisible(true)}
-          onMouseLeave={() => setIsTooltipVisible(false)}
-        >
+        <label className="modal__label modal__label_register">
           Sexual Orientation
+          <span
+            className="span_sexual-orientation"
+            onMouseEnter={() => setIsTooltipSexOrientationVisible(true)}
+            onMouseLeave={() => setIsTooltipSexOrientationVisible(false)}
+          >
+            <TinyPopup
+              name="sexual-orientation"
+              text="Why we need your Sexual Orientation explanation."
+              isVisible={isTooltipSexOrientationVisible}
+              onHide={() => setIsTooltipSexOrientationVisible(false)}
+            />
+            ℹ️
+          </span>
           <select
             // id="register-gender"
             placeholder="Sexual Orientation"
@@ -143,7 +174,9 @@ const RegisterModal = ({
             onChange={handleChange}
             required
           >
-            <option value="" disabled>Sexual Orientation</option>
+            <option value="" disabled>
+              Sexual Orientation
+            </option>
             <option value="Straight-Male">Straight-Male</option>
             <option value="Straight-Female">Straight-Female</option>
             <option value="Gay">Gay</option>
@@ -167,12 +200,6 @@ const RegisterModal = ({
             <option value="Non-Binary">Non-Binary</option>
             <option value="Other">Other</option>
           </select>
-          <TinyPopup
-          name="sexual-orientation"
-          text="Why we need your Sexual Orientation explanation."
-          isVisible={isTooltipVisible}
-          onHide={() => setIsTooltipVisible(false)}
-        />
         </label>
         <label className={"modal__label modal__label_register"}>
           Email*

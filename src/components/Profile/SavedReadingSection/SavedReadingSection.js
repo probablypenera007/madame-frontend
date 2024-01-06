@@ -109,7 +109,7 @@ const SavedReadingSection = ({
                     handleUpdatedTitleReadingSubmit(e, reading._id)
                   }
                 >
-                  ✓
+                  ✓ ⎷
                 </button>
               )}
               <button

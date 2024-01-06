@@ -28,11 +28,80 @@
   bottom: 380px;
 }
 
-.tiny-popup_dob{}
+.span_dob{
+  position: absolute;
+  bottom: 496px;
+  right: 340px;
+}
 
-.tiny-popup_birthplace{}
+.tiny-popup_dob{
+  position: fixed;
+  bottom: 575px;
+  right: 412px;
+  opacity: 1.0;
+  transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+}
 
-.tiny-popup_marital{}
+.tiny-popup_dob.hidden{
+  bottom: 570px;
+  opacity: 0 ;
+}
 
-.tiny-popup_sexual-orientation{}
+.span_birthplace{
+  position: absolute;
+  position: absolute;
+  bottom: 424px;
+  right: 282px;
+}
+
+.tiny-popup_birthplace{
+  position: fixed;
+  bottom: 502px;
+  right: 365px;
+  opacity: 1.0;
+  transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+}
+
+.tiny-popup_birthplace.hidden{
+  bottom: 498px;
+  opacity: 0 ;
+}
+
+.span_marital{
+  position: absolute;
+  bottom: 354px;
+  right: 280px;
+}
+
+.tiny-popup_marital{
+  position: fixed;
+  bottom: 433px;
+  right: 395px;
+  opacity: 1.0;
+  transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+}
+
+.tiny-popup_marital.hidden{
+  bottom: 429px;
+  opacity: 0 ;
+}
+
+.span_sexual-orientation{
+  position: absolute;
+  bottom: 282px;
+  right: 245px;
+}
+
+.tiny-popup_sexual-orientation{
+  position: fixed;
+  bottom: 360px;
+  right: 274px;
+  opacity: 1.0;
+  transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+}
+
+.tiny-popup_sexual-orientation.hidden{
+  bottom: 354px;
+  opacity: 0 ;
+}
 
