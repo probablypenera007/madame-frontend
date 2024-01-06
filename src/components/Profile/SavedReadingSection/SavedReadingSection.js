@@ -87,6 +87,11 @@ const SavedReadingSection = ({
                       : reading.title
                   }
                   onChange={handleChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleUpdatedTitleReadingSubmit(e, reading._id);
+                    }
+                  }}
                 />
               ) : (
                 <span className="section__saved-title">{reading.title}</span>
@@ -109,7 +114,7 @@ const SavedReadingSection = ({
                     handleUpdatedTitleReadingSubmit(e, reading._id)
                   }
                 >
-                  ✓ ⎷
+                  ⎷
                 </button>
               )}
               <button
