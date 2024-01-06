@@ -4,13 +4,13 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <Link className="footer__terms_link" to="/terms-and-conditions">
+      <div className="footer__terms_link" to="/terms-and-conditions">
         Terms and Conditions
-      </Link>
+      </div>
       <div className="footer__section">
-        <Link className="footer__terms_link" to="/aboutus">
+        <div className="footer__terms_link" to="/aboutus">
           © 2023 James Penera. All rights reserved.
-        </Link>
+        </div>
       </div>
     </footer>
   );

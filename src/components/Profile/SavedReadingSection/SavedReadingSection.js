@@ -12,7 +12,7 @@ const SavedReadingSection = ({
   const [selectedReading, setSelectedReading] = useState(null);
   const [editingReadingId, setEditingReadingId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editingTitle, setEditingTitle] = useState("");
+  // const [editingTitle, setEditingTitle] = useState("");
   const { values, handleChange, setValues } = useForm({
     title: "",
   });
@@ -34,7 +34,6 @@ const SavedReadingSection = ({
     if (editingReadingId === readingId) {
       setEditingReadingId(null);
       setValues({ title: "" });
-      setIsEditing(false);
       setIsEditing(false);
     } else {
       const readingToEdit = oracleReadings.find(
