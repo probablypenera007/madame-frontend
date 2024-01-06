@@ -79,6 +79,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 20px;
+    position: relative;
 }
 
 .button__submit-modal {
@@ -452,9 +453,20 @@
 /* ==============================
     WELCOME MODAL STYLES
 ============================== */
-
-.modal_type_Welcome_Modal .modal__content {
+.welcome__modal{
     position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    /* z-index: 1000; */
+}
+.modal_type_Welcome_Modal .modal__content {
+    /* position: relative; */
     background-image: url("../../images/welcomemodalBG.png");
     background-size: 200%;
     max-width: 2898px;
@@ -466,7 +478,7 @@
 }
 
 .welcome__modal__text {
-    position: relative;
+    /* position: relative; */
     color: #000;
     margin-left: 84px;
     text-shadow: -1px 1px 8px rgb(255 255 255);
@@ -481,7 +493,7 @@
 }
 
 .welcome__modal_paragraph{
-    position: relative;
+    /* position: relative; */
     text-align: center;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     font-size: 20px;
@@ -490,7 +502,7 @@
 }
 
 .welcome__modal__buttons {
-    position: relative;
+    /* position: relative; */
     /* margin: 270px 0px 81px 46px; */
     width: 100%;
     height: 100%;
@@ -499,33 +511,31 @@
 
 .welcome__modal__buttons_register{
     position: fixed;
-    left: 394px;
-    bottom: 12px;
-    width: 529px;
-    height: 529px;
+    width: 673px;
+    height: 428px;
     text-align: center;
     border-radius: 50%;
+    margin: 141px 0px 0px -355px;
     background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: background-color linear 0.3s 0.1s;
-    filter: blur(100px);
+    border: none; 
+    cursor: pointer; 
+    transition: background-color linear 0.3s 0.1s; 
+    filter: blur(100px); 
 }
 
 .welcome__modal__buttons_register:hover {
     max-width: 535px;
     max-height: 500px;
-    position: fixed;
-    /* left: 378px; 
-    bottom: -217px;  */
+    position: absolute;
     background-color: #e3cd5173;
     filter: blur(100px);
 }
 
 .button__submit-modal_Welcome_Modal{
     position: fixed;
-    right: 549px;
-    bottom: 514px;
+    left: 615px;
+    right: 537px;
+    bottom: 516px;
     border-radius: 13px;
     background: #770dff91;
     color: #fff;
@@ -535,6 +545,9 @@
 
 .button__submit-modal_Welcome_Modal:disabled{
     position: fixed;
+    left: 615px;
+    right: 537px;
+    bottom: 516px;
     opacity: 0.4;
     border-radius: 13px;
     cursor: not-allowed;

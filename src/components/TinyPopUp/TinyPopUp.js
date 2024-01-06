@@ -6,7 +6,7 @@ const TinyPopup = ({ name, text, isVisible, onHide }) => {
     if (isVisible) {
       const timer = setTimeout(() => {
         onHide();
-      }, 20000000); 
+      }, 2000); 
 
       return () => {
         clearTimeout(timer);

@@ -42,14 +42,13 @@ const WelcomeModal = ({
             harmonize your unique cosmic essence with the celestial bodies. This
             allows her to offer insights of unparalleled accuracy and depth,
             illuminating your path through the cosmos.
-          </p>
-          <div className="welcome__modal__buttons">
-          <button
+            <br/>
+            <button
             className="welcome__modal__buttons_register"
             onClick={onRegisterModal}
             disabled={isMicActivationPopupVisible} 
           ></button>
-        </div>
+          </p>
         </div>
      
       </ModalWithForm>
