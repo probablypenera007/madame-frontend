@@ -150,6 +150,8 @@ function App() {
   useEffect(() => {
     setActiveModal("welcome");
     const jwt = localStorage.getItem("jwt");
+    const isMicActivated = localStorage.getItem("isMicActivated") === "true"; // Check if mic was previously activated
+
     if (jwt) {
       auth
         .checkToken(jwt)
@@ -174,6 +176,7 @@ function App() {
           console.error(error);
         });
     }
+    setIsMicActivated(isMicActivated);
   }, []);
 
   const handleAuthErrors = (error) => {
@@ -497,7 +500,7 @@ function App() {
         )}
         <TinyPopup
           name="mic"
-          text="Activate the mic to continue..."
+          text="Activate your mic and embrace the celestial journey"
           isVisible={isMicActivationPopupVisible}
           onHide={() => setIsMicActivationPopupVisible(false)}
         />
