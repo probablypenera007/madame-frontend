@@ -37,12 +37,12 @@
 
 .tiny-popup_dob {
   position: fixed;
-  bottom: 570px;
-  right: 340px;
+  bottom: 557px;
+  right: 417px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
-  background-color: rgba(63, 8, 111, 0.553);
+  background-color: rgb(63, 8, 111);
   border-radius: 3px;
 }
 
@@ -60,12 +60,13 @@
 
 .tiny-popup_birthplace {
   position: fixed;
-  bottom: 500px;
-  right: 319px;
+  bottom: 487px;
+  right: 438px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
-  background-color: rgba(63, 8, 111, 0.553);
+  background-color: rgb(63, 8, 111);
+  border-radius: 3px;
 }
 
 .tiny-popup_birthplace.hidden {
@@ -82,12 +83,13 @@
 
 .tiny-popup_marital {
   position: fixed;
-  bottom: 427px;
-  right: 420px;
+  bottom: 413px;
+  right: 492px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
-  background-color: rgba(63, 8, 111, 0.553);
+  background-color: rgb(63, 8, 111);
+  border-radius: 3px;
 }
 
 .tiny-popup_marital.hidden {
@@ -104,12 +106,13 @@
 
 .tiny-popup_sexual-orientation {
   position: fixed;
-  bottom: 356px;
-  right: 304px;
+  bottom: 343px;
+  right: 454px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
-  background-color: rgba(63, 8, 111, 0.553);
+  background-color: rgb(63, 8, 111);
+  border-radius: 3px;
 }
 
 .tiny-popup_sexual-orientation.hidden {
