@@ -22,12 +22,10 @@ export function getUserReadings() {
       "Content-Type": "application/json",
        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-    // body: JSON.stringify(),
   });
 }
 
 export function saveReading(reading, token) {
-  // console.log("Saving reading:", reading); 
   return request(`${baseUrl}/readings`, {
     method: "POST",
     headers: {
