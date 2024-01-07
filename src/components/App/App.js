@@ -1,42 +1,70 @@
+// -------------------------------
+// CORE REACT AND ROUTER IMPORTS
+// -------------------------------
 import { useState, useEffect } from "react";
+import {
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom/cjs/react-router-dom";
+import "./App.css";
+
+// -------------------------------
+// COMPONENT IMPORTS
+// -------------------------------
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
 import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Footer from "../Footer/Footer";
 import Profile from "../Profile/Profile";
+
+// -------------------------------
+// MODAL COMPONENT IMPORTS
+// -------------------------------
 import LogInModal from "../LogInModal/LogInModal";
 import WelcomeModal from "../WelcomeModal/WelcomeModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import TinyPopup from "../TinyPopUp/TinyPopUp";
+
+// -------------------------------
+// CONTEXT AND UTILITY IMPORTS
+// -------------------------------
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-import {
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom/cjs/react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import * as ai from "../../utils/OracleApi";
 import * as auth from "../../utils/Auth";
 import * as api from "../../utils/Api";
-import "./App.css";
 
 function App() {
+  // -------------------------------
+  // STATE MANAGEMENT
+  // -------------------------------
+
+  // MODAL AND LOADING STATES
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  // USER AUTHENTICATION STATES
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
+
+  // ORACLE FUNCTIONALITY STATES
   const [oracleResponse, setOracleResponse] = useState("");
-  const [mediaRecorder, setMediaRecorder] = useState(null);
-  const [isRecording, setIsRecording] = useState(false);
-  const [isReadingCompleted, setIsReadingCompleted] = useState(false);
-  const [isUserTalking, setIsUserTalking] = useState(false);
   const [isOracleProcessingSTT, setIsOracleProcessingSTT] = useState(false);
   const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
   const [oracleReadings, setOracleReadings] = useState([]);
+
+  // MEDIA RECORDING STATES
+  const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [isReadingCompleted, setIsReadingCompleted] = useState(false);
+  const [isUserTalking, setIsUserTalking] = useState(false);
+
+  // MICROPHONE ACTIVATION STATES
   const [isMicActivated, setIsMicActivated] = useState(false);
   const [isMicActivationPopupVisible, setIsMicActivationPopupVisible] =
     useState(false);
@@ -67,9 +95,6 @@ function App() {
   // -------------------------
   //      USER READINGS
   // -------------------------
-  // useEffect(() => {
-  //   // console.log("Updated oracleReadings state:", oracleReadings);
-  // }, [oracleReadings]);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -77,21 +102,17 @@ function App() {
         .getUserReadings()
         .then((res) => {
           setOracleReadings(res.data);
-          // console.log("data from getUserReadings: ", res.data);
         })
         .catch(console.error);
     }
   }, [isLoggedIn]);
-  // }, []);
 
   const handleSavedReading = (readingData) => {
     const token = localStorage.getItem("jwt");
     return api
       .saveReading(readingData, token)
       .then((newReading) => {
-        // console.log("newReading value BEFORE setOracleReadings from App.js: ", newReading);
         setOracleReadings((prevReadings) => [newReading, ...prevReadings]);
-        // console.log("newReading  value AFTER setOracleReadings from App.js: ", newReading);
       })
       .catch(console.error);
   };
@@ -111,7 +132,6 @@ function App() {
     api
       .updateReadingTitle(readingId, title)
       .then((updateReading) => {
-        // console.log("updateReading from App.js: ", updateReading);
         setOracleReadings((prevReadings) =>
           prevReadings.map((reading) =>
             reading._id === readingId ? updateReading.data : reading
@@ -120,8 +140,6 @@ function App() {
       })
       .catch(console.error);
   };
-
-  // console.log("oracle reading value in App.js: ", oracleReadings);
 
   // -------------------------
   //         USERS
@@ -141,7 +159,6 @@ function App() {
             setCurrentUser(res.data);
             api.getUserReadings().then((res) => {
               setOracleReadings(res.data);
-              // console.log("data from getUserReadings: ", res.data);
             });
           }
         })
@@ -212,14 +229,10 @@ function App() {
   };
 
   const handleRegisterSubmit = (data) => {
-    console.log("value of data top of RegisterSubmit app.js: ", data);
     setIsLoading(true);
     return auth
       .register(data)
       .then((res) => {
-        console.log("registration response in registersubmit: ", res);
-        // setCurrentUser(user.data);
-        // setOracleReadings(user.data.readings);
         handleLogInSubmit(data);
         history.push("/");
         handleCloseModal();
@@ -260,10 +273,6 @@ function App() {
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
-
-  // const showMicActivationPopup = () => {
-  //   setIsMicActivationPopupVisible(true);
-  // };
 
   const handleMicActivation = () => {
     if (!isMicActivated) {
