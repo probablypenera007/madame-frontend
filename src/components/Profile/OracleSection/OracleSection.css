@@ -8,15 +8,15 @@
   font-weight: 700;
   color: #c279ff;
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
-  margin: -105px 209px -10px -36px;
+  /* margin: -105px 209px -10px -36px; */
 }
 
 .oracle__section-heading-container {
   display: flex;
   position: relative;
-  margin-top: 109px;
-  margin-left: 1px;
-  margin-bottom: 10px;
+  /* margin-top: 109px; */
+  /* margin-left: 1px; */
+  /* margin-bottom: 10px; */
 }
 
 .oracle__section-title {
@@ -26,12 +26,12 @@
   font-weight: 700;
   color: #c279ff;
   text-shadow: 2px 6px 20px rgb(0 0 0);
-  margin-left: 36px;
+  /* margin-left: 36px; */
 }
 
-.oracle__section-title:active {
+/* .oracle__section-title:active {
   margin-left: 36px;
-}
+} */
 
 .oracle__section-button {
   position: relative;
@@ -110,7 +110,7 @@
   animation: spin 2s linear infinite;
   margin: 209px 122px -149px 16px;
   overflow: hidden;
-  margin-top: 202px;
+  margin-top: 74px;
   margin-bottom: 37px;
   margin-left: 1px;
 }
@@ -130,7 +130,7 @@
   position: absolute;
   width: 730px;
   height: 730px;
-  top: 59%;
+  top: 53%;
   left: 41%;
   transform: translate(-50%, -50%);
   background: rgba(8, 0, 0, 0.8);
@@ -143,8 +143,8 @@
   position: absolute;
   width: 750px;
   height: 750px;
-  top: 60%;
-  left: 38%;
+  top: 55%;
+  left: 37%;
   transform: translate(-50%, -50%);
   background: rgba(63, 8, 111, 0.553);
   border-radius: 50%;
