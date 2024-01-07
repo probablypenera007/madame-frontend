@@ -4,8 +4,6 @@ import Main from "../Main/Main";
 import AboutUs from "../AboutUs/AboutUs";
 import TermsAndConditions from "../TermsAndConditions/TermsAndConditions";
 import Footer from "../Footer/Footer";
-import ItemModal from "../ItemModal/ItemModal";
-import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import LogInModal from "../LogInModal/LogInModal";
 import WelcomeModal from "../WelcomeModal/WelcomeModal";
@@ -30,7 +28,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
-  // settled useState for Oracle API
   const [oracleResponse, setOracleResponse] = useState("");
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
@@ -39,7 +36,6 @@ function App() {
   const [isOracleProcessingSTT, setIsOracleProcessingSTT] = useState(false);
   const [isOracleProcessingTTS, setIsOracleProcessingTTS] = useState(false);
   const [isOraclePlayingAudio, setIsOraclePlayingAudio] = useState(false);
-  // adding new feature to Madame Oracle
   const [oracleReadings, setOracleReadings] = useState([]);
   const [isMicActivated, setIsMicActivated] = useState(false);
   const [isMicActivationPopupVisible, setIsMicActivationPopupVisible] =
@@ -65,31 +61,15 @@ function App() {
   }, [activeModal]);
 
   const handleCloseModal = () => {
-    console.log("Closing modal in App.js");
     setActiveModal("");
-  };
-
-  function handleSubmit(request) {
-    setIsLoading(true);
-    request()
-      .then((data) => {
-        handleCloseModal();
-        return data;
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
-  }
-
-  const handleCloseModalforLogInAndRegister = () => {
-    setActiveModal("welcome");
   };
 
   // -------------------------
   //      USER READINGS
   // -------------------------
-  useEffect(() => {
-    // console.log("Updated oracleReadings state:", oracleReadings);
-  }, [oracleReadings]);
+  // useEffect(() => {
+  //   // console.log("Updated oracleReadings state:", oracleReadings);
+  // }, [oracleReadings]);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -230,7 +210,6 @@ function App() {
       setActiveModal("register-signup");
     }
   };
-  
 
   const handleRegisterSubmit = (data) => {
     console.log("value of data top of RegisterSubmit app.js: ", data);
@@ -265,17 +244,27 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  const handleTermsAndConditions = (e) => {
+    e.preventDefault();
+    history.push("/terms-and-conditions");
+  };
+
+  const handleAboutUs = (e) => {
+    e.preventDefault();
+    history.push("/aboutus");
+  };
+
   // -------------------------
   //      MADAME ORACLE
   // -------------------------
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
- 
+
   // const showMicActivationPopup = () => {
   //   setIsMicActivationPopupVisible(true);
   // };
- 
+
   const handleMicActivation = () => {
     if (!isMicActivated) {
       console.log("Mic activated");
@@ -396,6 +385,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           onLogInModal={handleLogInModal}
           onRegisterModal={handleRegisterModal}
+          onAboutUs={handleAboutUs}
         />
         <Switch>
           <Route exact path="/">
@@ -427,31 +417,20 @@ function App() {
               />
             </ProtectedRoute>
           </Route>
-          <Route exact path="/aboutus" render={() => <AboutUs />} />
-          <Route
-            exact
-            path="/terms-and-conditions"
-            render={() => <TermsAndConditions />}
-          />
+          <Route path="/aboutus">
+            {" "}
+            <AboutUs />
+          </Route>
+          <Route path="/terms-and-conditions">
+            {" "}
+            <TermsAndConditions />
+          </Route>
         </Switch>
-        <Footer />
-        {activeModal === "create" && (
-          <AddItemModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
-            onAddItem={handleAddItemSubmit}
-            buttonText={isLoading ? "Saving..." : "Add Garment"}
-            handleSubmit={handleSubmit}
-          />
-        )}
-        {activeModal === "preview" && (
-          <ItemModal
-            selectedCard={selectedCard}
-            onClose={handleCloseModal}
-            onDeleteCard={handleDeleteCard}
-            buttonText={isLoading ? "Removing..." : "Delete Item"}
-          />
-        )}
+        <Footer
+          onAboutUs={handleAboutUs}
+          onTermsAndConditions={handleTermsAndConditions}
+        />
+
         {activeModal === "login-signin" && (
           <LogInModal
             handleCloseModal={handleCloseModal}

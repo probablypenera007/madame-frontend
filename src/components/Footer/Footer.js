@@ -1,16 +1,18 @@
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({
+  onAboutUs,
+  onTermsAndConditions,
+}) => {
   return (
     <footer className="footer">
-      <div className="footer__terms_link" to="/terms-and-conditions">
+      <button className="footer__terms_link" type="text" onClick={onTermsAndConditions}>
         Terms and Conditions
-      </div>
+      </button>
       <div className="footer__section">
-        <div className="footer__terms_link" to="/aboutus">
+        <button className="footer__terms_link" type="text" onClick={onAboutUs}>
           © 2023 James Penera. All rights reserved.
-        </div>
+        </button>
       </div>
     </footer>
   );

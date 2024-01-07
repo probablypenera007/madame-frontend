@@ -3,13 +3,8 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 import "./Header.css";
 import mologo from "../../images/crystalballcolor.svg";
 import MobileButton from "../../images/MobileButton.svg";
-import blackCloseButton from "../../images/blackCloseButton.svg";
-//import ModalWithForm from "../ModalWithForm/ModalWithForm";
-// import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import ZodiacAvatar from "../ZodiacAvatar/ZodiacAvatar";
-import { useHistory } from "react-router-dom";
-import AboutUs from "../AboutUs/AboutUs";
 
 function getCurrentZodiacSign() {
   const today = new Date();
@@ -34,7 +29,7 @@ function getCurrentZodiacSign() {
   return "Invalid date/Unknown zodiac sign";
 }
 
-const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
+const Header = ({ isLoggedIn, onLogInModal, onRegisterModal, onAboutUs }) => {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
 
   const currentDate = new Date().toLocaleString("default", {
@@ -43,7 +38,6 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
   });
 
   const currentUser = React.useContext(CurrentUserContext);
-  const history = useHistory();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened);
@@ -63,10 +57,8 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
           {currentDate}, {zodiacSeason} Season
         </div>
       </div>
+
       <div className="header__button-container">
-      <Link to="/aboutus" className="header__button-aboutus">
-          About Us
-        </Link>
         {!isLoggedIn && (
           <button
             className="header__button-register"
@@ -80,6 +72,13 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal }) => {
 
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">
+          <button
+            className="header__button-aboutus"
+            type="text"
+            onClick={onAboutUs}
+          >
+            About Us
+          </button>
           <h3 className="header__name">
             {currentUser && currentUser.name
               ? currentUser.name.charAt(0).toUpperCase() +

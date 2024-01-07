@@ -14,7 +14,7 @@ const TinyPopup = ({ name, text, isVisible, onHide }) => {
     }
   }, [isVisible, onHide]);
 
-  console.log('TinyPopup rendered with isVisible:', isVisible);
+  // console.log('TinyPopup rendered with isVisible:', isVisible);
 
 
   return (
