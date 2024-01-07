@@ -2,7 +2,7 @@
   "name": "madame_oracle",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/probablypenera007",
+  "homepage": "https://www.mdmoracle.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* jamespenera@34.139.90.69:/var/www/isitrainingoutside.jumpingcrab.com"
+    "deploy": "npm run build && scp -r -i /Users/probablypenera/Downloads/probablypenera-mdmoracle-app-key.pem ./build/* ubuntu@ec2-3-145-16-108.us-east-2.compute.amazonaws.com:/var/www/mdmoracle.com"
   },
   "browserslist": {
     "production": [

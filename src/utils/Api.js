@@ -1,8 +1,10 @@
 export const baseUrl =
-  // process.env.NODE_ENV === "production"
-  // ? "https://api.isitrainingoutside.jumpingcrab.com"
-  // :
-  "http://localhost:3001";
+   process.env.NODE_ENV === "production"
+   ?
+   "https://www.mdmoracle.com"
+   :
+   "http://localhost:3001"
+  ;
 
 export function checkResponse(res) {
   if (res.ok) {
