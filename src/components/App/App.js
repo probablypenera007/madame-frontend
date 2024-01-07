@@ -271,6 +271,7 @@ function App() {
       setIsMicActivated(true);
       setActiveModal("welcome");
     } else {
+      console.log("Mic is already activated");
       history.push("/");
     }
   };

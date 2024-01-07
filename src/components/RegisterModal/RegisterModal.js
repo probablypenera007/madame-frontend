@@ -77,7 +77,6 @@ const RegisterModal = ({
               isVisible={isTooltipDOBVisible}
               onHide={() => setIsTooltipDOBVisible(false)}
             />
-            ℹ️
           </span>
           <input
             id="register-dob"
@@ -103,7 +102,6 @@ const RegisterModal = ({
               isVisible={isTooltipBirthPlaceVisible}
               onHide={() => setIsTooltipBirthPlaceVisible(false)}
             />
-            ℹ️
           </span>
           <input
             id="register-placeOfBirth"
@@ -129,7 +127,6 @@ const RegisterModal = ({
               isVisible={isTooltipMaritalVisible}
               onHide={() => setIsTooltipMaritalVisible(false)}
             />
-            ℹ️
           </span>
           <select
             id="register-maritalStatus"
@@ -163,7 +160,6 @@ const RegisterModal = ({
               isVisible={isTooltipSexOrientationVisible}
               onHide={() => setIsTooltipSexOrientationVisible(false)}
             />
-            ℹ️
           </span>
           <select
             id="register-sexualOrientation"

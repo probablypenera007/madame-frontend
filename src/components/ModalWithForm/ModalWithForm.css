@@ -246,7 +246,7 @@
 
 .modal__label_register {
     margin-top: 10px;
-    margin-bottom: 1px;
+    margin-bottom: 10px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
