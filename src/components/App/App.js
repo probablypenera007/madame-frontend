@@ -93,7 +93,7 @@ function App() {
   };
 
   // -------------------------
-  //      USER READINGS
+  // USER READINGS
   // -------------------------
 
   useEffect(() => {
@@ -107,6 +107,7 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  // LOGIC FOR SAVING A READING
   const handleSavedReading = (readingData) => {
     const token = localStorage.getItem("jwt");
     return api
@@ -117,6 +118,7 @@ function App() {
       .catch(console.error);
   };
 
+  // LOGIC FOR DELETING A READING
   const handleDeleteReading = (readingId) => {
     api
       .deleteReading(readingId)
@@ -128,6 +130,7 @@ function App() {
       .catch(console.error);
   };
 
+  // LOGIC FOR UPDATING A READING
   const handleUpdateReading = (readingId, title) => {
     api
       .updateReadingTitle(readingId, title)
@@ -142,9 +145,10 @@ function App() {
   };
 
   // -------------------------
-  //         USERS
+  // USERS AUTHENTICATION
   // -------------------------
 
+  // LOGIC FOR HANDLING USERS AUTHENTICATION AND MIC ACTIVATION
   useEffect(() => {
     setActiveModal("welcome");
     const jwt = localStorage.getItem("jwt");
@@ -176,6 +180,7 @@ function App() {
     setIsMicActivated(isMicActivated);
   }, []);
 
+  //ERROR HANDLING FOR USERS AUTHENTICATION
   const handleAuthErrors = (error) => {
     const errorMessage = error.message || "";
     setInputError(
@@ -188,10 +193,10 @@ function App() {
     console.error(error);
   };
 
+  //LOGIC FOR HANDLER USER LOGIN
   const handleLogInModal = () => {
     setActiveModal("login-signin");
   };
-
   const handleLogInSubmit = (data) => {
     setIsLoading(true);
     return auth.logIn(data).then((res) => {
@@ -212,6 +217,7 @@ function App() {
     });
   };
 
+  //LOGIC FOR HANDLING USER LOGOUT
   const handleLogOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
@@ -220,6 +226,7 @@ function App() {
     history.push("/");
   };
 
+  //LOGIC FOR HANDLING USER REGISTRATION
   const handleRegisterModal = () => {
     if (!isMicActivated) {
       setIsMicActivationPopupVisible(true);
@@ -227,7 +234,6 @@ function App() {
       setActiveModal("register-signup");
     }
   };
-
   const handleRegisterSubmit = (data) => {
     setIsLoading(true);
     return auth
@@ -245,6 +251,7 @@ function App() {
     setActiveModal("edit-profile");
   };
 
+  //LOGIC FOR HANDLING USER EDIT PROFILE
   const handleEditProfileSubmit = (data) => {
     setIsLoading(true);
     return auth
@@ -257,6 +264,9 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  // -------------------------
+  // NAVIGATION HANDLERS
+  // -------------------------
   const handleTermsAndConditions = (e) => {
     e.preventDefault();
     history.push("/terms-and-conditions");
@@ -268,12 +278,14 @@ function App() {
   };
 
   // -------------------------
-  //      MADAME ORACLE
+  // MADAME ORACLE FUNCTIONALITY
   // -------------------------
+
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
 
+  // MICROPHONE ACTIVATION LOGIC
   const handleMicActivation = () => {
     if (!isMicActivated) {
       console.log("Mic activated");
@@ -285,6 +297,7 @@ function App() {
     }
   };
 
+  // AUDIO PROCESSING LOGIC
   const processAudio = async (audioBlob) => {
     const arrayBuffer = await blobToArrayBuffer(audioBlob);
     const convertedBlob = new Blob([arrayBuffer], { type: "audio/wav" });
@@ -304,6 +317,9 @@ function App() {
     });
   };
 
+  // RECORDING MANAGEMENT
+
+  // START RECORDING
   const startRecording = () => {
     navigator.mediaDevices
       .getUserMedia({ audio: true })
@@ -323,6 +339,7 @@ function App() {
           console.log("Received audio data chunk format:", e.data);
         };
 
+        // ORACLE COMMUNICATION - Audio to STT, to ORACLE, TTS & Play Audio
         recorder.onstop = async () => {
           setIsUserTalking(false);
           setIsRecording(false);
@@ -376,6 +393,7 @@ function App() {
       });
   };
 
+  // STOP RECORDING
   const stopRecording = () => {
     if (mediaRecorder && mediaRecorder.state === "recording") {
       mediaRecorder.stop();
