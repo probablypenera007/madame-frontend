@@ -115,60 +115,6 @@
 }
 
 /* ==============================
-   ADD ITEMS MODAL STYLES
-   ============================== */
-
-.modal_type_AddItem_Modal .modal__content {
-    max-width: 496px;
-    max-height: 411px;
-}
-
-.modal__label-add {
-    margin-top: 24px;
-    margin-bottom: 10px;
-}
-
-.modal__input-text-add {
-    height: 40px;
-    padding-top: 10px;
-    padding-left: 6px;
-    padding-bottom: 0;
-}
-
-.modal__input-radio {
-    margin-top: 8px;
-    margin-right: 10px;
-    color: rgba(0, 0, 0, 0.5);
-    accent-color: #000;
-    gap: 8px;
-}
-
-.modal__label-radio {
-    padding-bottom: 10px;
-}
-
-.button__submit-modal_AddItem_Modal {
-    margin-top: 30px;
-    width: 124px;
-    height: 36px;
-    color: #FFF;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 20px;
-    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
-    border: none;
-    border-radius: 4px;
-    background-color: #000;
-    transition: opacity linear 0.3s 0.1s;
-    cursor: pointer;
-}
-
-.button__submit-modal_AddItem_Modal:hover {
-    opacity: 0.3;
-}
-
-/* ==============================
    EDIT PROFILE MODAL STYLES
    ============================== */
 .modal_type_EditProfile_Modal .modal__content {
@@ -230,7 +176,6 @@
     cursor: pointer;
 }
 
-
 .button__submit-modal_EditProfile_Modal:hover {
     opacity: 0.3;
 }
@@ -277,11 +222,9 @@
     cursor: pointer;
 }
 
-
 .button__submit-modal_Register_Modal:hover {
     opacity: 0.3;
 }
-
 
 .login__link {
     margin-right: -187px;
@@ -296,6 +239,7 @@
 .login__link:hover {
     opacity: 1;
 }
+
 
 /* ==============================
    LOG IN MODAL STYLES
@@ -357,6 +301,7 @@
 .register__likn:hover {
     opacity: 1;
 }
+
 
 /* ==============================
    ORACLE MODAL STYLES
@@ -453,7 +398,7 @@
 /* ==============================
     WELCOME MODAL STYLES
 ============================== */
-.welcome__modal{
+.welcome__modal {
     position: relative;
     top: 0;
     right: 0;
@@ -463,10 +408,9 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    /* z-index: 1000; */
 }
+
 .modal_type_Welcome_Modal .modal__content {
-    /* position: relative; */
     background-image: url("../../images/welcomemodalBG.png");
     background-size: 200%;
     max-width: 2898px;
@@ -474,17 +418,15 @@
     background-position: center;
     background-position-x: 55%;
     background-position-y: 38%;
-    /* z-index: 1000; */
 }
 
 .welcome__modal__text {
-    /* position: relative; */
     color: #000;
     margin-left: 84px;
     text-shadow: -1px 1px 8px rgb(255 255 255);
 }
 
-.welcome__modal_title{
+.welcome__modal_title {
     margin: 31px -36px 30px 0px;
     text-align: center;
     font-family: "Tangerine-Regular", Arial, sans-serif;
@@ -492,8 +434,7 @@
     line-height: 60px;
 }
 
-.welcome__modal_paragraph{
-    /* position: relative; */
+.welcome__modal_paragraph {
     text-align: center;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     font-size: 20px;
@@ -502,38 +443,31 @@
 }
 
 .welcome__modal__buttons {
-    /* position: relative; */
-    /* margin: 270px 0px 81px 46px; */
     width: 100%;
     height: 100%;
     text-align: center;
 }
 
-.welcome__modal__buttons_register{
+.welcome__modal__buttons_register {
     position: fixed;
     width: 673px;
     height: 428px;
-    /* text-align: center; */
     border-radius: 50%;
     left: 296px;
     bottom: 36px;
-    /* margin: 141px 0px 0px -355px; */
     background-color: transparent;
-    border: none; 
-    cursor: pointer; 
-    transition: background-color linear 0.3s 0.1s; 
-    filter: blur(100px); 
+    border: none;
+    cursor: pointer;
+    transition: background-color linear 0.3s 0.1s;
+    filter: blur(100px);
 }
 
 .welcome__modal__buttons_register:hover {
-    /* max-width: 535px;
-    max-height: 500px; */
-    
     background-color: #e3cd5173;
     filter: blur(100px);
 }
 
-.button__submit-modal_Welcome_Modal{
+.button__submit-modal_Welcome_Modal {
     position: fixed;
     left: 615px;
     right: 537px;
@@ -542,10 +476,9 @@
     background: #770dff91;
     color: #fff;
     cursor: pointer;
-    
 }
 
-.button__submit-modal_Welcome_Modal:disabled{
+.button__submit-modal_Welcome_Modal:disabled {
     position: fixed;
     left: 615px;
     right: 537px;

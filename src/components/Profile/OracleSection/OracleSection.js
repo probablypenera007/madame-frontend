@@ -19,7 +19,6 @@ const OracleSection = ({
   oracleReadings,
   onSavedReading,
   onDeleteReading,
-
 }) => {
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -64,9 +63,7 @@ const OracleSection = ({
 
       {isUserTalking && <div className="user-talking-pulse"></div>}
 
-      {isOraclePlayingAudio && (
-          <div className="oracle-talking-pulse"></div>
-      )}
+      {isOraclePlayingAudio && <div className="oracle-talking-pulse"></div>}
 
       {isReadingCompleted && (
         <OracleReadingModal

@@ -8,15 +8,11 @@
   font-weight: 700;
   color: #c279ff;
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
-  /* margin: -105px 209px -10px -36px; */
 }
 
 .oracle__section-heading-container {
   display: flex;
   position: relative;
-  /* margin-top: 109px; */
-  /* margin-left: 1px; */
-  /* margin-bottom: 10px; */
 }
 
 .oracle__section-title {
@@ -26,12 +22,7 @@
   font-weight: 700;
   color: #c279ff;
   text-shadow: 2px 6px 20px rgb(0 0 0);
-  /* margin-left: 36px; */
 }
-
-/* .oracle__section-title:active {
-  margin-left: 36px;
-} */
 
 .oracle__section-button {
   position: relative;
@@ -65,7 +56,6 @@
   z-index: -1;
   filter: blur(4px);
   border-radius: 131%;
-  
 }
 
 .oracle__section-button:active {
@@ -73,27 +63,23 @@
   margin-bottom: 37px;
 }
 
-
 .oracle__section-button:not(:disabled):hover {
   opacity: 1;
   margin-top: 84px;
   margin-bottom: 37px;
 }
 
-.oracle__section-button:disabled{
+.oracle__section-button:disabled {
   background-image: url("../../../images/mdmoracle-isolated.PNG");
   border-radius: 40%;
   opacity: 1;
   width: 594px;
   height: 533px;
   margin-left: 12px;
-  /* margin-top: 180px; */
   margin-top: 102px;
   margin-bottom: 37px;
   margin-right: 135px;
 }
-
-
 
 .spinner {
   position: absolute;
@@ -101,8 +87,6 @@
   background-image: url("../../../images/spinnergalaxy.png");
   background-blend-mode: lighten;
   background-position: center;
-  /* background-repeat: no-repeat; */
-  /* background-size: contain; */
   border: 279px solid rgba(0, 0, 0, 0.3);
   border-radius: 131%;
   width: -13px;
@@ -124,7 +108,6 @@
     transform: rotate(360deg);
   }
 }
-
 
 .user-talking-pulse {
   position: absolute;

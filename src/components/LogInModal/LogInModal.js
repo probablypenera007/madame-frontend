@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
-import { useForm } from '../../hooks/useForm';
+import { useForm } from "../../hooks/useForm";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const LogInModal = ({
@@ -12,30 +12,14 @@ const LogInModal = ({
   openRegisterModal,
   inputError,
 }) => {
-  const { values, handleChange } = useForm({ email: '', password: '' });
-
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
+  const { values, handleChange } = useForm({ email: "", password: "" });
 
   const history = useHistory();
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
 
   const handleFormSubmitLogIn = (e) => {
     e.preventDefault();
     onSubmit(values);
   };
-
-  // const handleFormSubmitLogIn = (e) => {
-  //   e.preventDefault();
-  //   onSubmit({ email, password });
-  // };
 
   const handleOpenRegisterModal = (e) => {
     e.preventDefault();
@@ -53,8 +37,6 @@ const LogInModal = ({
         modalName={"LogIn_Modal"}
       >
         <label className="modal__label modal__label_login">
-        {/* // {`modal__label modal__label_login ${inputError === "Invalid Email" ? "error" : ""}`}>
-        //   {inputError === "Invalid Email" ? "Invalid Email" : "Email"} */}
           <input
             id="login-email"
             className="modal__input_text modal__input_text-login"
@@ -63,15 +45,12 @@ const LogInModal = ({
             name="email"
             value={values.email}
             onChange={handleChange}
-            // onChange={handleEmailChange}
             minLength="1"
             required
             autoComplete="email"
           />
         </label>
-        <label className="modal__label modal__label_login" >
-        {/* // {`modal__label modal__label_login ${inputError === "Incorrect Password" ? "error" : ""}`}>
-        //   {inputError === "Incorrect Password" ? "Incorrect Password" : "Password"} */}
+        <label className="modal__label modal__label_login">
           <input
             id="login-password"
             className="modal__input_text modal__input_text-login"
@@ -80,13 +59,11 @@ const LogInModal = ({
             name="password"
             value={values.password}
             onChange={handleChange}
-            // onChange={handlePasswordChange}
             minLength="1"
             autoComplete="off"
             required
           />
         </label>
-
         <Link
           to="/"
           className="register__link"

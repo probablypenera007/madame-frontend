@@ -10,8 +10,8 @@ const TermsAndConditions = () => {
         <br />
         The readings and insights provided by Madame Oracle are for
         entertainment purposes only. While we strive for accuracy, we do not
-        claim that our readings reflect scientific precision. The content
-        should not be taken as literal or factual advice. We do not provide
+        claim that our readings reflect scientific precision. The content should
+        not be taken as literal or factual advice. We do not provide
         recommendations on health, legal, financial, or other specific
         professional matters. Users are advised to use their discretion and
         consult qualified professionals for advice on such topics.
@@ -28,25 +28,22 @@ const TermsAndConditions = () => {
       <div className="terms__paragraph-bottom">
         <br />
         By using Madame Oracle, users agree to these terms and conditions. Any
-        reliance on the content provided through Madame Oracle is at the
-        user’s own risk. Users must be 18 years or older or have parental
-        consent to interact with Madame Oracle. We reserve the right to modify
-        or discontinue our service at any time without notice. We are not
-        liable for any modifications, interruptions, or discontinuation of the
-        service.
+        reliance on the content provided through Madame Oracle is at the user’s
+        own risk. Users must be 18 years or older or have parental consent to
+        interact with Madame Oracle. We reserve the right to modify or
+        discontinue our service at any time without notice. We are not liable
+        for any modifications, interruptions, or discontinuation of the service.
         <br />
         <br />
-        Users must not use Madame Oracle for unlawful purposes or in a way
-        that may harm others. This includes refraining from posting or
-        transmitting harmful or offensive content. We reserve the right to
-        terminate or restrict access to our service for any user who violates
-        these terms.
+        Users must not use Madame Oracle for unlawful purposes or in a way that
+        may harm others. This includes refraining from posting or transmitting
+        harmful or offensive content. We reserve the right to terminate or
+        restrict access to our service for any user who violates these terms.
         <br />
         <br />
         All content provided by Madame Oracle is protected by copyright and
-        intellectual property laws. Reproduction, distribution, or
-        unauthorized use of any content without express permission is strictly
-        prohibited.
+        intellectual property laws. Reproduction, distribution, or unauthorized
+        use of any content without express permission is strictly prohibited.
       </div>
     </div>
   );

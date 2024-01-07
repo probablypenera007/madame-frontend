@@ -16,9 +16,6 @@ function Main({}) {
     madameOracleQuestions[oracleQuestionIndex]
   );
 
-  // console.log("Zodiac sign in Main: ", zodiacSign);
-  // console.log("Madame Oracle Question in Main: ", madameOracleQuestions);
-
   useEffect(() => {
     const zodiacInterval = setInterval(() => {
       setZodiacIndex((prevIndex) => {

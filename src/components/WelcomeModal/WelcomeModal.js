@@ -11,13 +11,10 @@ const WelcomeModal = ({
   isButtonDisabled,
   isMicActivated,
   isMicActivationPopupVisible,
-  
 }) => {
-
   return (
     <div className="welcome__modal">
       <ModalWithForm
-        // title="Welcome to Madame Oracle"
         buttonText={buttonText}
         onSubmit={onSubmit}
         onClose={handleCloseModal}
@@ -44,16 +41,16 @@ const WelcomeModal = ({
             illuminating your path through the cosmos.
             <br />
             <br />
-            When you're ready, simply click the crystal ball to begin your journey.
-            <br/>
+            When you're ready, simply click the crystal ball to begin your
+            journey.
+            <br />
             <button
-            className="welcome__modal__buttons_register"
-            onClick={onRegisterModal}
-            disabled={isMicActivationPopupVisible} 
-          ></button>
+              className="welcome__modal__buttons_register"
+              onClick={onRegisterModal}
+              disabled={isMicActivationPopupVisible}
+            ></button>
           </p>
         </div>
-     
       </ModalWithForm>
     </div>
   );

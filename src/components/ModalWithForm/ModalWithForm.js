@@ -9,7 +9,7 @@ const ModalWithForm = ({
   modalName,
   isOpen,
   onSubmit,
-  isButtonDisabled
+  isButtonDisabled,
 }) => {
   return (
     <Modal
@@ -17,16 +17,14 @@ const ModalWithForm = ({
       onClose={onClose}
       closeButtonStyle="button__close-modal-gray"
     >
-           
-        {/* <button
-          className="button__close-modal-gray"
-          type="button"
-          onClick={onClose}
-        /> */}
       <form className="modal__form" onSubmit={onSubmit}>
         <h3 className="modal__title">{title}</h3>
         {children}
-        <button className={`button__submit-modal_${modalName}`} type="submit" disabled={isButtonDisabled}>
+        <button
+          className={`button__submit-modal_${modalName}`}
+          type="submit"
+          disabled={isButtonDisabled}
+        >
           {buttonText}
         </button>
       </form>

@@ -2,7 +2,6 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const year = date.getFullYear();
@@ -20,16 +19,21 @@ function formatOracleResponse(response) {
   ));
 }
 
-const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteReading, isViewOnly }) => {
+const OracleReadingModal = ({
+  oracleResponse,
+  onClose,
+  onSavedReading,
+  onDeleteReading,
+  isViewOnly,
+}) => {
   const currentUser = React.useContext(CurrentUserContext);
-  
+
   const handleSave = () => {
     const readingData = {
       title: "Reading for " + formatDate(Date.now()),
       text: oracleResponse,
       userId: currentUser._id,
     };
-    // console.log("ReadingData to save check format in OracleReadingModal:", readingData);
     onSavedReading(readingData);
     onClose();
   };
@@ -49,14 +53,17 @@ const OracleReadingModal = ({ oracleResponse, onClose, onSavedReading, onDeleteR
           {formatOracleResponse(oracleResponse)}
         </p>
         <button className="oracle__button_close" onClick={onClose}></button>
-        { !isViewOnly && (
-          <button className="oracle__button_save" onClick={handleSave}>Save</button>
+        {!isViewOnly && (
+          <button className="oracle__button_save" onClick={handleSave}>
+            Save
+          </button>
         )}
-        { !isViewOnly && (
-          <button className="oracle__button_delete" onClick={handleDelete}></button>
+        {!isViewOnly && (
+          <button
+            className="oracle__button_delete"
+            onClick={handleDelete}
+          ></button>
         )}
-        {/* <button className="oracle__button_save" onClick={handleSave}>Save</button>
-        <button className="oracle__button_delete" onClick={handleDelete}>Delete</button> */}
       </div>
     </ModalWithForm>
   );

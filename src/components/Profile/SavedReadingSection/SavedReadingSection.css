@@ -60,7 +60,6 @@
     background-image: url("../../../images/Edit\ Button.svg");
     background-repeat: no-repeat;
     background-color: transparent;
-    /* background-size: cover; */
     background-position: center;
     color: #ffffff;
     font-size: 15px;
@@ -81,10 +80,8 @@
     height: 4px;
     margin: 0px 10px;
     border: none;
-    /* border-radius: 5px; */
     background-repeat: no-repeat;
     background-color: transparent;
-    /* background-image: url("../../../images/Edit\ Button.svg"); */
     border: 1px solid #ffffff;
     background-size: cover;
     background-position: center;

@@ -59,13 +59,13 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal, onAboutUs }) => {
       </div>
 
       <div className="header__button-container">
-      <button
-            className="header__button-aboutus"
-            type="text"
-            onClick={onAboutUs}
-          >
-            About Us
-          </button>
+        <button
+          className="header__button-aboutus"
+          type="text"
+          onClick={onAboutUs}
+        >
+          About Us
+        </button>
         {!isLoggedIn && (
           <button
             className="header__button-register"
@@ -79,7 +79,6 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal, onAboutUs }) => {
 
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">
-      
           <h3 className="header__name">
             {currentUser && currentUser.name
               ? currentUser.name.charAt(0).toUpperCase() +

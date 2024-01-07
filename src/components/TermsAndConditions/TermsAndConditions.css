@@ -39,15 +39,12 @@
     display: flex;
     margin: 0 auto;
     background: transparent;
-    /* text-indent: -11px; */
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
     font-size: inherit;
-    /* font-size: 15px; */
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     flex-wrap: wrap;
-    /* padding: 5px 1px 10px 0px; */
     justify-content: center;
 }
