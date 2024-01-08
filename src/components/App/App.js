@@ -288,7 +288,8 @@ function App() {
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,arrayBuffer
 
   // MICROPHONE ACTIVATION LOGIC
-  const handleMicActivation = () => {
+  const handleMicActivation = (e) => {
+    e.preventDefault();
     if (!isMicActivated) {
       console.log("Mic activated");
       setIsMicActivated(true);
