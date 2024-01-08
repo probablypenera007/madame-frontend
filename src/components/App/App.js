@@ -445,7 +445,7 @@ function App() {
     document.addEventListener("click", playMusic);
 
     return () => {
-    // backgroundMusic.pause(); - debug this music kept on stopping
+    // backgroundMusic.pause(); 
       backgroundMusic.play();
       document.removeEventListener("click", playMusic);
     };
