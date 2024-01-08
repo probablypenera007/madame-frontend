@@ -109,7 +109,7 @@ height: 540px;
 .spinner {
   position: absolute;
   background: transparent;
-  background-image: url("../../../images/spinnergalaxy.png");
+  background-image: url("../../../images/spinnergalaxy2.png");
   background-blend-mode: lighten;
   background-position: center;
   border: 279px solid rgba(0, 0, 0, 0.3);

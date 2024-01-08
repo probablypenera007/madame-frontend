@@ -552,7 +552,7 @@ function App() {
             onLogInModal={handleLogInModal}
             onClose={handleCloseModal}
             onRegisterModal={handleRegisterModal}
-            isButtonDisabled={isMicActivated || isLoading}
+            isButtonDisabled={isMicActivated}
           />
         )}
         <TinyPopup

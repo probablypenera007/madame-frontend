@@ -61,7 +61,7 @@ const OracleReadingModal = ({
         {!isViewOnly && (
           <button
             className="oracle__button_delete"
-            onClick={handleDelete}
+            onClick={onClose}
           ></button>
         )}
       </div>
