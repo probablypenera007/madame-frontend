@@ -37,12 +37,12 @@
 }
 
 .bg__galaxy--hyperdrive-active {
-    animation: hyperdriveAnimate 30s infinite linear;
+    animation: hyperdriveAnimate 60s infinite linear;
 }
 
 @keyframes hyperdriveAnimate {
     0% { 
-        background-size: 125%; 
+        background-size: 100%; 
         background-position: center; 
     }
     100% { 

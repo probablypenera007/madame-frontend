@@ -8,6 +8,8 @@ import {
   useHistory,
 } from "react-router-dom/cjs/react-router-dom";
 import "./App.css";
+import backgroundMusicFile from "../../media/sb_aurora.mp3";
+
 
 // -------------------------------
 // COMPONENT IMPORTS
@@ -377,6 +379,7 @@ function App() {
                 setIsOraclePlayingAudio(true); // Oracle starts playing audio - waveform starts and make the crystal ball look like it's glowing or something, record button still disabled
                 console.log("Audio element src:", audioElement.src);
                 audioElement.play();
+                audioElement.volume = 1.0;
                 audioElement.onended = () => {
                   URL.revokeObjectURL(audioUrl);
                   setIsOraclePlayingAudio(false); // Oracle done playing audio - waveform stops and crystal ball stops glowing, record button still disabled
@@ -408,8 +411,44 @@ function App() {
 //https://react.dev/reference/react/useRef
 //https://www.w3schools.com/react/react_useref.asp
 
-  const backgroundMusic = useRef(new Audio("../public/sb_aurora(chosic.com).mp3"));
+  const backgroundMusicRef = useRef(new Audio(backgroundMusicFile));
 
+  useEffect(() => {
+    const backgroundMusic = backgroundMusicRef.current;
+
+    // Function to play music
+    const playMusic = () => {
+      backgroundMusic.loop = true;
+      // Attempt to play and catch any errors
+      backgroundMusic.play().catch((error) => console.log("Play error:", error));
+    };
+    // if (!isRecording) {
+    //   backgroundMusic.volume = 1.0;
+    // } else if (isOracleProcessingSTT) {
+    //   backgroundMusic.volume = 1.0;
+    // } else if (isOraclePlayingAudio) {
+    //   backgroundMusic.volume = 0.4;
+    // } else {
+    //   backgroundMusic.volume = 1.0;
+    // }
+
+    if (!isRecording && !isOraclePlayingAudio) {
+      // backgroundMusic.volume = 0.5;
+      backgroundMusic.volume = 0.1;
+    } else if (isRecording && isOraclePlayingAudio) {
+  //} else if (!isRecording && !isOraclePlayingAudio) {
+      backgroundMusic.volume = 0.1;
+    }
+
+    // Play music after ensuring there's user interaction
+    document.addEventListener("click", playMusic);
+
+    return () => {
+    // backgroundMusic.pause(); - debug this music kept on stopping
+      backgroundMusic.play();
+      document.removeEventListener("click", playMusic);
+    };
+  }, [isRecording, isOraclePlayingAudio]);
 
 
   return (
