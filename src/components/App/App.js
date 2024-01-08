@@ -1,7 +1,7 @@
 // -------------------------------
 // CORE REACT AND ROUTER IMPORTS
 // -------------------------------
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Switch,
   Route,
@@ -277,9 +277,9 @@ function App() {
     history.push("/aboutus");
   };
 
-  // -------------------------
+  // -----------------------------
   // MADAME ORACLE FUNCTIONALITY
-  // -------------------------
+  // -----------------------------
 
   // Supported formats: ['flac', 'm4a', 'mp3', 'mp4', 'mpeg', 'mpga', 'oga', 'ogg', 'wav', 'webm']",
   // https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer#:~:text=,interface%27s%20method
@@ -400,6 +400,17 @@ function App() {
       setIsRecording(false);
     }
   };
+
+  // -----------------------------
+  // BACKGROUND MUSIC
+  // -----------------------------
+//https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
+//https://react.dev/reference/react/useRef
+//https://www.w3schools.com/react/react_useref.asp
+
+  const backgroundMusic = useRef(new Audio("../public/sb_aurora(chosic.com).mp3"));
+
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
