@@ -26,7 +26,7 @@ const Footer = ({ onAboutUs, onTermsAndConditions }) => {
       </div>
       <div className="footer__section">
         <button className="footer__terms_button" type="text" onClick={onAboutUs}>
-          © 2023 James Penera. All rights reserved.
+          © 2024 James Penera. All rights reserved.
         </button>
       </div>
      
