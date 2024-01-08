@@ -29,9 +29,9 @@
 }
 
 .span_dob {
-  position: absolute;
-  bottom: 475px;
-  right: 310px;
+  position: relative;
+  bottom: 21px;
+  right: -43px;
   font-size: 10px;
   background-image: url("../../images/infoicon.svg");
   background-repeat: no-repeat;
@@ -44,25 +44,28 @@
 }
 
 .tiny-popup_dob {
-  position: fixed;
-  bottom: 557px;
-  right: 417px;
+  position: absolute;
+  bottom: 1px;
+  right: -531px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
   background-color: rgb(63, 8, 111);
   border-radius: 3px;
+  font-weight: 100;
+  padding: 0 10px 0;
+  font-size: 13px;
 }
 
 .tiny-popup_dob.hidden {
-  bottom: 562px;
+  bottom: 7px;
   opacity: 0;
 }
 
 .span_birthplace {
-  position: absolute;
-  bottom: 403px;
-  right: 249px;
+  position: relative;
+  bottom: 21px;
+  right: -106px;
   font-size: 10px;
   background-image: url("../../images/infoicon.svg");
   background-repeat: no-repeat;
@@ -75,25 +78,28 @@
 }
 
 .tiny-popup_birthplace {
-  position: fixed;
-  bottom: 487px;
-  right: 438px;
+  position: absolute;
+  bottom: 1px;
+  right: -478px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
   background-color: rgb(63, 8, 111);
   border-radius: 3px;
+  font-weight: 100;
+  padding: 0 10px 0;
+  font-size: 13px;
 }
 
 .tiny-popup_birthplace.hidden {
-  bottom: 492px;
+  bottom: 7px;
   opacity: 0;
 }
 
 .span_marital {
-  position: absolute;
-  bottom: 332px;
-  right: 246px;
+  position: relative;
+  bottom: 22px;
+  right: -109px;
   font-size: 10px;
   background-image: url("../../images/infoicon.svg");
   background-repeat: no-repeat;
@@ -106,25 +112,28 @@
 }
 
 .tiny-popup_marital {
-  position: fixed;
-  bottom: 416px;
-  right: 492px;
+  position: absolute;
+  bottom: 1px;
+  right: -356px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
   background-color: rgb(63, 8, 111);
   border-radius: 3px;
+  font-weight: 100;
+  padding: 0 10px 0;
+  font-size: 13px;
 }
 
 .tiny-popup_marital.hidden {
-  bottom: 420px;
+  bottom: 7px;
   opacity: 0;
 }
 
 .span_sexual-orientation {
-  position: absolute;
-  bottom: 261px;
-  right: 210px;
+  position: relative;
+  bottom: 21px;
+  right: -144px;
   font-size: 10px;
   background-image: url("../../images/infoicon.svg");
   background-repeat: no-repeat;
@@ -137,17 +146,20 @@
 }
 
 .tiny-popup_sexual-orientation {
-  position: fixed;
-  bottom: 343px;
-  right: 454px;
+  position: absolute;
+  bottom: 1px;
+  right: -458px;
   opacity: 1.0;
   transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
   color: #fff;
   background-color: rgb(63, 8, 111);
   border-radius: 3px;
+  font-weight: 100;
+  padding: 0 10px 0;
+  font-size: 13px;
 }
 
 .tiny-popup_sexual-orientation.hidden {
-  bottom: 350px;
+  bottom: 7px;
   opacity: 0;
 }
