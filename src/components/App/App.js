@@ -434,10 +434,10 @@ function App() {
 
     if (!isRecording && !isOraclePlayingAudio) {
       // backgroundMusic.volume = 0.5;
-      backgroundMusic.volume = 0.01;
+      backgroundMusic.volume = 0.05;
     } else if (isRecording && isOraclePlayingAudio) {
   //} else if (!isRecording && !isOraclePlayingAudio) {
-      backgroundMusic.volume = 0.01;
+      backgroundMusic.volume = 0.05;
     }
 
     // Play music after ensuring there's user interaction

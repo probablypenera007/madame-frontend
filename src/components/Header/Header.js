@@ -64,7 +64,7 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal, onAboutUs }) => {
           type="text"
           onClick={onAboutUs}
         >
-          About Us
+          About The Stars
         </button>
         {!isLoggedIn && (
           <button
