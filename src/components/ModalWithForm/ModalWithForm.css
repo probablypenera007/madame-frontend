@@ -332,7 +332,7 @@
 }
 
 .oracle__reading_title {
-    margin: 40px 40px 48px 40px;
+    margin: 40px 40px 21px 40px;
     font-size: 20px;
 }
 
@@ -342,7 +342,7 @@
 }
 
 .oracle__button_save {
-    margin: 81px 0px 0px 44px;
+    margin: -5px 0px 0px 44px;
     width: 65px;
     height: 36px;
     color: #FFF;
@@ -469,9 +469,9 @@
 
 .button__submit-modal_Welcome_Modal {
     position: fixed;
-    left: 615px;
-    right: 537px;
-    bottom: 488px;
+    left: 563px;
+    right: 481px;
+    bottom: 619px;
     border-radius: 13px;
     background: #770dff91;
     color: #fff;
@@ -480,9 +480,9 @@
 
 .button__submit-modal_Welcome_Modal:disabled {
     position: fixed;
-    left: 615px;
+    /* left: 615px;
     right: 537px;
-    bottom: 488px;
+    bottom: 488px; */
     opacity: 0.4;
     border-radius: 13px;
     cursor: not-allowed;
