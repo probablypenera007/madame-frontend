@@ -58,7 +58,9 @@ const OracleSection = ({
         )}
       </div>
       {(isOracleProcessingSTT || isOracleProcessingTTS) && (
+        <div className="spinner__container">
         <div className="spinner"></div>
+      </div>
       )}
 
       {isUserTalking && <div className="user-talking-pulse"></div>}
