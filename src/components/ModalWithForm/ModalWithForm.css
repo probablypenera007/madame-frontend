@@ -459,6 +459,13 @@
     text-align: center;
 }
 
+.welcome__modal_button-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .welcome__modal_button-register {
     display: block;
     width: 673px;
@@ -480,14 +487,17 @@
 }
 
 .welcome__modal_button-mic{
-    position: fixed;
-    left: 563px;
-    right: 481px;
-    bottom: 619px;
+    position: relative;
+    /* left: 563px; */
+    /* right: 304px; */
+    /* bottom: 619px; */
     border-radius: 13px;
     background: #770dff91;
     color: #fff;
     cursor: pointer;
+    /* width: fit-content; */
+    width: 157px;
+    margin: 0 auto;
 }
 
 .welcome__modal_button-mic:disabled {
@@ -508,3 +518,4 @@
     height: 0px;
     top:100px;
 }
+
