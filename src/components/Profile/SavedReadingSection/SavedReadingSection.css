@@ -7,6 +7,13 @@
     margin-top: -30px;
 }
 
+@media (max-width: 768px) {
+    .section__saved-reading{
+        margin-left: 130px;
+        margin-bottom: 66px;
+    }
+}
+
 .section__saved-reading_title{
     font-size: 30px;
     margin-left: -250px;

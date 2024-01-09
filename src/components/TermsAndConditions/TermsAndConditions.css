@@ -7,12 +7,19 @@
     font-family: "Aleo-Medium",Arial, sans-serif;
     color: #DCDBCD;
     padding: 0px 200px 16px 200px;
-    align-items: center;
+    text-align: center;
 }
 
 .terms__title {
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 20px;
+}
+
+@media(max-width: 768px){
+    .terms {
+        padding: 0px 100px 16px 100px;
+        text-align: center ;
+    }
 }
 
 .terms__section-title{
@@ -37,7 +44,8 @@
 }
 
 .terms__paragraph-ai{
-    margin: 18px -53px 16px -31px;
+    /* margin: 18px -53px 16px -31px; */
+    text-align: center;
 }
 
 .terms__paragraph-bottom{

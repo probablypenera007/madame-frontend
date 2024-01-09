@@ -10,6 +10,42 @@
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
+@media (max-width: 768px) {
+  .oracle__section {
+    padding: 28px 58px 0px 58px;
+  }
+
+  .oracle__section-title{
+    font-size: 25px;
+  }
+
+  .spinner__container {
+    left: -740px;
+    top: 79px;
+    width: 541px;
+    height: 540px;
+  }
+
+  .user-talking-pulse {
+    top: 53%;
+    margin-left: 59px;
+  }
+
+  .oracle-talking-pulse{
+    top: 55%;
+    left: 50%;
+  }
+
+  .oracle__section-button:disabled{
+    width: 644px;
+    height: 533px;
+    margin-left: 29px;
+    margin-top: 138px;
+    margin-bottom: 102px;
+    margin-right: 7px;
+  }
+}
+
 .oracle__section-heading-container {
   display: flex;
   position: relative;
