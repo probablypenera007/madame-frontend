@@ -441,13 +441,18 @@
     line-height: 60px;
 }
 
-.welcome__modal_paragraph {
-    position: absolute;
+.welcome__modal_paragraph{
+    /* position: absolute;
     text-align: center;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     font-size: 20px;
     line-height: 18px;
-    padding: 0px 0px;
+    padding: 0px 0px; */
+    text-align: center;
+}
+
+.welcome__modal_content{
+    text-align: center;
 }
 
 .welcome__modal__buttons {

@@ -31,7 +31,7 @@ const WelcomeModal = ({
             insights tailored to your unique cosmic essence. Share essential
             details like your birth date and place, sexual orientation, and
             marital status for a truly personalized celestial experience.
-            <p>
+            <p className="welcome__modal_paragraph">
               When you're ready, activate your mic and click the crystal ball to
               begin your journey.
             </p>
