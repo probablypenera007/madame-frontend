@@ -11,22 +11,23 @@
 
 .tiny-popup__mic {
   position: fixed;
-  bottom: 400px;
-  right: 408px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
   background-color: #390d72d4;
   color: white;
   padding: 10px;
   border-radius: 5px;
   opacity: 1.0;
-  transition: opacity 0.3s linear, bottom 0.3s ease-in-out;
+  transition: opacity 0.3s linear, transform 0.3s ease-in-out;
   text-shadow: -1px 1px 8px rgb(0, 0, 0);
   z-index: 1;
 }
 
 .tiny-popup__mic--hidden {
   opacity: 0;
-  bottom: 380px;
+  transform: translate(-50%, -50%) scale(0.95);
   z-index: -4;
 }
 

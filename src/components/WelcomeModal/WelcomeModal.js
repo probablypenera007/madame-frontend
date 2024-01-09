@@ -7,7 +7,7 @@ const WelcomeModal = ({
   buttonText,
   onSubmit,
   onLogInModal,
-  onRegisterModal,
+  onRegisterModalOnWelcomeModal,
   isButtonDisabled,
   isMicActivated,
   isMicActivationPopupVisible,
@@ -45,7 +45,7 @@ const WelcomeModal = ({
               </button>
               <button
                 className="welcome__modal_button-register"
-                onClick={onRegisterModal}
+                onClick={onRegisterModalOnWelcomeModal}
                 disabled={isMicActivationPopupVisible}
               >
                 Register

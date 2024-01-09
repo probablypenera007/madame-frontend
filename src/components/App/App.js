@@ -229,13 +229,18 @@ function App() {
   };
 
   //LOGIC FOR HANDLING USER REGISTRATION
-  const handleRegisterModal = () => {
+  const handleRegisterOnWelcomeModal = () => {
     if (!isMicActivated) {
       setIsMicActivationPopupVisible(true);
     } else {
       setActiveModal("register-signup");
     }
   };
+
+const handleRegisterModal = () => { 
+    setActiveModal("register-signup");
+};
+
   const handleRegisterSubmit = (data) => {
     setIsLoading(true);
     return auth
@@ -552,7 +557,7 @@ function App() {
             onSubmit={handleMicActivation}
             onLogInModal={handleLogInModal}
             onClose={handleCloseModal}
-            onRegisterModal={handleRegisterModal}
+            onRegisterModalOnWelcomeModal={handleRegisterOnWelcomeModal}
             isButtonDisabled={isMicActivated}
             onMicActivation={handleMicActivation}
           />

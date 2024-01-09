@@ -467,18 +467,18 @@
 }
 
 .welcome__modal_button-register {
-    display: block;
-    width: 673px;
+    position: absolute;
+    width: 100%;
     height: 428px;
     border-radius: 50%;
-    left: 296px;
-    bottom: 36px;
+    /* left: -177px; */
+    bottom: -497px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition: background-color linear 0.3s 0.1s;
     filter: blur(100px);
-    margin: 135px 8px 1px 160px;
+    /* margin: 135px 8px 1px 160px; */
 }
 
 .welcome__modal_button-register:hover {
@@ -501,7 +501,7 @@
 }
 
 .welcome__modal_button-mic:disabled {
-    position: fixed;
+    /* position: fixed; */
     /* left: 615px;
     right: 537px;
     bottom: 488px; */

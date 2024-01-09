@@ -66,6 +66,7 @@ const LogInModal = ({
         </label>
         <button
           className="register__button"
+          type="button"
           onClick={handleOpenRegisterModal}
         >
           or Register
