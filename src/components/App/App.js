@@ -502,11 +502,9 @@ const handleRegisterModal = () => {
             </ProtectedRoute>
           </Route>
           <Route path="/aboutus">
-            {" "}
             <AboutUs />
           </Route>
           <Route path="/terms-and-conditions">
-            {" "}
             <TermsAndConditions />
           </Route>
         </Switch>
