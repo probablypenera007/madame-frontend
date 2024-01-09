@@ -451,6 +451,20 @@
     }
 }
 
+@media(max-width: 320px) {
+    .modal_type_Welcome_Modal .modal__content {
+    background-size: 400%;
+    background-position: center;
+    background-position-x: 53%;
+    background-position-y: 1134%;
+    }
+
+    .welcome__modal__text{
+        margin-right: 40px;
+        font-size: 12px;
+    }
+}
+
 .welcome__modal__text {
     color: #000;
     margin-left: 84px;

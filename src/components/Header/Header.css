@@ -18,6 +18,13 @@
   }
 }
 
+@media (max-width: 320px) {
+  .header {
+    font-size: 13px;
+  }
+}
+
+
 .header__logo {
   display: flex;
   align-items: center;
@@ -161,6 +168,23 @@
 
 .header__login-link{
   font-size: 17px;  
+}
+}
+
+@media(max-width: 320px){
+  .header__button-aboutus{
+   font-size: 13px;
+  }
+.header__button-register{
+  font-size: 13px;
+}
+
+.header__navigation-list{
+  margin-left: 0px;
+}
+
+.header__login-link{
+  font-size: 13px;  
 }
 }
 
