@@ -449,7 +449,7 @@
     text-align: center;
 }
 
-.welcome__modal__buttons_register {
+.welcome__modal_button-register {
     display: block;
     width: 673px;
     height: 428px;
@@ -464,12 +464,12 @@
     margin: 135px 8px 1px 160px;
 }
 
-.welcome__modal__buttons_register:hover {
+.welcome__modal_button-register:hover {
     background-color: #e3cd5173;
     filter: blur(100px);
 }
 
-.button__submit-modal_Welcome_Modal {
+.welcome__modal_button-mic{
     position: fixed;
     left: 563px;
     right: 481px;
@@ -480,7 +480,7 @@
     cursor: pointer;
 }
 
-.button__submit-modal_Welcome_Modal:disabled {
+.welcome__modal_button-mic:disabled {
     position: fixed;
     /* left: 615px;
     right: 537px;
@@ -488,4 +488,13 @@
     opacity: 0.4;
     border-radius: 13px;
     cursor: not-allowed;
+}
+
+.button__submit-modal_Welcome_Modal{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    width:0px;
+    height: 0px;
+    top:100px;
 }

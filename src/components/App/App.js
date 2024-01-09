@@ -296,7 +296,7 @@ function App() {
       setActiveModal("welcome");
     } else {
       console.log("Mic is already activated");
-      history.push("/");
+      // history.push("/");
     }
   };
 
@@ -554,6 +554,7 @@ function App() {
             onClose={handleCloseModal}
             onRegisterModal={handleRegisterModal}
             isButtonDisabled={isMicActivated}
+            onMicActivation={handleMicActivation}
           />
         )}
         <TinyPopup
