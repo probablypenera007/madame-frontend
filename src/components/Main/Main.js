@@ -35,7 +35,7 @@ function Main({}) {
       <div className="zodiac-display">
         {currentZodiac.url && (
           <Link to="/profile">
-            <img src={currentZodiac.url} className="zodiac__image" />
+            <img src={currentZodiac.url} className="zodiac-display__image" />
           </Link>
         )}
       </div>

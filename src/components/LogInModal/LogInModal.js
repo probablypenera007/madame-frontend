@@ -64,13 +64,13 @@ const LogInModal = ({
             required
           />
         </label>
-        <Link
-          to="/"
-          className="register__link"
+        <button
+          className="register__button"
+          type="button"
           onClick={handleOpenRegisterModal}
         >
           or Register
-        </Link>
+        </button>
       </ModalWithForm>
     </div>
   );

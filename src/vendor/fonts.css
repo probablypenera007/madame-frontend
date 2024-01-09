@@ -1,23 +1,24 @@
 @font-face {
   font-family: "CabinetGrotesk-Bold";
   font-weight: 700;
-  src: url(../vendor/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Bold.woff) format("woff");
+  src: url(../vendor/fonts/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Bold.woff) format("woff");
 }
-
+/*../vendor/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Bold.woff*/
 @font-face {
   font-family: "CabinetGrotesk-Medium";
   font-weight: 700;
-  src: url(../vendor/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Medium.woff) format("woff");
+  src: url(../vendor/fonts/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Medium.woff) format("woff");
 }
-
+/*../vendor/cabinet-grotesk-cufonfonts-webfont/CabinetGrotesk-Medium.woff*/
 @font-face {
   font-family: "Tangerine-Regular";
   font-weight: 400;
-  src: url(../vendor/Tangerine/Tangerine-Regular.ttf) format("truetype");
+  src: url(../vendor/fonts/Tangerine/Tangerine-Regular.ttf) format("truetype");
 }
-
+/*../vendor/Tangerine/Tangerine-Regular.ttf*/
 @font-face {
   font-family: "Tangerine-Bold";
   font-weight: 700;
-  src: url(../vendor/Tangerine/Tangerine-Bold.ttf) format("truetype");
+  src: url(../vendor/fonts/Tangerine/Tangerine-Bold.ttf) format("truetype");
 }
+/*../vendor/Tangerine/Tangerine-Bold.ttf*/

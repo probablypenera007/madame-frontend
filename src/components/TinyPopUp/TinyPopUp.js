@@ -15,7 +15,7 @@ const TinyPopup = ({ name, text, isVisible, onHide }) => {
   }, [isVisible, onHide]);
 
   return (
-    <div className={`tiny-popup_${name}${isVisible ? "" : " hidden"}`}>
+    <div className={`tiny-popup__${name}${isVisible ? "" : ` tiny-popup__${name}--hidden`}`}>
       {text}
     </div>
   );

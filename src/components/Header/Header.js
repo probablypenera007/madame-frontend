@@ -39,43 +39,41 @@ const Header = ({ isLoggedIn, onLogInModal, onRegisterModal, onAboutUs }) => {
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpened(!isMobileMenuOpened);
-  };
-
-  const zodiacSeason = getCurrentZodiacSign();
-
   return (
     <header className="header">
       <div className="header__logo">
-        <div>
-          <Link to="/">
-            <img className="mologo" src={mologo} alt="logo" />
-          </Link>
-        </div>
+        <Link to="/">
+          <img className="mologo" src={mologo} alt="logo" />
+        </Link>
         <div className="header__date">
-          {currentDate}, {zodiacSeason} Season
+          {currentDate}, {getCurrentZodiacSign()} Season
         </div>
       </div>
 
-      <div className="header__button-container">
-        <button
-          className="header__button-aboutus"
-          type="text"
-          onClick={onAboutUs}
-        >
-          About The Stars
-        </button>
-        {!isLoggedIn && (
-          <button
-            className="header__button-register"
-            type="button"
-            onClick={onRegisterModal}
-          >
-            Sign Up
-          </button>
-        )}
-      </div>
+      <nav className="header__navigation">
+        <ul className="header__navigation-list" >
+          <li className="header__navigation-item" >
+            <button
+              className="header__button-aboutus"
+              type="button"
+              onClick={onAboutUs}
+            >
+              About The Stars
+            </button>
+          </li>
+          {!isLoggedIn && (
+            <li className="header__navigation-item" >
+              <button
+                className="header__button-register"
+                type="button"
+                onClick={onRegisterModal}
+              >
+                Sign Up
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
 
       {isLoggedIn ? (
         <Link className="link__container" to="/profile">

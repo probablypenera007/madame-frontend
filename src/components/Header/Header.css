@@ -121,6 +121,22 @@
   margin-left: 20px;
 }
 
+.header__navigation{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+
+}
+
+.header__navigation-list{
+  display: flex;
+  align-items: center;
+  /* gap: 20px; */
+  margin-left: 20px;
+  list-style: none;
+}
+
 /* 
 
 .header__hamburger, .header__close {
