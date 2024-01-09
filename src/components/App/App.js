@@ -455,8 +455,8 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div
-        className={`bg__galaxy ${
-          isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
+        className={`bg-galaxy ${
+          isOracleProcessingTTS ? "bg-galaxy--hyperdrive-active" : ""
         }`}
       ></div>
       <div className="page">

@@ -20,7 +20,7 @@
   margin-right: 10px;
 }
 
-.footer__terms_button {
+.footer__terms-button {
   margin-right: 20px;
   text-decoration: none;
   color: #fff;
@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.footer__music_attribution {
+.footer__music-attribution {
   text-shadow: 7px 6px 20px rgb(0 0 0);
   font-size: 13px; 
   margin-top: 10px; 

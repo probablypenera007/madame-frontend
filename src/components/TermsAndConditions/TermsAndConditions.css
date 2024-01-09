@@ -33,11 +33,16 @@
 
 .terms__step{
     font-weight: bold;
+    margin: -2px 0px -9px 0px;
+}
+
+.terms__paragraph-ai{
+    margin: 18px -53px 16px -31px;
 }
 
 .terms__paragraph-bottom{
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     background: transparent;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
@@ -47,4 +52,13 @@
     justify-content: space-around;
     flex-wrap: wrap;
     justify-content: center;
+    margin: -13px 50px 1px 50px;
+}
+
+.terms__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }

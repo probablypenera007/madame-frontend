@@ -9,7 +9,7 @@
   /* display: none; */
 }
 
-.tiny-popup_mic {
+.tiny-popup__mic {
   position: fixed;
   bottom: 400px;
   right: 408px;
@@ -23,7 +23,7 @@
   text-shadow: -1px 1px 8px rgb(0, 0, 0);
 }
 
-.tiny-popup_mic.hidden {
+.tiny-popup__mic--hidden {
   opacity: 0;
   bottom: 380px;
 }
@@ -43,7 +43,7 @@
   height: 20px;
 }
 
-.tiny-popup_dob {
+.tiny-popup__dob {
   position: absolute;
   bottom: 1px;
   right: -531px;
@@ -57,7 +57,7 @@
   font-size: 13px;
 }
 
-.tiny-popup_dob.hidden {
+.tiny-popup__dob--hidden {
   bottom: 7px;
   opacity: 0;
 }
@@ -77,7 +77,7 @@
   height: 20px;
 }
 
-.tiny-popup_birthplace {
+.tiny-popup__birthplace {
   position: absolute;
   bottom: 1px;
   right: -478px;
@@ -91,7 +91,7 @@
   font-size: 13px;
 }
 
-.tiny-popup_birthplace.hidden {
+.tiny-popup__birthplace--hidden {
   bottom: 7px;
   opacity: 0;
 }
@@ -111,7 +111,7 @@
   height: 20px;
 }
 
-.tiny-popup_marital {
+.tiny-popup__marital {
   position: absolute;
   bottom: 1px;
   right: -356px;
@@ -125,7 +125,7 @@
   font-size: 13px;
 }
 
-.tiny-popup_marital.hidden {
+.tiny-popup__marital--hidden {
   bottom: 7px;
   opacity: 0;
 }
@@ -145,7 +145,7 @@
   height: 20px;
 }
 
-.tiny-popup_sexual-orientation {
+.tiny-popup__sexual-orientation {
   position: absolute;
   bottom: 1px;
   right: -458px;
@@ -159,7 +159,7 @@
   font-size: 13px;
 }
 
-.tiny-popup_sexual-orientation.hidden {
+.tiny-popup__sexual-orientation--hidden {
   bottom: 7px;
   opacity: 0;
 }
