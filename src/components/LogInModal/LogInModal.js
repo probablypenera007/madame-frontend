@@ -65,8 +65,8 @@ const LogInModal = ({
           />
         </label>
         <button
-          className="register__link"
-          onClick={openRegisterModal}
+          className="register__button"
+          onClick={handleOpenRegisterModal}
         >
           or Register
         </button>

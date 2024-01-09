@@ -288,7 +288,7 @@
     opacity: 0.3;
 }
 
-.register__link {
+.register__button {
     margin-right: -187px;
     margin-left: 100px;
     text-decoration: none;
@@ -296,6 +296,16 @@
     opacity: .5;
     transition: opacity linear 0.3s 0.1s;
     cursor: pointer;
+    margin-right: -187px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: #000;
+    opacity: .5;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
 
 .register__likn:hover {
