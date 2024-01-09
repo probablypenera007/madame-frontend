@@ -28,7 +28,7 @@ const RegisterModal = ({
     password: "",
   });
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleFormSubmitRegister = (e) => {
     e.preventDefault();

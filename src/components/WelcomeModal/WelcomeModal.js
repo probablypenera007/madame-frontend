@@ -21,6 +21,7 @@ const WelcomeModal = ({
         isOpen={isOpen}
         modalName={"Welcome_Modal"}
         isButtonDisabled={isButtonDisabled}
+        onSubmit={onSubmit}
       >
         <div className="welcome__modal__text">
           <h3 className="welcome__modal_title">Prologue:</h3>
@@ -40,6 +41,7 @@ const WelcomeModal = ({
                 className="welcome__modal_button-mic"
                 onClick={onMicActivation}
                 disabled={isMicActivated}
+                type="submit"
               >
                 {buttonText}
               </button>
@@ -47,6 +49,7 @@ const WelcomeModal = ({
                 className="welcome__modal_button-register"
                 onClick={onRegisterModalOnWelcomeModal}
                 disabled={isMicActivationPopupVisible}
+                type="button"
               >
                 Register
               </button>
