@@ -22,6 +22,17 @@
     }
 }
 
+@media(max-width: 320px){
+    .terms {
+        padding: 0px 4px 16px 4px;
+        text-align: center;
+        margin-left: 35px;
+        margin-right: -96px;
+        font-size: 13px;
+    }
+}
+
+
 .terms__section-title{
     font-size: 24px;
     margin-bottom: 7px;

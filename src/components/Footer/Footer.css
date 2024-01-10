@@ -24,6 +24,35 @@
   }
 }
 
+@media (max-width: 320px) {
+  .footer {
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    flex-wrap: nowrap;
+    /* font-size: 10px; */
+  }
+
+  .footer__music-attribution {
+    margin-top: 26px;
+    font-size: 10px;
+  }
+
+  .footer__terms-button {
+    font-size: 10px;
+  }
+
+  .music__link {
+    font-size: 10px;
+  }
+
+  .footer__section {
+    font-size: 10px;
+    margin-left: 64px;
+  }
+
+}
+
+
 .footer__section {
   display: flex;
   flex-direction: row-reverse;

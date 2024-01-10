@@ -14,8 +14,22 @@
       padding: 0px 80px 59px 80px;
       text-align: center ;
     }
-  }
+ }
   
+
+
+ @media(max-width: 320px){
+  .about__us {
+    padding: 0px 2px 59px 0px;
+    text-align: center;
+    margin-left: 9px;
+    margin-right: -101px;
+    font-size: 10px;
+  }
+
+}
+
+
   .about__title {
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 20px;

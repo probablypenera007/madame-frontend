@@ -189,6 +189,17 @@
     max-height: 694px;
 }
 
+@media(max-width:320px){
+    .modal_type_Register_Modal .modal__content {
+        z-index: -2;
+        max-width: 319px;
+        max-height: 691px;
+        margin: 0 auto;
+        overflow: auto;
+        margin: -22px 27px 10px 19px;
+    }
+}
+
 .modal__label_register {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -250,11 +261,19 @@
     max-height: 211px;
 }
 
+@media(max-width:320px) {
+    .modal_type_LogIn_Modal .modal__content {
+        z-index: -2;
+        max-width: 323px;
+        max-height: 211px;
+        margin: 1px 16px 146px 1px;
+    }
+}
+
 .modal__label_login {
     margin-top: 10px;
     margin-bottom: 1px;
 }
-
 .modal__input_text-login {
     height: 40px;
     padding-top: 10px;
@@ -453,10 +472,10 @@
 
 @media(max-width: 320px) {
     .modal_type_Welcome_Modal .modal__content {
-    background-size: 400%;
-    background-position: center;
-    background-position-x: 53%;
-    background-position-y: 1134%;
+        background-size: 400%;
+        background-position: center;
+        background-position-x: 54%;
+        background-position-y: 1195%;
     }
 
     .welcome__modal__text{

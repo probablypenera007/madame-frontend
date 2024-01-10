@@ -44,6 +44,15 @@
     }
 }
 
+@media (max-width: 320px) {
+    @keyframes galaxyanimate{
+        0% { background-size: 312%; background-position: 0 0; }
+        50% { background-size: 465%; background-position: 10% 10%; }
+        100% { background-size: 312%; background-position: 0 0; }
+    }
+}
+
+
 .bg-galaxy--hyperdrive-active {
     animation: hyperdriveAnimate 60s infinite linear;
 }

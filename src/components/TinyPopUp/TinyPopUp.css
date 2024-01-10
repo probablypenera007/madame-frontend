@@ -190,10 +190,50 @@
     text-align: center;
   }
 
+  .tiny-popup__marital{
+    font-size: 13px;
+  }
+
   .tiny-popup__sexual-orientation{
     right: -408px;
     /* bottom: 21px  ; */
     font-size: 13px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .tiny-popup__mic {
+    left: 54%;
+    text-align: center;
+    font-size: 8px;
+  }
+
+  .tiny-popup__dob {
+    right: -100px;
+    /* bottom: 21px  ; */
+    font-size: 8px;
+    text-align: center;
+  }
+
+  .tiny-popup__birthplace {
+    right: -100px;
+    /* bottom: 21px  ; */
+    font-size: 10px;
+    text-align: center;
+  }
+
+.tiny-popup__marital{
+  right: -100px;
+  /* bottom: 21px  ; */
+  font-size: 10px;
+  text-align: center;
+  }
+
+  .tiny-popup__sexual-orientation{
+    right: -100px;
+    /* bottom: 21px  ; */
+    font-size: 10px;
     text-align: center;
   }
 }
