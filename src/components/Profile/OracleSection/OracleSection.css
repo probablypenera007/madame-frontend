@@ -1,33 +1,292 @@
+/*-------------BASE-------------------*/
 .oracle__section {
   position: relative;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   color: #c279ff;
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
-@media(max-width: 1440px) {
-  .oracle__section-button {
-    width: 702px;
-    height: 584px;
-    margin-top: 84px;
-    margin-bottom: 37px;
-  }
 
-  .oracle__section-button:disabled{
-    width: 594px;
-    height: 533px;
-    margin-left: 12px;
-    margin-top: 102px;
-    margin-bottom: 37px;
-    margin-right: 135px;
-  }
-
-  
+.oracle__section-heading-container {
+  display: flex;
+  position: relative;
 }
+
+.oracle__section-title {
+  position: absolute;
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+ font-weight: 700;
+  color: #c279ff;
+  text-shadow: 2px 6px 20px rgb(0 0 0);
+  font-size: 30px;
+    margin-left: 38px;
+}
+
+.oracle__section-button {
+  position: relative;
+  background-image: url("../../../images/main-crystal3.PNG");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  color: #c279ff;
+  opacity: .4;
+    /* filter: grayscale(100%); */
+    overflow: hidden;
+  /* filter: contrast(1.2); */
+    filter: brightness(0.01);
+    width: 703px;
+    height: 585px;
+    margin-top: 85px;
+    margin-bottom: 36px;
+  }
+  
+  .oracle__section-button:active {
+    margin-top: 85px;
+    margin-bottom: 38px;
+  }
+ 
+  .oracle__section-button:hover {
+    opacity: 1;
+    filter: none;
+  }
+ 
+  .oracle__section-button:disabled {
+    background-image: url("../../../images/mdmoracle-isolated.PNG");
+    opacity: 1;
+    filter: none;
+  }
+ 
+  .spinner__container {
+    position: relative;
+    left: -9px;
+    top: -587px;
+    width: 542px;
+    height: 541px;
+  }
+ 
+  .spinner__container::before {
+    content: "";
+    position: absolute;
+   border: 10px solid rgba(255, 255, 255, 0.3);
+    animation: glow 2s ease-in-out infinite;
+  }
+ 
+  .spinner {
+    position: absolute;
+    background: transparent;
+    background-image: url("../../../images/spinnergalaxy2.png");
+    background-blend-mode: lighten;
+    background-position: center;
+    border: 279px solid rgba(0, 0, 0, 0.3);
+    animation: spin 10s linear infinite;
+    /* margin: 209px 122px -149px 16px; */
+    overflow: hidden;
+  }
+ 
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+ 
+    100% {
+      transform: rotate(360deg);
+      filter: hue-rotate(360deg);
+    }
+  }
+ 
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
+    }
+ 
+    50% {
+      box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.6);
+    }
+ 
+    100% {
+      box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
+    }
+  }
+ 
+  .user-talking-pulse {
+    position: absolute;
+    width: 730px;
+    height: 730px;
+    top: 53%;
+    left: 41%;
+    transform: translate(-50%, -50%);
+    background: rgba(8, 0, 0, 0.8);
+    border-radius: 50%;
+    animation: pulse 0.8s ease-in-out infinite;
+    z-index: -1;
+  }
+ 
+  .oracle-talking-pulse {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  top: 55%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  background: rgba(63, 8, 111, 0.553);
+  border-radius: 50%;
+  animation: pulse 0.7s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgb(89, 175, 251);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+
+/*------------1440px--------------------*/
+
+
+@media(max-width: 1440px) {
+  .oracle__section{
+  font-size: 20px;
+  }
+  .oracle__section-title{
+  font-size: 27px;
+  }
+  
+  .oracle__section-button {
+  width: 702px;
+  height: 584px;
+  margin-top: 84px;
+  margin-bottom: 37px;
+  border-radius: 43%;
+  }
+  .oracle__section-button:active {
+  margin-top:84px;  
+  margin-bottom: 37px;
+  }
+  
+  .oracle__section-button:hover {
+  width: 702px;
+  height: 584px;
+  margin-top: 84px;
+  margin-bottom: 37px;
+  }
+  .oracle__section-button:disabled{
+   border-radius: 40%;
+  width: 594px;
+  height: 533px;
+  margin-left: 12px;
+  margin-top: 102px;
+  margin-bottom: 37px;
+  margin-right: 135px;
+  }
+  
+   .spinner__container {
+      left: -8px;
+      top: -586px;
+      width: 541px;
+      height: 540px;
+    }
+   
+    .spinner__container::before {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+   
+    .spinner {
+      border-radius: 131%;
+      width: -13px;
+      height: -110px;
+      overflow: hidden;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 3px;
+    }
+   
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+      }
+   
+      100% {
+        transform: rotate(360deg);
+        filter: hue-rotate(360deg);
+      }
+    }
+   
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
+      }
+   
+      50% {
+        box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.6);
+      }
+   
+      100% {
+        box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
+      }
+    }
+   
+    .user-talking-pulse {
+      width: 730px;
+      height: 730px;
+      top: 53%;
+      left: 41%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+   
+    .oracle-talking-pulse {
+    width: 750px;
+    height: 750px;
+    top: 55%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  
+    70% {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  }
+
+
+/*------------768px--------------------*/
+
+
 @media (max-width: 768px) {
   .oracle__section {
     padding: 28px 58px 0px 58px;
@@ -64,13 +323,15 @@
   }
 }
 
+/*-----320PX-------*/
+
 @media (max-width: 320px) {
   .oracle__section {
     padding: 28px 58px 0px 58px;
   }
 
   .oracle__section-title {
-        /* font-size: 9px; */
+        font-size: 20px;
         width: 337px;
         /* margin: -40px -55px 0px -54px; */
         margin-top: -40px;
@@ -81,7 +342,6 @@
 
   .oracle__section-button {
     font-size: 25px;
-
     background-repeat: no-repeat;
     background-size: contain;
     padding: 0;
@@ -92,8 +352,8 @@
     transition: opacity 0.3s ease, filter 0.3s ease;
     cursor: pointer;
     color: #c279ff;
-    margin-top: 0px;
-    margin-bottom: -128px;
+    margin-top: 46px;
+    margin-bottom: -80px;
     margin-left: -3px;
     margin-right: -123px;
     /* padding: 10px 113px 41px 10px; */
@@ -120,8 +380,11 @@
   }
 
   .user-talking-pulse {
-    top: 53%;
     margin-left: 59px;
+    width: 231px;
+    height: 232px;
+    top: 35%;
+    left: 50%;
   }
 
   .oracle-talking-pulse {
@@ -136,184 +399,5 @@
     max-height: 100px;
     left: 10%;
     bottom: 25%;
-  }
-}
-
-
-
-.oracle__section-heading-container {
-  display: flex;
-  position: relative;
-}
-
-.oracle__section-title {
-  position: absolute;
-  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-  font-size: 27px;
-  font-weight: 700;
-  color: #c279ff;
-  text-shadow: 2px 6px 20px rgb(0 0 0);
-}
-
-.oracle__section-button {
-  position: relative;
-  background-image: url("../../../images/main-crystal3.PNG");
-  background-repeat: no-repeat;
-  background-size: contain;
-  padding: 0;
-
-  background-color: transparent;
-  border: none;
-  transition: opacity 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-  color: #c279ff;
-
-  opacity: .4;
-  /* filter: grayscale(100%); */
-  overflow: hidden;
-  /* border-radius: 50%; */
-  /* filter: contrast(1.2); */
-  filter: brightness(0.01);
-}
-
-
-
-/* .oracle__section-button:not(:disabled)::after {
-    content: "";
-    position: absolute;
-    top: 52%;
-    left: 42%;
-    width: 80%;
-    height: 96%;
-    transform: translate(-50%, -52%);
-    background: rgba(0, 0, 0, 2.5);
-    z-index: -1;
-    filter: blur(4px);
-    border-radius: 131%;
-  } */
-
-/* testing if removing this wont move the button .oracle__section-button:active {
-  margin-top: 84px;
-  margin-bottom: 37px;
-} */
-
-.oracle__section-button:hover {
-  opacity: 1;
-  filter: none;
-  margin-top: 84px;
-  margin-bottom: 37px;
-}
-
-.oracle__section-button:disabled {
-  background-image: url("../../../images/mdmoracle-isolated.PNG");
-  border-radius: 40%;
-  opacity: 1;
-
-  filter: none;
-}
-
-.spinner__container {
-  position: relative;
-  left: -8px;
-  top: -586px;
-  width: 541px;
-  height: 540px;
-}
-
-.spinner__container::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 10px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  animation: glow 2s ease-in-out infinite;
-}
-
-.spinner {
-  position: absolute;
-  background: transparent;
-  background-image: url("../../../images/spinnergalaxy2.png");
-  background-blend-mode: lighten;
-  background-position: center;
-  border: 279px solid rgba(0, 0, 0, 0.3);
-  border-radius: 131%;
-  width: -13px;
-  height: -110px;
-  animation: spin 10s linear infinite;
-  /* margin: 209px 122px -149px 16px; */
-  overflow: hidden;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 3px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-    filter: hue-rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-    filter: hue-rotate(360deg);
-  }
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.6);
-  }
-
-  100% {
-    box-shadow: 0 0 20px 14px rgba(255, 255, 255, 0.3);
-  }
-}
-
-.user-talking-pulse {
-  position: absolute;
-  width: 730px;
-  height: 730px;
-  top: 53%;
-  left: 41%;
-  transform: translate(-50%, -50%);
-  background: rgba(8, 0, 0, 0.8);
-  border-radius: 50%;
-  animation: pulse 0.8s ease-in-out infinite;
-  z-index: -1;
-}
-
-.oracle-talking-pulse {
-  position: absolute;
-  width: 750px;
-  height: 750px;
-  top: 55%;
-  left: 37%;
-  transform: translate(-50%, -50%);
-  background: rgba(63, 8, 111, 0.553);
-  border-radius: 50%;
-  animation: pulse 0.7s ease-in-out infinite;
-  z-index: -1;
-}
-
-@keyframes pulse {
-  0% {
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 1;
-  }
-
-  70% {
-    transform: translate(-50%, -50%) scale(1.5);
-    background-color: rgb(89, 175, 251);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0;
   }
 }
