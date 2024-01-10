@@ -472,10 +472,10 @@
 
 @media(max-width: 320px) {
     .modal_type_Welcome_Modal .modal__content {
-        background-size: 400%;
+        background-size: 406%;
         background-position: center;
         background-position-x: 54%;
-        background-position-y: 1195%;
+        background-position-y: -57%;
     }
 
     .welcome__modal__text{
