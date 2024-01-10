@@ -451,7 +451,7 @@ const handleRegisterModal = () => {
 
     return () => {
     // backgroundMusic.pause(); 
-      backgroundMusic.play();
+      // backgroundMusic.play();
       document.removeEventListener("click", playMusic);
     };
   }, [isRecording, isOraclePlayingAudio]);
