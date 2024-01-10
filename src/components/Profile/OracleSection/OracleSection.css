@@ -65,16 +65,18 @@
  
   .spinner__container {
     position: relative;
-    left: -9px;
-    top: -587px;
+    left: 0px;
+    top: -624px;
     width: 542px;
-    height: 541px;
+    height: 797px;
+    border-radius: 50px;
   }
  
   .spinner__container::before {
     content: "";
     position: absolute;
-   border: 10px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+   border: 292px solid rgba(255, 255, 255, 0.3);
     animation: glow 2s ease-in-out infinite;
   }
  
@@ -84,10 +86,12 @@
     background-image: url("../../../images/spinnergalaxy2.png");
     background-blend-mode: lighten;
     background-position: center;
-    border: 279px solid rgba(0, 0, 0, 0.3);
+    border: 299px solid rgba(0, 0, 0, 0.3);
     animation: spin 10s linear infinite;
     /* margin: 209px 122px -149px 16px; */
     overflow: hidden;
+    left: -6px;
+    border-radius: 100%;
   }
  
   @keyframes spin {
@@ -134,7 +138,7 @@
   width: 750px;
   height: 750px;
   top: 55%;
-  left: 37%;
+  left: 42%;
   transform: translate(-50%, -50%);
   background: rgba(63, 8, 111, 0.553);
   border-radius: 50%;
@@ -201,24 +205,29 @@
   }
   
    .spinner__container {
-      left: -8px;
-      top: -586px;
-      width: 541px;
-      height: 540px;
+      left: 3px;
+      top: -628px;
+      width: 577px;
+      height: 577px;
     }
    
     .spinner__container::before {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      /* border-radius: 50%; */
+      content: "";
+      position: absolute;
+      border-radius: 100%;
+      border: 8px solid rgba(255, 255, 255, 0.3);
+      animation: glow 2s ease-in-out infinite;
     }
    
     .spinner {
-      border-radius: 131%;
+      border-radius: 100%;
       /* width: -13px;
       height: -110px; */
       overflow: hidden;
-      margin-top: 0px;
+      margin-top: 4px;
       margin-bottom: 0px;
       margin-left: 3px;
     }
@@ -297,11 +306,21 @@
   }
 
   .spinner__container {
-    left: -740px;
-    top: 79px;
-    width: 541px;
-    height: 540px;
+    left: 20px;
+    top: -695px;
+    width: 579px;
+    height: 578px;
   }
+
+.spinner{
+  border: 304px solid rgba(0, 0, 0, 0.3);
+  max-width: 100px;
+  max-height: 100px;
+  /* left: 10%;
+  bottom: 25%; */
+  margin: 1px 1px 1px 1px;
+  /* z-index: 2px ; */
+}
 
   .user-talking-pulse {
     top: 53%;
@@ -310,7 +329,7 @@
 
   .oracle-talking-pulse {
     top: 55%;
-    left: 50%;
+    left: 59%;
   }
 
   .oracle__section-button:disabled {
@@ -356,23 +375,20 @@
     margin-bottom: -187px;
     margin-left: -3px;
     margin-right: -123px;
-    /* padding: 10px 113px 41px 10px; */
     opacity: .4;
-    /* filter: grayscale(100%); */
     overflow: hidden;
-    border-radius: 22%;
-    /* filter: contrast(1.2); */
     filter: brightness(0.01);
+    border-radius: 22%;
   }
 
-.oracle__section-button:hover{
-    width: 284px;
-    height: 584px;
-    margin-top: 46px;
-    margin-bottom: -187px;
-    margin-left: -3px;
-    margin-right: -123px;
-}
+/* .oracle__section-button:hover{
+  width: 284px;
+  height: 584px;
+  margin-top: 46px;
+  margin-bottom: -187px;
+  margin-left: -3px;
+  margin-right: -123px;
+} */
 
 .oracle__section-button:active {
     margin-top: 46px;
@@ -395,8 +411,8 @@
   .spinner__container {
     max-width: 100px;
     max-height: 100px;
-    left: 10%;
-    bottom: 25%;
+    left: 20px;
+    top: 80px;
   }
 
   .spinner__container::before {
@@ -418,6 +434,7 @@
     /* left: 10%;
     bottom: 25%; */
     margin: -773px 1px 1px -37px;
+    z-index: 2px ;
   }
 
 
@@ -426,13 +443,15 @@
     margin-left: 59px;
     width: 280px;
     height: 280px;
-    top: 47%;
-    left: 51%;
+    top: 35%;
+    left: 55%;
   }
 
   .oracle-talking-pulse {
-    top: 55%;
-    left: 50%;
+    top: 37%;
+    left: 85%;
+    width: 280px;
+    height: 280px;
   }
 
 

@@ -14,18 +14,38 @@
     }
 }
 
+
+@media (max-width: 320px) {
+    .section__saved-reading{
+        margin-left: 130px;
+        margin-bottom: 66px;
+    }
+    .section__saved-reading_title{
+        font-size: 15px;
+        margin-left: -137px;
+        margin-bottom: 48px;
+    }
+
+    .section__saved-list{
+        min-width: 167px;
+        height: 481px;
+        margin-top: 18px;
+        margin-left: 89px;
+    }
+}
+
 .section__saved-reading_title{
     font-size: 30px;
     margin-left: -250px;
-    margin-bottom: 40px;
-}
+    margin-bottom: -20px;
+} 
 
-.section__saved-list{
+ /* .section__saved-list{
     justify-content: center;
     min-width: 299px;
     height: 481px;
     margin-top: -19px;
-}
+} */
 
 .section__saved-item{
     display: flex;
