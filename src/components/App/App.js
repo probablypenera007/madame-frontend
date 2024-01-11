@@ -450,8 +450,6 @@ const handleRegisterModal = () => {
     document.addEventListener("click", playMusic);
 
     return () => {
-    // backgroundMusic.pause(); 
-      // backgroundMusic.play();
       document.removeEventListener("click", playMusic);
     };
   }, [isRecording, isOraclePlayingAudio]);
