@@ -10,7 +10,6 @@ import {
 import "./App.css";
 import backgroundMusicFile from "../../media/sb_aurora.mp3";
 
-
 // -------------------------------
 // COMPONENT IMPORTS
 // -------------------------------
@@ -52,6 +51,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
+  const [tinyPopup, setTinyPopup] = useState({ isVisible: false, message: "" });
 
   // ORACLE FUNCTIONALITY STATES
   const [oracleResponse, setOracleResponse] = useState("");
@@ -92,6 +92,14 @@ function App() {
 
   const handleCloseModal = () => {
     setActiveModal("");
+  };
+
+  const showTinyPopup = (message) => {
+    setTinyPopup({ isVisible: true, message });
+  };
+
+  const hideTinyPopup = () => {
+    setTinyPopup({ isVisible: false, message: "" });
   };
 
   // -------------------------
@@ -213,8 +221,22 @@ function App() {
             history.push("/");
             handleCloseModal();
           })
-          .catch(handleAuthErrors)
-          .finally(() => setIsLoading(false));
+          .catch((error) => {
+            setIsLoading(false);
+            if (error.response) {
+              if (error.response.status === 401) {
+                showTinyPopup("Unauthorized: Incorrect credentials");
+              } else if (error.response.status === 500) {
+                showTinyPopup("Server error, try again later");
+              } else {
+                showTinyPopup("An error occurred, please try again");
+              }
+            } else {
+              showTinyPopup(
+                "Network error, please check your connection and try again"
+              );
+            }
+          });
       }
     });
   };
@@ -237,9 +259,9 @@ function App() {
     }
   };
 
-const handleRegisterModal = () => { 
+  const handleRegisterModal = () => {
     setActiveModal("register-signup");
-};
+  };
 
   const handleRegisterSubmit = (data) => {
     setIsLoading(true);
@@ -250,8 +272,16 @@ const handleRegisterModal = () => {
         history.push("/");
         handleCloseModal();
       })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
+      .catch((error) => {
+        setIsLoading(false);
+        if (error.response.status === 409) {
+          showTinyPopup("User is already registered, please sign in");
+        } else if (error.response.status === 500) {
+          showTinyPopup("Registration failed, please try again");
+        } else {
+          showTinyPopup("error occured on our end, please try again later");
+        }
+      });
   };
 
   const handleEditProfileModal = () => {
@@ -413,9 +443,9 @@ const handleRegisterModal = () => {
   // -----------------------------
   // BACKGROUND MUSIC
   // -----------------------------
-//https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
-//https://react.dev/reference/react/useRef
-//https://www.w3schools.com/react/react_useref.asp
+  //https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement
+  //https://react.dev/reference/react/useRef
+  //https://www.w3schools.com/react/react_useref.asp
 
   const backgroundMusicRef = useRef(new Audio(backgroundMusicFile));
 
@@ -426,7 +456,9 @@ const handleRegisterModal = () => {
     const playMusic = () => {
       backgroundMusic.loop = true;
       // Attempt to play and catch any errors
-      backgroundMusic.play().catch((error) => console.log("Play error:", error));
+      backgroundMusic
+        .play()
+        .catch((error) => console.log("Play error:", error));
     };
     // if (!isRecording) {
     //   backgroundMusic.volume = 1.0;
@@ -442,7 +474,7 @@ const handleRegisterModal = () => {
       // backgroundMusic.volume = 0.5;
       backgroundMusic.volume = 0.05;
     } else if (isRecording && isOraclePlayingAudio) {
-  //} else if (!isRecording && !isOraclePlayingAudio) {
+      //} else if (!isRecording && !isOraclePlayingAudio) {
       backgroundMusic.volume = 0.05;
     }
 
@@ -453,7 +485,6 @@ const handleRegisterModal = () => {
       document.removeEventListener("click", playMusic);
     };
   }, [isRecording, isOraclePlayingAudio]);
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -563,6 +594,11 @@ const handleRegisterModal = () => {
           text="Activate your mic and embrace the celestial journey"
           isVisible={isMicActivationPopupVisible}
           onHide={() => setIsMicActivationPopupVisible(false)}
+        />
+        <TinyPopup
+          text={tinyPopup.message}
+          isVisible={tinyPopup.isVisible}
+          onHide={hideTinyPopup}
         />
       </div>
     </CurrentUserContext.Provider>
