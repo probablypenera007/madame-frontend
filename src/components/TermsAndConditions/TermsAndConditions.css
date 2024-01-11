@@ -7,13 +7,31 @@
     font-family: "Aleo-Medium",Arial, sans-serif;
     color: #DCDBCD;
     padding: 0px 200px 16px 200px;
-    align-items: center;
+    text-align: center;
 }
 
 .terms__title {
     text-shadow: 2px 2px 4px #000;
     margin-bottom: 20px;
 }
+
+@media(max-width: 768px){
+    .terms {
+        padding: 0px 100px 16px 100px;
+        text-align: center ;
+    }
+}
+
+@media(max-width: 320px){
+    .terms {
+        padding: 0px 4px 16px 4px;
+        text-align: center;
+        margin-left: 35px;
+        margin-right: -96px;
+        font-size: 13px;
+    }
+}
+
 
 .terms__section-title{
     font-size: 24px;
@@ -33,11 +51,17 @@
 
 .terms__step{
     font-weight: bold;
+    margin: -2px 0px -9px 0px;
+}
+
+.terms__paragraph-ai{
+    /* margin: 18px -53px 16px -31px; */
+    text-align: center;
 }
 
 .terms__paragraph-bottom{
     display: flex;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     background: transparent;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px #000;
@@ -47,4 +71,13 @@
     justify-content: space-around;
     flex-wrap: wrap;
     justify-content: center;
+    margin: -13px 50px 1px 50px;
+}
+
+.terms__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }

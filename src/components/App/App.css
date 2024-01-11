@@ -6,7 +6,7 @@
     margin: 0 auto;
 }
 
-.bg__galaxy{
+.bg-galaxy{
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +19,7 @@
     overflow: hidden;
 }
 
-.bg__galaxy::after {
+.bg-galaxy::after {
     content: '';
     position: absolute;
     top: 0;
@@ -36,7 +36,24 @@
     100% { background-size: 125%; background-position: 0 0; }
 }
 
-.bg__galaxy--hyperdrive-active {
+@media (max-width: 768px) {
+    @keyframes galaxyanimate{
+        0% { background-size: 212%; background-position: 0 0; }
+        50% { background-size: 365%; background-position: 10% 10%; }
+        100% { background-size: 212%; background-position: 0 0; }
+    }
+}
+
+@media (max-width: 320px) {
+    @keyframes galaxyanimate{
+        0% { background-size: 312%; background-position: 0 0; }
+        50% { background-size: 465%; background-position: 10% 10%; }
+        100% { background-size: 312%; background-position: 0 0; }
+    }
+}
+
+
+.bg-galaxy--hyperdrive-active {
     animation: hyperdriveAnimate 60s infinite linear;
 }
 

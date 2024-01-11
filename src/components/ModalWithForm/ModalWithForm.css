@@ -189,6 +189,17 @@
     max-height: 694px;
 }
 
+@media(max-width:320px){
+    .modal_type_Register_Modal .modal__content {
+        z-index: -2;
+        max-width: 319px;
+        max-height: 691px;
+        margin: 0 auto;
+        overflow: auto;
+        margin: -22px 27px 10px 19px;
+    }
+}
+
 .modal__label_register {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -250,11 +261,19 @@
     max-height: 211px;
 }
 
+@media(max-width:320px) {
+    .modal_type_LogIn_Modal .modal__content {
+        z-index: -2;
+        max-width: 323px;
+        max-height: 211px;
+        margin: 1px 16px 146px 1px;
+    }
+}
+
 .modal__label_login {
     margin-top: 10px;
     margin-bottom: 1px;
 }
-
 .modal__input_text-login {
     height: 40px;
     padding-top: 10px;
@@ -288,17 +307,24 @@
     opacity: 0.3;
 }
 
-.register__link {
+.register__button {
     margin-right: -187px;
     margin-left: 100px;
     text-decoration: none;
     color: #000;
     opacity: .5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
     transition: opacity linear 0.3s 0.1s;
     cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
 }
 
-.register__likn:hover {
+.register__button:hover {
     opacity: 1;
 }
 
@@ -314,6 +340,18 @@
     margin: 0 auto;
     overflow: auto;
     margin: 91px -128px 10px 10px;
+}
+
+@media (max-width: 768px) {
+    .modal_type_Oracle_Modal .modal__content {
+        min-width: 300px;
+        max-width: 496px;
+        min-height: 100px;
+        max-height: 411px;
+        margin: 0 auto;
+        overflow: auto;
+        margin: 91px 9px 10px 10px;
+    }
 }
 
 .oracle__button_close {
@@ -420,6 +458,32 @@
     background-position-y: 38%;
 }
 
+@media (max-width: 768px) {
+    .modal_type_Welcome_Modal .modal__content {
+        background-image: url("../../images/welcomemodalBG.png");
+        background-size: 240%;
+        /* max-width: 0px;
+        max-height: 0px; */
+        background-position: center;
+        background-position-x: 52%;
+        background-position-y: 38%;
+    }
+}
+
+@media(max-width: 320px) {
+    .modal_type_Welcome_Modal .modal__content {
+        background-size: 406%;
+        background-position: center;
+        background-position-x: 54%;
+        background-position-y: -57%;
+    }
+
+    .welcome__modal__text{
+        margin-right: 40px;
+        font-size: 12px;
+    }
+}
+
 .welcome__modal__text {
     color: #000;
     margin-left: 84px;
@@ -434,13 +498,18 @@
     line-height: 60px;
 }
 
-.welcome__modal_paragraph {
-    position: absolute;
+.welcome__modal_paragraph{
+    /* position: absolute;
     text-align: center;
     font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
     font-size: 20px;
     line-height: 18px;
-    padding: 0px 0px;
+    padding: 0px 0px; */
+    text-align: center;
+}
+
+.welcome__modal_content{
+    text-align: center;
 }
 
 .welcome__modal__buttons {
@@ -449,39 +518,49 @@
     text-align: center;
 }
 
-.welcome__modal__buttons_register {
-    display: block;
-    width: 673px;
+.welcome__modal_button-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.welcome__modal_button-register {
+    position: absolute;
+    width: 100%;
     height: 428px;
     border-radius: 50%;
-    left: 296px;
-    bottom: 36px;
+    /* left: -177px; */
+    bottom: -497px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition: background-color linear 0.3s 0.1s;
     filter: blur(100px);
-    margin: 135px 8px 1px 160px;
+    /* margin: 135px 8px 1px 160px; */
 }
 
-.welcome__modal__buttons_register:hover {
+.welcome__modal_button-register:hover {
     background-color: #e3cd5173;
     filter: blur(100px);
 }
 
-.button__submit-modal_Welcome_Modal {
-    position: fixed;
-    left: 563px;
-    right: 481px;
-    bottom: 619px;
+.welcome__modal_button-mic{
+    position: relative;
+    /* left: 563px; */
+    /* right: 304px; */
+    /* bottom: 619px; */
     border-radius: 13px;
     background: #770dff91;
     color: #fff;
     cursor: pointer;
+    /* width: fit-content; */
+    width: 157px;
+    margin: 0 auto;
 }
 
-.button__submit-modal_Welcome_Modal:disabled {
-    position: fixed;
+.welcome__modal_button-mic:disabled {
+    /* position: fixed; */
     /* left: 615px;
     right: 537px;
     bottom: 488px; */
@@ -489,3 +568,13 @@
     border-radius: 13px;
     cursor: not-allowed;
 }
+
+.button__submit-modal_Welcome_Modal{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    width:0px;
+    height: 0px;
+    top:100px;
+}
+

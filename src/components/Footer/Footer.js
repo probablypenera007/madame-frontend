@@ -4,13 +4,13 @@ const Footer = ({ onAboutUs, onTermsAndConditions }) => {
   return (
     <footer className="footer">
       <button
-        className="footer__terms_button"
+        className="footer__terms-button"
         type="text"
         onClick={onTermsAndConditions}
       >
         Terms and Conditions
       </button>
-      <div className="footer__music_attribution">
+      <div className="footer__music-attribution">
         Music: "Aurora" by Scott Buckley | 
         <a className="music__link" href="https://www.scottbuckley.com.au" target="_blank" rel="noopener noreferrer">
           www.scottbuckley.com.au
@@ -25,7 +25,7 @@ const Footer = ({ onAboutUs, onTermsAndConditions }) => {
         </a>
       </div>
       <div className="footer__section">
-        <button className="footer__terms_button" type="text" onClick={onAboutUs}>
+        <button className="footer__terms-button" type="text" onClick={onAboutUs}>
           © 2024 James Penera. All rights reserved.
         </button>
       </div>

@@ -7,6 +7,111 @@
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
+@media (max-width: 1024px) {
+  .sidebar {
+    min-width: 219px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    margin-left: 84px;
+    width: 616px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    /* padding: 0 20px; */
+    margin-top: -76px;
+    background-color: #510094;
+    border-radius: 32px;
+    color: beige;
+    margin-bottom: 52px;
+    height: 49px;
+    font-size: 13px;
+  }
+
+  .sidebar__content {
+    display: flex;
+  }
+
+  .avatar__placeholder {
+    margin: 8px 9px 12px 0px;
+  }
+
+  .sidebar__name {
+    margin-top: 0px;
+    color: rgb(210, 210, 210);
+  }
+
+  .sidebar__button-logout {
+    margin-top: 0px;
+  }
+
+  .sidebar__button-edit {
+    margin: 0px;
+    /* align-items: center; */
+  }
+
+  .sidebar__button-saved {
+    margin-top: 0px;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .sidebar {
+    margin-left: 28px;
+    width: 140%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding: 0 20px; */
+    margin-top: -91px;
+    background-color: #510094;
+    border-radius: 19px;
+    color: beige;
+    margin-bottom: 32px;
+    height: 80px;
+    font-size: 10px;
+    /* margin-left: 28px; */
+  }
+
+  .sidebar__content {
+    display: flex;
+    margin-left: -45px;
+    margin-top: -61px;
+  }
+
+  .avatar__placeholder {
+    margin: 8px 9px 12px 0px;
+  }
+
+  .sidebar__name {
+    margin-top: 0px;
+    color: rgb(210, 210, 210);
+  }
+
+  .sidebar__button-logout {
+    margin-top: 0px;
+    font-size: 10px;
+  }
+
+  .sidebar__button-edit {
+    margin: 0px;
+    font-size: 10px;
+    /* align-items: center; */
+  }
+
+  .sidebar__button-saved {
+    margin-top: 0px;
+    font-size: 10px;
+  }
+
+}
+
+
+
 .sidebar__content {
   display: flex;
   justify-content: flex-start;
@@ -15,7 +120,7 @@
 
 .sidebar__name {
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-style: normal;
   font-weight: 700;
   margin: 0;
@@ -29,10 +134,10 @@
   border-radius: 50px;
 }
 
-.sidebar__button-logout{
+.sidebar__button-logout {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
@@ -42,48 +147,48 @@
   text-shadow: 2px 6px 20px rgb(0 0 0);
 }
 
-.sidebar__button-logout:hover{
+.sidebar__button-logout:hover {
   opacity: 0.6;
 }
 
-.sidebar__button-edit{
+.sidebar__button-edit {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
   align-self: flex-start;
-  margin-top: 24px;
+  margin-top: 8px;
   color: #c279ff;
   text-shadow: 2px 6px 20px rgb(0 0 0);
 }
 
-.sidebar__button-edit:hover{
-  opacity:0.6
+.sidebar__button-edit:hover {
+  opacity: 0.6
 }
 
-.sidebar__button-saved{
+.sidebar__button-saved {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
   align-self: flex-start;
-  margin-top: 7px;
+  margin-top: 8px;
   color: #c279ff;
   text-shadow: 2px 6px 20px rgb(0 0 0);
 }
 
-.sidebar__button-saved:hover{
-  opacity:0.6
+.sidebar__button-saved:hover {
+  opacity: 0.6
 }
 
-.sidebar__button-oracle{
+.sidebar__button-oracle {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  /* font-size: 20px; */
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
   transition: opacity linear 0.2s 0.1s;
   cursor: pointer;
@@ -93,6 +198,6 @@
   text-shadow: -3px -1px 20px rgba(255, 255, 255, 0.8);
 }
 
-.sidebar__button-oracle:hover{
+.sidebar__button-oracle:hover {
   opacity: 0.6;
 }

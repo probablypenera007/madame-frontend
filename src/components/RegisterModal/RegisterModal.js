@@ -28,7 +28,7 @@ const RegisterModal = ({
     password: "",
   });
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleFormSubmitRegister = (e) => {
     e.preventDefault();
@@ -108,7 +108,7 @@ const RegisterModal = ({
             className="modal__input_text modal__input_text-register"
             type="text"
             name="placeOfBirth"
-            placeholder="Place of Birth"
+            placeholder="City, Country"
             value={values.placeOfBirth}
             onChange={handleChange}
             autoComplete="off"

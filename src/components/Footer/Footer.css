@@ -12,6 +12,47 @@
   text-shadow: 8px 2px 20px rgb(0 0 0);
 }
 
+@media (max-width: 768px) {
+  .footer {
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    flex-wrap: nowrap;
+  }
+
+  .footer__music-attribution{
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    flex-wrap: nowrap;
+    /* font-size: 10px; */
+  }
+
+  .footer__music-attribution {
+    margin-top: 26px;
+    font-size: 10px;
+  }
+
+  .footer__terms-button {
+    font-size: 10px;
+  }
+
+  .music__link {
+    font-size: 10px;
+  }
+
+  .footer__section {
+    font-size: 10px;
+    margin-left: 64px;
+  }
+
+}
+
+
 .footer__section {
   display: flex;
   flex-direction: row-reverse;
@@ -20,7 +61,7 @@
   margin-right: 10px;
 }
 
-.footer__terms_button {
+.footer__terms-button {
   margin-right: 20px;
   text-decoration: none;
   color: #fff;
@@ -29,7 +70,7 @@
   cursor: pointer;
 }
 
-.footer__music_attribution {
+.footer__music-attribution {
   text-shadow: 7px 6px 20px rgb(0 0 0);
   font-size: 13px; 
   margin-top: 10px; 

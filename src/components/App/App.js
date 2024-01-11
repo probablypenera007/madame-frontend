@@ -229,13 +229,18 @@ function App() {
   };
 
   //LOGIC FOR HANDLING USER REGISTRATION
-  const handleRegisterModal = () => {
+  const handleRegisterOnWelcomeModal = () => {
     if (!isMicActivated) {
       setIsMicActivationPopupVisible(true);
     } else {
       setActiveModal("register-signup");
     }
   };
+
+const handleRegisterModal = () => { 
+    setActiveModal("register-signup");
+};
+
   const handleRegisterSubmit = (data) => {
     setIsLoading(true);
     return auth
@@ -296,7 +301,7 @@ function App() {
       setActiveModal("welcome");
     } else {
       console.log("Mic is already activated");
-      history.push("/");
+      // history.push("/");
     }
   };
 
@@ -445,8 +450,8 @@ function App() {
     document.addEventListener("click", playMusic);
 
     return () => {
-    // backgroundMusic.pause(); - debug this music kept on stopping
-      backgroundMusic.play();
+    // backgroundMusic.pause(); 
+      // backgroundMusic.play();
       document.removeEventListener("click", playMusic);
     };
   }, [isRecording, isOraclePlayingAudio]);
@@ -455,8 +460,8 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div
-        className={`bg__galaxy ${
-          isOracleProcessingTTS ? "bg__galaxy--hyperdrive-active" : ""
+        className={`bg-galaxy ${
+          isOracleProcessingTTS ? "bg-galaxy--hyperdrive-active" : ""
         }`}
       ></div>
       <div className="page">
@@ -497,11 +502,9 @@ function App() {
             </ProtectedRoute>
           </Route>
           <Route path="/aboutus">
-            {" "}
             <AboutUs />
           </Route>
           <Route path="/terms-and-conditions">
-            {" "}
             <TermsAndConditions />
           </Route>
         </Switch>
@@ -552,8 +555,9 @@ function App() {
             onSubmit={handleMicActivation}
             onLogInModal={handleLogInModal}
             onClose={handleCloseModal}
-            onRegisterModal={handleRegisterModal}
+            onRegisterModalOnWelcomeModal={handleRegisterOnWelcomeModal}
             isButtonDisabled={isMicActivated}
+            onMicActivation={handleMicActivation}
           />
         )}
         <TinyPopup
