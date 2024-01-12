@@ -261,21 +261,16 @@ function App() {
   };
 
   const handleRegisterSubmit = (data) => {
-    setLoginFailed(false);
+    setIsLoading(true);
     const registerRequest = () => {
-
-    return auth
-      .register(data)
-      .then((res) => {
-        if (res && res.data) {
-          handleLogInSubmit(data);
-        } else {
-          throw new Error("Registration failed, please try again");
-        }
-      });
-    }
+      return auth.register(data)
+        .then((res) => {
+          return handleLogInSubmit(data);
+        });
+    };
     handleSubmit(registerRequest);
   };
+  
 
   const handleEditProfileModal = () => {
     setActiveModal("edit-profile");
@@ -283,21 +278,16 @@ function App() {
 
   //LOGIC FOR HANDLING USER EDIT PROFILE
   const handleEditProfileSubmit = (data) => {
-    setLoginFailed(false);
-  
-    const editProfileRequest = () => {
+    setIsLoading(true);
     return auth
       .editProfile(data)
       .then((update) => {
-        if (update && update.data) {
-          setCurrentUser(update.data);
-        } else {
-          throw new Error("Profile update failed, please try again");
-        }
-      });
+        setCurrentUser(update.data);
+        handleCloseModal();
+      })
+      .catch(console.error)
+      .finally(() => setIsLoading(false));
   };
-  handleSubmit(editProfileRequest);
-}
 
 
 

@@ -23,11 +23,11 @@ const EditProfileModal = ({
   // console.log("currentuser DOB: ", formatDate(currentUser.dob));
 
   const { values, handleChange, errors, isValid, setValues, setErrors } = useFormAndValidation({
-    name: null,
-    dob: null,
-    placeOfBirth: null,
-    maritalStatus: null,
-    sexualOrientation: null,
+    name: "",
+    dob: "",
+    placeOfBirth: "",
+    maritalStatus:"",
+    sexualOrientation: "",
   });
 
   useEffect(() => {
@@ -69,9 +69,10 @@ const EditProfileModal = ({
             type="text"
             name="name"
             placeholder="First Name"
-            value={values.name || ""}
+            value={values.name}
             onChange={handleChange}
             minLength="1"
+            autoComplete="off"
             required
           />
           {errors.name && <span className="error-message">{errors.name}</span>}
@@ -79,7 +80,7 @@ const EditProfileModal = ({
         <label className="modal__label modal__label_edit">
           DOB*
           <input
-            id="register-dob"
+            id="edit-dob"
             className="modal__input_text modal__input_text-register"
             type="date"
             name="dob"
@@ -93,12 +94,12 @@ const EditProfileModal = ({
         <label className="modal__label modal__label_edit">
           Place of Birth
           <input
-            id="register-placeOfBirth"
+            id="edit-placeOfBirth"
             className="modal__input_text modal__input_text-edit"
             type="text"
             name="placeOfBirth"
             placeholder="City, Country..."
-            value={values.placeOfBirth || ""}
+            value={values.placeOfBirth}
             onChange={handleChange}
             autoComplete="off"
           />
@@ -107,7 +108,7 @@ const EditProfileModal = ({
         <label className="modal__label modal__label_edit">
           Marital Status
           <select
-            id="register-gender"
+            id="edit-maritalStatus"
             placeholder="Marital Status"
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
@@ -129,10 +130,10 @@ const EditProfileModal = ({
         <label className="modal__label modal__label_edit">
           Sexual Orientation
           <select
-            id="register-gender"
+            id="edit-sexualOrientation"
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
-            value={values.sexualOrientation || ""}
+            value={values.sexualOrientation}
             onChange={handleChange}
             required
           >
