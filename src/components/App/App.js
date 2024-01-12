@@ -8,7 +8,7 @@ import {
   useHistory,
 } from "react-router-dom/cjs/react-router-dom";
 import "./App.css";
-import backgroundMusicFile from "../../media/sb_aurora.mp3";
+import backgroundMusicFile from "../../media/sb-aurora.mp3";
 
 // -------------------------------
 // COMPONENT IMPORTS
