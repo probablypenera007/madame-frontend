@@ -77,19 +77,6 @@ function App() {
   // MODALS
   // -------------------------
 
-  useEffect(() => {
-    if (!activeModal) return;
-    const handleEscClose = (e) => {
-      if (e.key === "Escape") {
-        handleCloseModal();
-      }
-    };
-    document.addEventListener("keydown", handleEscClose);
-    return () => {
-      document.removeEventListener("keydown", handleEscClose);
-    };
-  }, [activeModal]);
-
   const handleCloseModal = () => {
     setActiveModal("");
   };
@@ -191,17 +178,17 @@ function App() {
   }, []);
 
   //ERROR HANDLING FOR USERS AUTHENTICATION
-  const handleAuthErrors = (error) => {
-    const errorMessage = error.message || "";
-    setInputError(
-      errorMessage.includes("invalid email")
-        ? "Invalid Email"
-        : errorMessage.includes("incorrect password")
-        ? "Incorrect Password"
-        : "Login Failed. Please Try Again"
-    );
-    console.error(error);
-  };
+  // const handleAuthErrors = (error) => {
+  //   const errorMessage = error.message || "";
+  //   setInputError(
+  //     errorMessage.includes("invalid email")
+  //       ? "Invalid Email"
+  //       : errorMessage.includes("incorrect password")
+  //       ? "Incorrect Password"
+  //       : "Login Failed. Please Try Again"
+  //   );
+  //   console.error(error);
+  // };
 
   //LOGIC FOR HANDLER USER LOGIN
   const handleLogInModal = () => {
@@ -222,19 +209,14 @@ function App() {
             handleCloseModal();
           })
           .catch((error) => {
+            console.log("error in App.js firing",error);
             setIsLoading(false);
-            if (error.response) {
-              if (error.response.status === 401) {
-                showTinyPopup("Unauthorized: Incorrect credentials");
-              } else if (error.response.status === 500) {
-                showTinyPopup("Server error, try again later");
-              } else {
-                showTinyPopup("An error occurred, please try again");
-              }
+            if (error.response.status === 401) {
+              showTinyPopup("Unauthorized: Incorrect credentials");
+            } else if (error.response.status === 500) {
+              showTinyPopup("Server error, try again later");
             } else {
-              showTinyPopup(
-                "Network error, please check your connection and try again"
-              );
+              showTinyPopup("An error occurred, please try again");
             }
           });
       }
@@ -584,6 +566,7 @@ function App() {
           onHide={() => setIsMicActivationPopupVisible(false)}
         />
         <TinyPopup
+          name="error"
           text={tinyPopup.message}
           isVisible={tinyPopup.isVisible}
           onHide={hideTinyPopup}

@@ -41,7 +41,7 @@ const WelcomeModal = ({
                 className="welcome__modal_button-mic"
                 onClick={onMicActivation}
                 disabled={isMicActivated}
-                type="submit"
+                type="button"
               >
                 {buttonText}
               </button>

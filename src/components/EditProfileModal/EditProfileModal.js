@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import { useForm } from "../../hooks/useForm";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 const EditProfileModal = ({
   handleCloseModal,
@@ -19,7 +20,7 @@ const EditProfileModal = ({
     return `${year}-${month}-${day}`;
   };
 
-  const { values, handleChange } = useForm({
+  const { values, handleChange, errors, isValid, setValues, setErrors } = useFormAndValidation({
     name: currentUser.name,
     dob: formatDate(currentUser.dob),
     placeOfBirth: currentUser.placeOfBirth,
@@ -29,7 +30,9 @@ const EditProfileModal = ({
 
   const handleFormSubmitEdit = (e) => {
     e.preventDefault();
-    onSubmit(values);
+    if (isValid) {
+      onSubmit(values);
+    }
   };
 
   return (
@@ -49,7 +52,7 @@ const EditProfileModal = ({
             className="modal__input_text modal__input-text-edit"
             type="text"
             name="name"
-            value={values.name}
+            value={values.name || ""}
             onChange={handleChange}
             minLength="1"
             required
@@ -63,10 +66,11 @@ const EditProfileModal = ({
             type="date"
             name="dob"
             placeholder={formatDate(currentUser.dob)}
-            value={values.dob}
+            value={values.dob || ""}
             onChange={handleChange}
             required
           />
+           {errors.dob && <span className="error-message">{errors.dob}</span>}
         </label>
         <label className="modal__label modal__label_edit">
           Place of Birth
@@ -80,6 +84,7 @@ const EditProfileModal = ({
             onChange={handleChange}
             autoComplete="off"
           />
+           {errors.placeOfBirth && <span className="error-message">{errors.placeOfBirth}</span>}
         </label>
         <label className="modal__label modal__label_edit">
           Marital Status
@@ -101,6 +106,7 @@ const EditProfileModal = ({
             <option value="Divorced">Divorced</option>
             <option value="Widowed">Widowed</option>
           </select>
+          {errors.maritalStatus && <span className="error-message">{errors.maritalStatus}</span>}
         </label>
         <label className="modal__label modal__label_edit">
           Sexual Orientation
@@ -139,6 +145,7 @@ const EditProfileModal = ({
             <option value="Non-Binary">Non-Binary</option>
             <option value="Other">Other</option>
           </select>
+          {errors.sexualOrientation && <span className="error-message">{errors.sexualOrientation}</span>}
         </label>
       </ModalWithForm>
     </div>

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 import { useForm } from "../../hooks/useForm";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 const LogInModal = ({
@@ -12,13 +13,15 @@ const LogInModal = ({
   openRegisterModal,
   inputError,
 }) => {
-  const { values, handleChange } = useForm({ email: "", password: "" });
+  const { values, handleChange, errors, isValid, setErrors } = useFormAndValidation({ email: "", password: "" });
 
   const history = useHistory();
 
   const handleFormSubmitLogIn = (e) => {
     e.preventDefault();
-    onSubmit(values);
+    if (isValid) {
+      onSubmit(values);
+    }
   };
 
   const handleOpenRegisterModal = (e) => {
@@ -43,12 +46,13 @@ const LogInModal = ({
             type="email"
             placeholder="Email"
             name="email"
-            value={values.email}
+            value={values.email || ""}
             onChange={handleChange}
             minLength="1"
             required
             autoComplete="email"
           />
+            {errors.email && <span className="error-message">{errors.email}</span>}
         </label>
         <label className="modal__label modal__label_login">
           <input
@@ -57,12 +61,13 @@ const LogInModal = ({
             type="password"
             placeholder="Password"
             name="password"
-            value={values.password}
+            value={values.password || ""}
             onChange={handleChange}
             minLength="1"
             autoComplete="off"
             required
           />
+          {errors.password && <span className="error-message">{errors.password}</span>}
         </label>
         <button
           className="register__button"

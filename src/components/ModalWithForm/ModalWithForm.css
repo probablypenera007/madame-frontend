@@ -69,10 +69,19 @@
     border: 1px solid red;
 }
 
+.input-error {
+    color: red;
+}
 .error-label {
     color: red;
 }
 
+.error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: 100;
+}
+  
 .modal__form {
     font-family: "CabinetGrotesk-Extrbold", Arial, sans-serif;
     font-size: 16px;
@@ -204,7 +213,7 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 1); */
 }
 
 .modal__input_text-register {

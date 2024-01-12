@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 import { useState } from "react";
 import TinyPopup from "../TinyPopUp/TinyPopUp";
 
@@ -18,7 +19,7 @@ const RegisterModal = ({
   const [isTooltipSexOrientationVisible, setIsTooltipSexOrientationVisible] =
     useState(false);
 
-  const { values, handleChange } = useForm({
+  const { values, handleChange, errors, isValid } = useFormAndValidation({
     name: "",
     dob: "",
     placeOfBirth: "",
@@ -32,7 +33,9 @@ const RegisterModal = ({
 
   const handleFormSubmitRegister = (e) => {
     e.preventDefault();
-    onSubmit(values);
+    if (isValid) {
+      onSubmit(values);
+    }
   };
 
   const handleOpenLogin = (e) => {
@@ -58,11 +61,12 @@ const RegisterModal = ({
             type="text"
             name="name"
             placeholder="First Name"
-            value={values.name}
+            value={values.name || ""}
             onChange={handleChange}
             autoComplete="off"
             required
           />
+           {errors.name && <span className="error-message">{errors.name}</span>}
         </label>
         <label className="modal__label modal__label_register">
           DOB*
@@ -109,10 +113,11 @@ const RegisterModal = ({
             type="text"
             name="placeOfBirth"
             placeholder="City, Country"
-            value={values.placeOfBirth}
+            value={values.placeOfBirth || ""}
             onChange={handleChange}
             autoComplete="off"
           />
+           {errors.placeOfBirth && <span className="error-message">{errors.placeOfBirth}</span>}
         </label>
         <label className="modal__label modal__label_register">
           Marital Status
@@ -127,6 +132,7 @@ const RegisterModal = ({
               isVisible={isTooltipMaritalVisible}
               onHide={() => setIsTooltipMaritalVisible(false)}
             />
+             {errors.maritalStatus && <span className="error-message">{errors.maritalStatus}</span>}
           </span>
           <select
             id="register-maritalStatus"
@@ -204,14 +210,15 @@ const RegisterModal = ({
             className="modal__input_text modal__input_text-register"
             type="email"
             name="email"
-            placeholder="Email"
-            value={values.email}
+            placeholder={"Email"}
+            value={values.email || ""}
             onChange={handleChange}
             minLength="1"
             maxLength="30"
             autoComplete="off"
             required
           />
+           {errors.email && <span className="error-message">{errors.email}</span>}
         </label>
         <label className="modal__label modal__label_register">
           Password*
@@ -221,12 +228,13 @@ const RegisterModal = ({
             type="password"
             name="password"
             placeholder="Password"
-            value={values.password}
+            value={values.password || ""}
             onChange={handleChange}
             minLength="1"
             autoComplete="off"
             required
           />
+           {errors.password && <span className="error-message">{errors.password}</span>}
         </label>
         <Link to="/" className="login__link" onClick={handleOpenLogin}>
           or Log In
