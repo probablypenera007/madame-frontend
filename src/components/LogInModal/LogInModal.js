@@ -38,6 +38,7 @@ const LogInModal = ({
         onSubmit={handleFormSubmitLogIn}
         buttonText={buttonText}
         modalName={"LogIn_Modal"}
+        isButtonDisabled={!isValid}
       >
         <label className="modal__label modal__label_login">
           <input

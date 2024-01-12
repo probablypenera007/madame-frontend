@@ -8,7 +8,7 @@ const WelcomeModal = ({
   onSubmit,
   onLogInModal,
   onRegisterModalOnWelcomeModal,
-  isButtonDisabled,
+  isValid,
   isMicActivated,
   isMicActivationPopupVisible,
   onMicActivation,
@@ -20,7 +20,7 @@ const WelcomeModal = ({
         onClose={handleCloseModal}
         isOpen={isOpen}
         modalName={"Welcome_Modal"}
-        isButtonDisabled={isButtonDisabled}
+        isButtonDisabled={isValid}
         onSubmit={onSubmit}
       >
         <div className="welcome__modal__text">

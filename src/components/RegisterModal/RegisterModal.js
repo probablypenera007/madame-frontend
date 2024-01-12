@@ -52,6 +52,7 @@ const RegisterModal = ({
         onSubmit={handleFormSubmitRegister}
         buttonText={buttonText}
         modalName={"Register_Modal"}
+        isButtonDisabled={!isValid}
       >
         <label className="modal__label modal__label_register">
           Name

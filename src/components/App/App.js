@@ -51,6 +51,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [inputError, setInputError] = useState("");
+  const [loginFailed, setLoginFailed] = useState(false);
   const [tinyPopup, setTinyPopup] = useState({ isVisible: false, message: "" });
 
   // ORACLE FUNCTIONALITY STATES
@@ -178,50 +179,63 @@ function App() {
   }, []);
 
   //ERROR HANDLING FOR USERS AUTHENTICATION
-  // const handleAuthErrors = (error) => {
-  //   const errorMessage = error.message || "";
-  //   setInputError(
-  //     errorMessage.includes("invalid email")
-  //       ? "Invalid Email"
-  //       : errorMessage.includes("incorrect password")
-  //       ? "Incorrect Password"
-  //       : "Login Failed. Please Try Again"
-  //   );
-  //   console.error(error);
-  // };
+  const handleAuthErrors = (error) => {
+    const errorMessage = error.message || "";
+    setInputError(
+      errorMessage.includes("invalid email")
+        ? "Invalid Email"
+        : errorMessage.includes("incorrect password")
+        ? "Incorrect Password"
+        : "Login Failed. Please Try Again"
+    );
+    console.error(error);
+  };
+
+  function handleSubmit(request) {
+    // start loading
+    setIsLoading(true);
+    request()
+      .then(handleCloseModal) 
+      .catch((error) => {
+        handleAuthErrors(error);
+        setLoginFailed(true);
+      })
+      .finally(() => setIsLoading(false));
+  }
+
 
   //LOGIC FOR HANDLER USER LOGIN
   const handleLogInModal = () => {
     setActiveModal("login-signin");
   };
   const handleLogInSubmit = (data) => {
-    setIsLoading(true);
+    setLoginFailed(false);
+    // setIsLoading(true);
+    const loginRequest = () => {
     return auth.logIn(data).then((res) => {
       if (res.token) {
         localStorage.setItem("jwt", res.token);
         setIsLoggedIn(true);
-        auth
+       return auth
           .checkToken(res.token)
           .then((user) => {
             setCurrentUser(user.data);
             setOracleReadings(user.data.readings);
             history.push("/");
-            handleCloseModal();
-          })
-          .catch((error) => {
-            console.log("error in App.js firing",error);
-            setIsLoading(false);
-            if (error.response.status === 401) {
-              showTinyPopup("Unauthorized: Incorrect credentials");
-            } else if (error.response.status === 500) {
-              showTinyPopup("Server error, try again later");
-            } else {
-              showTinyPopup("An error occurred, please try again");
-            }
+            // handleCloseModal();
           });
-      }
-    });
-  };
+          // .catch((error) => {
+          //   handleAuthErrors(error);
+          //    setLoginFailed(true);
+          //     setIsLoading(false);
+          //   });
+        } else {
+          throw new Error("Invalid token");
+        }
+      });
+    };
+    handleSubmit(loginRequest);
+    };
 
   //LOGIC FOR HANDLING USER LOGOUT
   const handleLogOut = () => {
@@ -282,6 +296,8 @@ function App() {
       .catch(console.error)
       .finally(() => setIsLoading(false));
   };
+
+
 
   // -------------------------
   // NAVIGATION HANDLERS
@@ -516,7 +532,7 @@ function App() {
           <LogInModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "login-signin"}
-            buttonText={isLoading ? "Logging In..." : "Log In"}
+            buttonText={isLoading ? "Logging In..." : loginFailed ?  "Try Again" : "Log In"}
             onSubmit={handleLogInSubmit}
             openRegisterModal={handleRegisterModal}
             inputError={inputError}
@@ -526,7 +542,7 @@ function App() {
           <RegisterModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "register-signup"}
-            buttonText={isLoading ? "Signing Up..." : "Next"}
+            buttonText={isLoading ? "Signing Up..." : loginFailed ? "Try Again" : "Next"}
             onSubmit={handleRegisterSubmit}
             openLogInModal={handleLogInModal}
           />
@@ -555,7 +571,7 @@ function App() {
             onLogInModal={handleLogInModal}
             onClose={handleCloseModal}
             onRegisterModalOnWelcomeModal={handleRegisterOnWelcomeModal}
-            isButtonDisabled={isMicActivated}
+            isValid={isMicActivated}
             onMicActivation={handleMicActivation}
           />
         )}

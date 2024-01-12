@@ -59,6 +59,7 @@ const EditProfileModal = ({
         onSubmit={handleFormSubmitEdit}
         buttonText={buttonText}
         modalName={"EditProfile_Modal"}
+        isButtonDisabled={!isValid}
       >
         <label className="modal__label  modal__label_edit">
           First Name:
@@ -68,7 +69,7 @@ const EditProfileModal = ({
             type="text"
             name="name"
             placeholder="First Name"
-            value={values.name}
+            value={values.name || ""}
             onChange={handleChange}
             minLength="1"
             required
@@ -97,7 +98,7 @@ const EditProfileModal = ({
             type="text"
             name="placeOfBirth"
             placeholder="City, Country..."
-            value={values.placeOfBirth}
+            value={values.placeOfBirth || ""}
             onChange={handleChange}
             autoComplete="off"
           />
@@ -131,7 +132,7 @@ const EditProfileModal = ({
             id="register-gender"
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
-            value={values.sexualOrientation}
+            value={values.sexualOrientation || ""}
             onChange={handleChange}
             required
           >

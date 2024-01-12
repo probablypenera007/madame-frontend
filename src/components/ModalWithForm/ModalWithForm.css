@@ -189,6 +189,12 @@
     opacity: 0.3;
 }
 
+.button__submit-modal_EditProfile_Modal:disabled{
+    opacity: 0.4;
+    border-radius: 13px;
+    cursor: not-allowed;
+}
+
 /* ==============================
    REGISTER MODAL STYLES
    ============================== */
@@ -244,6 +250,12 @@
 
 .button__submit-modal_Register_Modal:hover {
     opacity: 0.3;
+}
+
+.button__submit-modal_Register_Modal:disabled{
+    opacity: 0.4;
+    border-radius: 13px;
+    cursor: not-allowed;
 }
 
 .login__link {
@@ -314,6 +326,12 @@
 
 .button__submit-modal_LogIn_Modal:hover {
     opacity: 0.3;
+}
+
+.button__submit-modal_Register_Modal:disabled{
+    opacity: 0.4;
+    border-radius: 13px;
+    cursor: not-allowed;
 }
 
 .register__button {
