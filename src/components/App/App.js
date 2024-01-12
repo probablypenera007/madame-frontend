@@ -199,6 +199,7 @@ function App() {
       .catch((error) => {
         handleAuthErrors(error);
         setLoginFailed(true);
+        showTinyPopup("Login Failed. Please Try Again");
       })
       .finally(() => setIsLoading(false));
   }
@@ -260,24 +261,20 @@ function App() {
   };
 
   const handleRegisterSubmit = (data) => {
-    setIsLoading(true);
+    setLoginFailed(false);
+    const registerRequest = () => {
+
     return auth
       .register(data)
       .then((res) => {
-        handleLogInSubmit(data);
-        history.push("/");
-        handleCloseModal();
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        if (error.response.status === 409) {
-          showTinyPopup("User is already registered, please sign in");
-        } else if (error.response.status === 500) {
-          showTinyPopup("Registration failed, please try again");
+        if (res && res.data) {
+          handleLogInSubmit(data);
         } else {
-          showTinyPopup("error occured on our end, please try again later");
+          throw new Error("Registration failed, please try again");
         }
       });
+    }
+    handleSubmit(registerRequest);
   };
 
   const handleEditProfileModal = () => {
@@ -286,16 +283,21 @@ function App() {
 
   //LOGIC FOR HANDLING USER EDIT PROFILE
   const handleEditProfileSubmit = (data) => {
-    setIsLoading(true);
+    setLoginFailed(false);
+  
+    const editProfileRequest = () => {
     return auth
       .editProfile(data)
       .then((update) => {
-        setCurrentUser(update.data);
-        handleCloseModal();
-      })
-      .catch(console.error)
-      .finally(() => setIsLoading(false));
+        if (update && update.data) {
+          setCurrentUser(update.data);
+        } else {
+          throw new Error("Profile update failed, please try again");
+        }
+      });
   };
+  handleSubmit(editProfileRequest);
+}
 
 
 

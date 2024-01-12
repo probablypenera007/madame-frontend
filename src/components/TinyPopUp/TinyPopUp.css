@@ -237,3 +237,13 @@
     text-align: center;
   }
 }
+
+.tiny-popup__error{
+  transition: opacity 0.3s linear;
+  opacity: 1.0;
+  z-index: 1;
+} 
+
+.tiny-popup__error--hidden{
+  opacity: 0;
+}
