@@ -1,5 +1,6 @@
 import { request, baseUrl } from "./Api";
 
+
 export const register = ({ name, dob, placeOfBirth, maritalStatus, sexualOrientation, email, password }) => {
   return request(`${baseUrl}/signup`, {
     method: "POST",
@@ -10,6 +11,7 @@ export const register = ({ name, dob, placeOfBirth, maritalStatus, sexualOrienta
   });
 };
 
+
 export const logIn = ({ email, password }) => {
   return request(`${baseUrl}/signin`, {
     method: "POST",
@@ -19,6 +21,7 @@ export const logIn = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   });
 };
+
 
 export const editProfile = ({ name, dob, placeOfBirth, maritalStatus, sexualOrientation }) => {
   const jwt = localStorage.getItem("jwt");
@@ -31,6 +34,7 @@ export const editProfile = ({ name, dob, placeOfBirth, maritalStatus, sexualOrie
     body: JSON.stringify({ name, dob, placeOfBirth, maritalStatus, sexualOrientation }),
   });
 };
+
 
 export const checkToken = () => {
   const jwt = localStorage.getItem("jwt");
