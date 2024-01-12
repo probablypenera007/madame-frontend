@@ -6,6 +6,7 @@ export const baseUrl =
    "http://localhost:3001"
   ;
 
+  
 export function checkResponse(res) {
   if (res.ok) {
     return res.json();
@@ -14,9 +15,11 @@ export function checkResponse(res) {
   }
 }
 
+
 export function request(url, options) {
   return fetch(url, options).then(checkResponse);
 }
+
 
 export function getUserReadings() {
   return request(`${baseUrl}/readings`, {
@@ -38,6 +41,7 @@ export function saveReading(reading, token) {
   });
 }
 
+
 export function updateReadingTitle(readingId, title, token) {
   return request(`${baseUrl}/readings/${readingId}`, {
     method: "PATCH",
@@ -48,6 +52,7 @@ export function updateReadingTitle(readingId, title, token) {
     body: JSON.stringify({ title }),
   });
 }
+
 
 export function deleteReading(readingId, token) {
   return request(`${baseUrl}/readings/${readingId}`, {
