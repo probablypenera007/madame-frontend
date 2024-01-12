@@ -455,17 +455,14 @@ function App() {
     // Function to play music
     const playMusic = () => {
       backgroundMusic.loop = true;
-      // Attempt to play and catch any errors
       backgroundMusic
         .play()
         .catch((error) => console.log("Play error:", error));
     };
 
     if (!isRecording && !isOraclePlayingAudio) {
-      // backgroundMusic.volume = 0.5;
       backgroundMusic.volume = 0.05;
     } else if (isRecording && isOraclePlayingAudio) {
-      //} else if (!isRecording && !isOraclePlayingAudio) {
       backgroundMusic.volume = 0.05;
     }
 
