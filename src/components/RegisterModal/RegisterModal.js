@@ -88,7 +88,7 @@ const RegisterModal = ({
             type="date"
             name="dob"
             placeholder="Date of Birth"
-            value={values.dob}
+            value={values.dob || "" }
             onChange={handleChange}
             required
           />
@@ -139,7 +139,7 @@ const RegisterModal = ({
             placeholder="Marital Status"
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
-            value={values.maritalStatus}
+            value={values.maritalStatus || ""}
             onChange={handleChange}
             required
           >
@@ -172,7 +172,7 @@ const RegisterModal = ({
             placeholder="Sexual Orientation"
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
-            value={values.sexualOrientation}
+            value={values.sexualOrientation || "" }
             onChange={handleChange}
             required
           >

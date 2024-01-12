@@ -20,6 +20,8 @@ const EditProfileModal = ({
     return `${year}-${month}-${day}`;
   };
 
+  // console.log("currentuser DOB: ", formatDate(currentUser.dob));
+
   const { values, handleChange, errors, isValid, setValues, setErrors } = useFormAndValidation({
     name: currentUser.name,
     dob: formatDate(currentUser.dob),
@@ -35,6 +37,7 @@ const EditProfileModal = ({
     }
   };
 
+  console.log("values: ", values);
   return (
     <div className="edit__profile">
       <ModalWithForm
@@ -52,6 +55,7 @@ const EditProfileModal = ({
             className="modal__input_text modal__input-text-edit"
             type="text"
             name="name"
+            placeholder={currentUser.name}
             value={values.name || ""}
             onChange={handleChange}
             minLength="1"
@@ -80,7 +84,7 @@ const EditProfileModal = ({
             type="text"
             name="placeOfBirth"
             placeholder={currentUser.placeOfBirth}
-            value={values.placeOfBirth}
+            value={values.placeOfBirth || ""}
             onChange={handleChange}
             autoComplete="off"
           />
@@ -93,7 +97,7 @@ const EditProfileModal = ({
             placeholder={currentUser.maritalStatus}
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
-            value={values.maritalStatus}
+            value={values.maritalStatus || ""}
             onChange={handleChange}
             required
           >
@@ -115,7 +119,7 @@ const EditProfileModal = ({
             placeholder={currentUser.sexualOrientation}
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
-            value={values.sexualOrientation}
+            value={values.sexualOrientation || "" }
             onChange={handleChange}
             required
           >
