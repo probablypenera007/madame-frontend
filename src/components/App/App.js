@@ -79,6 +79,7 @@ function App() {
   // -------------------------
 
   const handleCloseModal = () => {
+    loginFailed && setLoginFailed(false);
     setActiveModal("");
   };
 
@@ -223,6 +224,7 @@ function App() {
             setCurrentUser(user.data);
             setOracleReadings(user.data.readings);
             history.push("/");
+            setLoginFailed(false);
             // handleCloseModal();
           });
           // .catch((error) => {
@@ -231,6 +233,7 @@ function App() {
           //     setIsLoading(false);
           //   });
         } else {
+          setLoginFailed(true);
           throw new Error("Invalid token");
         }
       });
@@ -265,6 +268,7 @@ function App() {
     const registerRequest = () => {
       return auth.register(data)
         .then((res) => {
+          setLoginFailed(false);
           return handleLogInSubmit(data);
         });
     };
@@ -534,7 +538,7 @@ function App() {
           <RegisterModal
             handleCloseModal={handleCloseModal}
             isOpen={activeModal === "register-signup"}
-            buttonText={isLoading ? "Signing Up..." : loginFailed ? "Try Again" : "Next"}
+            buttonText={isLoading ? "Signing Up..." : loginFailed ? "User Exists" : "Next"}
             onSubmit={handleRegisterSubmit}
             openLogInModal={handleLogInModal}
           />

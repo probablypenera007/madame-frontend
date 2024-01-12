@@ -26,6 +26,7 @@ const LogInModal = ({
 
   const handleOpenRegisterModal = (e) => {
     e.preventDefault();
+    handleCloseModal();
     openRegisterModal();
   };
 

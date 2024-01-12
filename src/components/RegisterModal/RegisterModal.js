@@ -40,6 +40,7 @@ const RegisterModal = ({
 
   const handleOpenLogin = (e) => {
     e.preventDefault();
+    handleCloseModal();
     openLogInModal();
   };
 
