@@ -460,15 +460,6 @@ function App() {
         .play()
         .catch((error) => console.log("Play error:", error));
     };
-    // if (!isRecording) {
-    //   backgroundMusic.volume = 1.0;
-    // } else if (isOracleProcessingSTT) {
-    //   backgroundMusic.volume = 1.0;
-    // } else if (isOraclePlayingAudio) {
-    //   backgroundMusic.volume = 0.4;
-    // } else {
-    //   backgroundMusic.volume = 1.0;
-    // }
 
     if (!isRecording && !isOraclePlayingAudio) {
       // backgroundMusic.volume = 0.5;
