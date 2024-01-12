@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 import { useForm } from "../../hooks/useForm";
@@ -23,12 +23,24 @@ const EditProfileModal = ({
   // console.log("currentuser DOB: ", formatDate(currentUser.dob));
 
   const { values, handleChange, errors, isValid, setValues, setErrors } = useFormAndValidation({
-    name: currentUser.name,
-    dob: formatDate(currentUser.dob),
-    placeOfBirth: currentUser.placeOfBirth,
-    maritalStatus: currentUser.maritalStatus,
-    sexualOrientation: currentUser.sexualOrientation,
+    name: null,
+    dob: null,
+    placeOfBirth: null,
+    maritalStatus: null,
+    sexualOrientation: null,
   });
+
+  useEffect(() => {
+    if (isOpen && currentUser) {
+      setValues({
+        name: currentUser.name || "",
+        dob: currentUser.dob ? formatDate(currentUser.dob) : "",
+        placeOfBirth: currentUser.placeOfBirth || "",
+        maritalStatus: currentUser.maritalStatus || "",
+        sexualOrientation: currentUser.sexualOrientation || "",
+      });
+    }
+  }, [isOpen, currentUser, setValues]);
 
   const handleFormSubmitEdit = (e) => {
     e.preventDefault();
@@ -37,7 +49,7 @@ const EditProfileModal = ({
     }
   };
 
-  console.log("values: ", values);
+  // console.log("values: ", values);
   return (
     <div className="edit__profile">
       <ModalWithForm
@@ -55,12 +67,13 @@ const EditProfileModal = ({
             className="modal__input_text modal__input-text-edit"
             type="text"
             name="name"
-            placeholder={currentUser.name}
-            value={values.name || ""}
+            placeholder="First Name"
+            value={values.name}
             onChange={handleChange}
             minLength="1"
             required
           />
+          {errors.name && <span className="error-message">{errors.name}</span>}
         </label>
         <label className="modal__label modal__label_edit">
           DOB*
@@ -69,8 +82,8 @@ const EditProfileModal = ({
             className="modal__input_text modal__input_text-register"
             type="date"
             name="dob"
-            placeholder={formatDate(currentUser.dob)}
-            value={values.dob || ""}
+            // placeholder={formatDate(currentUser.dob)}
+            value={values.dob}
             onChange={handleChange}
             required
           />
@@ -83,8 +96,8 @@ const EditProfileModal = ({
             className="modal__input_text modal__input_text-edit"
             type="text"
             name="placeOfBirth"
-            placeholder={currentUser.placeOfBirth}
-            value={values.placeOfBirth || ""}
+            placeholder="City, Country..."
+            value={values.placeOfBirth}
             onChange={handleChange}
             autoComplete="off"
           />
@@ -94,10 +107,10 @@ const EditProfileModal = ({
           Marital Status
           <select
             id="register-gender"
-            placeholder={currentUser.maritalStatus}
+            placeholder="Marital Status"
             className="modal__input_text modal__input_text-register"
             name="maritalStatus"
-            value={values.maritalStatus || ""}
+            value={values.maritalStatus}
             onChange={handleChange}
             required
           >
@@ -116,10 +129,9 @@ const EditProfileModal = ({
           Sexual Orientation
           <select
             id="register-gender"
-            placeholder={currentUser.sexualOrientation}
             className="modal__input_text modal__input_text-register"
             name="sexualOrientation"
-            value={values.sexualOrientation || "" }
+            value={values.sexualOrientation}
             onChange={handleChange}
             required
           >
