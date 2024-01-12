@@ -1,0 +1,580 @@
+/* ==============================
+   MODAL WITH FORM STYLES
+   ============================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 28px 28px;
+    font-size: 16px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.modal__content_modal {
+    background-color: transparent;
+    border: none;
+}
+
+.modal__title {
+    color: #000;
+    font-family: "CabinetGrotesk-Extrabold", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+
+.button__close-modal-gray {
+    /* this button is in Modal.js*/
+    position: absolute;
+    background-image: url(../../images/group-119-gray-close-button.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    right: 25px;
+    top: 21px;
+    z-index: -1;
+}
+
+.modal__label {
+    display: flex;
+    margin-top: 24px;
+    flex-direction: column;
+}
+
+.error {
+    color: red;
+    border: 1px solid red;
+}
+
+.error-label {
+    color: red;
+}
+
+.modal__form {
+    font-family: "CabinetGrotesk-Extrbold", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    position: relative;
+}
+
+.button__submit-modal {
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #000;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.button__submit-modal:hover {
+    opacity: 0.3;
+}
+
+.modal__input_text {
+    margin: 0;
+    padding: 0;
+    padding-left: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    width: 100%;
+    padding-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+}
+
+/* ==============================
+   EDIT PROFILE MODAL STYLES
+   ============================== */
+.modal_type_EditProfile_Modal .modal__content {
+    z-index: -2;
+    max-width: 496px;
+    max-height: 530px;
+}
+
+.modal__label_edit {
+    margin-top: 24px;
+    margin-bottom: 10px;
+
+}
+
+.modal__input-text-edit {
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.modal__input-text-edit option {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.modal__input_text-edit[type='date'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.button__submit-modal_EditProfile_Modal {
+    margin-top: 30px;
+    width: 128px;
+    height: 36px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #8028ba;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.button__submit-modal_EditProfile_Modal:hover {
+    opacity: 0.3;
+}
+
+/* ==============================
+   REGISTER MODAL STYLES
+   ============================== */
+.modal_type_Register_Modal .modal__content {
+    z-index: -2;
+    max-width: 372px;
+    max-height: 694px;
+}
+
+@media(max-width:320px){
+    .modal_type_Register_Modal .modal__content {
+        z-index: -2;
+        max-width: 319px;
+        max-height: 691px;
+        margin: 0 auto;
+        overflow: auto;
+        margin: -22px 27px 10px 19px;
+    }
+}
+
+.modal__label_register {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.modal__input_text-register {
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 6px;
+    font-size: 16px;
+    padding-bottom: 0;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.button__submit-modal_Register_Modal {
+    margin-top: 30px;
+    min-width: 79px;
+    height: 37px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #8028ba;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.button__submit-modal_Register_Modal:hover {
+    opacity: 0.3;
+}
+
+.login__link {
+    margin-right: -187px;
+    margin-left: 114px;
+    text-decoration: none;
+    color: #000;
+    opacity: .5;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.login__link:hover {
+    opacity: 1;
+}
+
+
+/* ==============================
+   LOG IN MODAL STYLES
+   ============================== */
+.modal_type_LogIn_Modal .modal__content {
+    z-index: -2;
+    max-width: 353px;
+    max-height: 211px;
+}
+
+@media(max-width:320px) {
+    .modal_type_LogIn_Modal .modal__content {
+        z-index: -2;
+        max-width: 323px;
+        max-height: 211px;
+        margin: 1px 16px 146px 1px;
+    }
+}
+
+.modal__label_login {
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+.modal__input_text-login {
+    height: 40px;
+    padding-top: 10px;
+    padding-left: 6px;
+    padding-bottom: 0;
+}
+
+.input-error {
+    border: 1px solid red;
+    color: red;
+}
+
+.button__submit-modal_LogIn_Modal {
+    margin-top: 30px;
+    min-width: 79px;
+    height: 37px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #8028ba;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.button__submit-modal_LogIn_Modal:hover {
+    opacity: 0.3;
+}
+
+.register__button {
+    margin-right: -187px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: #000;
+    opacity: .5;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+}
+
+.register__button:hover {
+    opacity: 1;
+}
+
+
+/* ==============================
+   ORACLE MODAL STYLES
+   ============================== */
+.modal_type_Oracle_Modal .modal__content {
+    min-width: 300px;
+    max-width: 496px;
+    min-height: 100px;
+    max-height: 411px;
+    margin: 0 auto;
+    overflow: auto;
+    margin: 91px -128px 10px 10px;
+}
+
+@media (max-width: 768px) {
+    .modal_type_Oracle_Modal .modal__content {
+        min-width: 300px;
+        max-width: 496px;
+        min-height: 100px;
+        max-height: 411px;
+        margin: 0 auto;
+        overflow: auto;
+        margin: 91px 9px 10px 10px;
+    }
+}
+
+.oracle__button_close {
+    position: absolute;
+    background-image: url(../../images/group-119-gray-close-button.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    right: -1px;
+    top: -49px;
+}
+
+.oracle__reading_title {
+    margin: 40px 40px 21px 40px;
+    font-size: 20px;
+}
+
+.oracle__response {
+    white-space: pre-wrap;
+    margin: 0px 44px 44px 44px;
+}
+
+.oracle__button_save {
+    margin: -5px 0px 0px 44px;
+    width: 65px;
+    height: 36px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-color: #521b66;
+    transition: opacity linear 0.3s 0.1s;
+    cursor: pointer;
+}
+
+.oracle__button_save:hover {
+    opacity: 0.3;
+}
+
+.oracle__button_delete {
+    /* margin: 0px 0px 0px 44px; */
+    width: 67px;
+    height: 22px;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    border: none;
+    border-radius: 4px;
+    background-image: url("../../images/Trash.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    transition: opacity linear 0.3s 0.1s;
+    filter: invert(100%);
+    padding: 3px 86px 5px 0px;
+    cursor: pointer;
+}
+
+.oracle__button_delete:hover {
+    opacity: 0.3;
+}
+
+.button__submit-modal_Oracle_Modal {
+    height: 0px;
+    width: 0px;
+    border: none;
+    background: transparent;
+}
+
+/* ==============================
+    WELCOME MODAL STYLES
+============================== */
+.welcome__modal {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.modal_type_Welcome_Modal .modal__content {
+    background-image: url("../../images/welcomemodalBG.png");
+    background-size: 200%;
+    max-width: 2898px;
+    max-height: 2145px;
+    background-position: center;
+    background-position-x: 55%;
+    background-position-y: 38%;
+}
+
+@media (max-width: 768px) {
+    .modal_type_Welcome_Modal .modal__content {
+        background-image: url("../../images/welcomemodalBG.png");
+        background-size: 240%;
+        /* max-width: 0px;
+        max-height: 0px; */
+        background-position: center;
+        background-position-x: 52%;
+        background-position-y: 38%;
+    }
+}
+
+@media(max-width: 320px) {
+    .modal_type_Welcome_Modal .modal__content {
+        background-size: 406%;
+        background-position: center;
+        background-position-x: 54%;
+        background-position-y: -57%;
+    }
+
+    .welcome__modal__text{
+        margin-right: 40px;
+        font-size: 12px;
+    }
+}
+
+.welcome__modal__text {
+    color: #000;
+    margin-left: 84px;
+    text-shadow: -1px 1px 8px rgb(255 255 255);
+}
+
+.welcome__modal_title {
+    margin: 31px -36px 30px 0px;
+    text-align: center;
+    font-family: "Tangerine-Regular", Arial, sans-serif;
+    font-size: 89px;
+    line-height: 60px;
+}
+
+.welcome__modal_paragraph{
+    /* position: absolute;
+    text-align: center;
+    font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 18px;
+    padding: 0px 0px; */
+    text-align: center;
+}
+
+.welcome__modal_content{
+    text-align: center;
+}
+
+.welcome__modal__buttons {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.welcome__modal_button-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.welcome__modal_button-register {
+    position: absolute;
+    width: 100%;
+    height: 428px;
+    border-radius: 50%;
+    /* left: -177px; */
+    bottom: -497px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color linear 0.3s 0.1s;
+    filter: blur(100px);
+    /* margin: 135px 8px 1px 160px; */
+}
+
+.welcome__modal_button-register:hover {
+    background-color: #e3cd5173;
+    filter: blur(100px);
+}
+
+.welcome__modal_button-mic{
+    position: relative;
+    /* left: 563px; */
+    /* right: 304px; */
+    /* bottom: 619px; */
+    border-radius: 13px;
+    background: #770dff91;
+    color: #fff;
+    cursor: pointer;
+    /* width: fit-content; */
+    width: 157px;
+    margin: 0 auto;
+}
+
+.welcome__modal_button-mic:disabled {
+    /* position: fixed; */
+    /* left: 615px;
+    right: 537px;
+    bottom: 488px; */
+    opacity: 0.4;
+    border-radius: 13px;
+    cursor: not-allowed;
+}
+
+.button__submit-modal_Welcome_Modal{
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    width:0px;
+    height: 0px;
+    top:100px;
+}
+

@@ -1,0 +1,69 @@
+@import "../../vendor/fonts.css";
+
+.page {
+    max-width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+.bg-galaxy{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/galaxy-bg.jpeg");
+    background-size: cover;
+    z-index: -1;   
+    animation: galaxyanimate 300s infinite linear;
+    overflow: hidden;
+}
+
+.bg-galaxy::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, #000 100%);
+    pointer-events: none;
+}
+
+@keyframes galaxyanimate{
+    0% { background-size: 125%; background-position: 0 0; }
+    50% { background-size: 280%; background-position: 10% 10%; }
+    100% { background-size: 125%; background-position: 0 0; }
+}
+
+@media (max-width: 768px) {
+    @keyframes galaxyanimate{
+        0% { background-size: 212%; background-position: 0 0; }
+        50% { background-size: 365%; background-position: 10% 10%; }
+        100% { background-size: 212%; background-position: 0 0; }
+    }
+}
+
+@media (max-width: 320px) {
+    @keyframes galaxyanimate{
+        0% { background-size: 312%; background-position: 0 0; }
+        50% { background-size: 465%; background-position: 10% 10%; }
+        100% { background-size: 312%; background-position: 0 0; }
+    }
+}
+
+
+.bg-galaxy--hyperdrive-active {
+    animation: hyperdriveAnimate 60s infinite linear;
+}
+
+@keyframes hyperdriveAnimate {
+    0% { 
+        background-size: 100%; 
+        background-position: center; 
+    }
+    100% { 
+        background-size: 10000%; 
+        background-position: center; 
+    }
+}
